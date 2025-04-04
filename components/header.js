@@ -9,7 +9,8 @@ export default function Header() {
         <Image src="/imgs/logo fatec.png" alt="Logo Fatec" width={100} height={50} className="logo-fatec-foto" />
       </div>
       
-      <div className="redes-sociais-icons">
+      <div className="redes-sociais-icons"> 
+        {/* posteriormente endereçar corretamente */}
         <Link href="#"><Image src="/imgs/flickr.png" alt="Flickr" width={24} height={24} /></Link>
         <Link href="#"><Image src="/imgs/linkedin.png" alt="Linkedin" width={24} height={24} /></Link>
         <Link href="#"><Image src="/imgs/tiktok.png" alt="Tiktok" width={24} height={24} /></Link>
