@@ -53,6 +53,18 @@ const Forms = () =>{
                             <input type="file" class="form-control border-start-0" name='foto' required/>
                         </div>
                     </div>
+                    <div class='col-md-6'>
+                        <br/>
+                        <div class='fw-bold'>Quer ser candidato a representante de turma?</div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" />
+                            <label class="form-check-label" for="inlineCheckbox1">Sim</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2" />
+                            <label class="form-check-label" for="inlineCheckbox2">Não</label>
+                        </div>
+                    </div>
                     <br/>
                     <div class="col-md-6">
                         <br/>
