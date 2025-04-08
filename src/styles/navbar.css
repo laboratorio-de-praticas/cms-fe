@@ -1,33 +1,92 @@
 nav {
     background-color: #B20000;
     color: white;
-    font-size: 18px;
-    text-align: center;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    font-size: 20px;
     height: 91px;
-    
-}
-.logo-cps-55{
-    width: 294.05px;
-    height: 71px;
-}
-.logo-fatec-registro{
-    width: 109.46px;
-    height: 69px;
-    
-}
-
-.nav-link{
+  
+    display: flex;
+    align-items: center;         
+    gap: 30px;                   
+    padding: 0 30px;             
+  }
+  
+  .navbar-nav {
+    display: flex;
+    align-items: center;        
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-link {
     color: white;
     text-decoration: none;
-}
-
-.home-item{
+    padding: 0 12px;
+  }
+  
+  .home-item {
     font-weight: 700;
+    margin-left: 180px;
+  }
+  
+  .cadastro-item {
+    font-weight: 400;
+  }
+  
+  .logo-cps-55,
+  .logo-fatec-registro {
+    height: 70px;
+    object-fit: contain;
+  }
+  
+  .separador {
+    color: #000000;
+    font-size: 30px;
+    font-weight:400;
+    padding: 0 10px;
+  }
+  
+  /* essa parte foi necessária para tirar efeitos do bootstrap */
+  .navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus {
+  background-color: transparent !important;
+  color: white !important;
+  text-decoration: none;
 }
 
-.cadastro-item{
+/* menu dropdown */
+.dropdown-menu.custom-dropdown {
+    background-color: #B20000 !important;
+    border-radius: 0 !important;
+    border: none !important;
+    padding: 0;
+    margin-top: 0.5rem;
+    overflow: hidden;
+  }
+  
+
+  .dropdown-top-bar {
+    height: 4px;
+    background-color: #8B0000;
+  }
+  
+
+  .dropdown-item {
+    color: white !important;
+    padding: 10px 20px;
     font-weight: 400;
-}
+    background-color: #B20000 !important;
+  }
+  
+ 
+  .dropdown-item:hover {
+    background-color: #990000 !important;
+    color: white !important;
+  }
+  
+  .dropdown-divider-white {
+    height: 1px;
+    background-color: white;
+    margin: 0;
+  }
+  

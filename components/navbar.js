@@ -8,8 +8,8 @@ const Navbar = () => {
               class="logo-cps-55"
               src="/imgs/2024_logo_55anos_cps_gov_24-25_regua_horizontal+horizontal_br 1.png"
               alt=""
-              width={294.05}
-              height={71}
+              width={ 235.24}
+              height={56.8}
             />
           </a>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
@@ -20,8 +20,8 @@ const Navbar = () => {
                     class="logo-fatec-registro"
                     src="/imgs/fatec_ra_registro_registro_br.png"
                     alt=""
-                    width={109.46}
-                    height={69}
+                    width={87.57}
+                    height={55.2}
                   />
                 </a>
               </li>
@@ -30,6 +30,7 @@ const Navbar = () => {
                   Home
                 </a>
               </li>
+              <span class="separador">|</span>
               <li class="nav-item dropdown cadastro-item">
                 <a
                   class="nav-link dropdown-toggle"
@@ -40,16 +41,14 @@ const Navbar = () => {
                 >
                   Cadastro
                 </a>
-                <ul class="dropdown-menu">
+                <ul className="dropdown-menu custom-dropdown">
+                  <div className="dropdown-top-bar"></div>
                   <li>
-                    <a class="dropdown-item" href="#">
-                      Usuário
-                    </a>
+                    <a className="dropdown-item" href="#">Usuário</a>
                   </li>
+                  <li className="dropdown-divider-white"></li>
                   <li>
-                    <a class="dropdown-item" href="#">
-                      Projeto
-                    </a>
+                    <a className="dropdown-item" href="#">Projeto</a>
                   </li>
                 </ul>
               </li>
