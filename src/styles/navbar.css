@@ -2,8 +2,8 @@ nav {
     background-color: #B20000;
     color: white;
     font-size: 20px;
-    height: 91px;
-  
+    height: 80px;
+    margin-top: 20px;
     display: flex;
     align-items: center;         
     gap: 30px;                   
@@ -54,6 +54,53 @@ nav {
   text-decoration: none;
 }
 
+.perfil-box {
+    margin-left: auto; /* empurra pra direita */
+    padding-left: 20px;
+  }
+  
+  .perfil-retangulo {
+    width: 274px;
+    height: 64px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    padding: 7px 15px;
+    border-radius: 8px;
+    gap: 15px;
+  }
+  
+  .foto-perfil {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .info-perfil {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #808080;
+    font-size: 14px;
+    line-height: 1.2;
+    flex: 1; 
+  }
+  
+  .nome-perfil {
+    font-weight: 600;
+  }
+  
+  .turma-perfil {
+    font-weight: 400;
+  }
+
+  .icon-vector {
+    width: 16px; 
+    height: 16px;
+  }
+  
+  
 /* menu dropdown */
 .dropdown-menu.custom-dropdown {
     background-color: #B20000 !important;
@@ -88,5 +135,63 @@ nav {
     height: 1px;
     background-color: white;
     margin: 0;
+  }
+  
+/* responsividade */
+@media (max-width: 992px) {
+    nav {
+      flex-direction: column;
+      align-items: flex-start;
+      height: auto;
+      padding: 10px 20px;
+      gap: 10px;
+    }
+  
+    .navbar-nav {
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+    }
+  
+    .home-item {
+      margin-left: 0;
+      margin-top: 10px;
+    }
+  
+    .logo-cps-55,
+    .logo-fatec-registro {
+      height: auto;
+      max-width: 80%;
+      margin-bottom: 10px;
+    }
+  
+    .separador {
+      display: none; 
+    }
+  
+    .nav-link {
+      padding: 8px 0;
+      font-size: 18px;
+    }
+  
+    .dropdown-menu.custom-dropdown {
+      position: relative !important;
+    }
+
+    .perfil-retangulo {
+        width: 50px;
+        height: 50px;
+        padding: 0;
+        border-radius: 50%;
+        background-color: transparent;
+        justify-content: center;
+        gap: 0;
+      }
+      
+      .perfil-retangulo .info-perfil,
+      .perfil-retangulo .icon-vector {
+        display: none;
+      }
+      
   }
   

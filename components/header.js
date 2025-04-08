@@ -6,7 +6,7 @@ export default function Header() {
   return (
     <header>
       <div className="logo-fatec">
-        <Image src="/imgs/logo fatec.png" alt="Logo Fatec" width={409} height={98} className="logo-fatec-foto" />
+        <Image src="/imgs/logo fatec.png" alt="Logo Fatec"width={327.2} height={78.4} className="logo-fatec-foto" />
       </div>
       
       <div className="redes-sociais-icons"> 

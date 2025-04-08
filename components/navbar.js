@@ -54,6 +54,24 @@ const Navbar = () => {
               </li>
             </ul>
           </div>
+          <div className="perfil-retangulo">
+            <img
+              src="/imgs/foto-perfil.png"
+              alt="Foto de Perfil"
+              className="foto-perfil"
+            />
+            <div className="info-perfil">
+              <span className="nome-perfil">José Alves da Silva</span>
+              <span className="turma-perfil">DSM-4</span>
+            </div>
+            <a href="#">
+              <img
+                src="/imgs/vector-down.svg"
+                alt=""
+                className="icon-vector"
+              />
+            </a>
+          </div>
         </div>
       </nav>
     );
