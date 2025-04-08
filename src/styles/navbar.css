@@ -1,0 +1,33 @@
+nav {
+    background-color: #B20000;
+    color: white;
+    font-size: 18px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 91px;
+    
+}
+.logo-cps-55{
+    width: 294.05px;
+    height: 71px;
+}
+.logo-fatec-registro{
+    width: 109.46px;
+    height: 69px;
+    
+}
+
+.nav-link{
+    color: white;
+    text-decoration: none;
+}
+
+.home-item{
+    font-weight: 700;
+}
+
+.cadastro-item{
+    font-weight: 400;
+}
