@@ -9,9 +9,11 @@ export default function Home() {
       <Header />
       <Navbar />
       <main>
-        <h1>Formulário para cadastro de Alunos / Candidatos</h1>
+        <br/> 
+        <h3 class='text-center'>Formulário para cadastro de Alunos / Candidatos</h3>
         <Forms />
       </main>
+      <br/>
       <Footer />
     </>
   );
