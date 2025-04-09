@@ -12,6 +12,7 @@ const Footer=()=>{
           className="logo-fatec-footer"
         />
       </div>
+      
     );
 }
 export default Footer

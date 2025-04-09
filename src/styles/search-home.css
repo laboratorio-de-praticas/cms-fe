@@ -1,0 +1,43 @@
+.btn-todos{
+    background-color: white;
+    border-color: #808080;
+    color: #808080;
+    border-radius: 5px;
+}
+
+.grupo-2{
+    margin-left: 10px;
+/* colocar sombra */
+}
+
+.btn-aluno{
+    background-color: #808080;
+    color: white;
+    border-radius: 5px ;
+}
+
+.btn-projeto{
+    background-color: white;
+    color: #808080;
+    border-radius: 5px;
+    border-color: #808080;
+}
+
+.drop{
+    background-color: white;
+    color: #808080;
+    border-radius: 5px;
+    border-color: #808080;
+    margin-left: 10px;
+    text-decoration: none;
+
+}
+
+.barra{
+    background-color: white;
+    color: #808080;
+    border-radius: 5px;
+    border-color: #808080;
+    margin-left: 20px;
+    text-decoration: none;
+}
