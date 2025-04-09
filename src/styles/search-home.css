@@ -1,3 +1,4 @@
+/* botoes solitarios */
 .btn-todos{
     background-color: white;
     border-color: #808080;
@@ -23,21 +24,108 @@
     border-color: #808080;
 }
 
-.drop{
-    background-color: white;
-    color: #808080;
-    border-radius: 5px;
-    border-color: #808080;
-    margin-left: 10px;
-    text-decoration: none;
+.linha-filtros-dsm {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+  }
 
-}
+/* dropdown */
 
-.barra{
-    background-color: white;
-    color: #808080;
-    border-radius: 5px;
-    border-color: #808080;
+.custom-dropdown-dsm {
+    position: relative;
+    display: inline-block;
+    width: 130px;
+    height: 40px;
     margin-left: 20px;
-    text-decoration: none;
-}
+  }
+  
+.dropdown-select-dsm {
+    width: 100%;
+    height: 100%;
+    padding: 6px 35px 6px 12px;
+    border: 1px solid #808080;
+    border-radius: 5px;
+    appearance: none;
+    background-color: white;
+    font-size: 16px;
+    color: #808080;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+.dropdown-select-dsm:hover {
+    background-color: #f2f2f2;
+  }
+  
+  .dropdown-arrow-dsm {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    width: 12px;
+    height: auto;
+  }
+  
+/* barra de pesquisa */
+.search-bar-dsm {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 20px;
+  }
+  
+  .search-input-container-dsm {
+    position: relative;
+    width: 500px;
+    height: 40px;
+  }
+  
+  .search-input-dsm {
+    width: 100%;
+    height: 100%;
+    padding-left: 45px;
+    border: 1px solid #808080;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #333;
+    background-color: white;
+    outline: none;
+  }
+  
+  .search-input-dsm::placeholder {
+    color: #808080;
+  }
+
+  .search-input-dsm:focus {
+    border: 1px solid #808080;
+    box-shadow: none;
+    outline: none;
+  }
+  
+  .search-icon-dsm {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+    width: 25px;
+    height: 25px;
+  }
+  
+  .search-button-dsm {
+    height: 40px;
+    padding: 0 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #808080;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .search-button-dsm:hover {
+    background-color: #6e6e6e;
+  }
+  
