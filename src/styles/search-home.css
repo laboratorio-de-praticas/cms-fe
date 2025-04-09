@@ -154,6 +154,10 @@
     padding: 10px 20px;
     font-weight: bold;
     border-radius: 5px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   
 .btn-cadastrar-projeto {
@@ -163,6 +167,10 @@
     padding: 10px 20px;
     font-weight: bold;
     border-radius: 5px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   
 .ms-2 {
