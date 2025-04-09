@@ -24,11 +24,21 @@
     border-color: #808080;
 }
 
+.container-filtros-dsm {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    position: relative;
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding: 20px; 
+  }
+  
 .linha-filtros-dsm {
     display: flex;
     align-items: center;
-    justify-content: center;
-    margin-top: 20px;
+    gap: 20px;
+    margin-bottom: 16px;
   }
 
 /* dropdown */
@@ -79,11 +89,11 @@
   
   .search-input-container-dsm {
     position: relative;
-    width: 500px;
+    width: 580px;
     height: 40px;
   }
   
-  .search-input-dsm {
+.search-input-dsm {
     width: 100%;
     height: 100%;
     padding-left: 45px;
@@ -95,17 +105,17 @@
     outline: none;
   }
   
-  .search-input-dsm::placeholder {
+.search-input-dsm::placeholder {
     color: #808080;
   }
 
-  .search-input-dsm:focus {
+.search-input-dsm:focus {
     border: 1px solid #808080;
     box-shadow: none;
     outline: none;
   }
   
-  .search-icon-dsm {
+.search-icon-dsm {
     position: absolute;
     top: 50%;
     left: 12px;
@@ -114,7 +124,7 @@
     height: 25px;
   }
   
-  .search-button-dsm {
+.search-button-dsm {
     height: 40px;
     padding: 0 20px;
     border: none;
@@ -125,7 +135,37 @@
     cursor: pointer;
   }
   
-  .search-button-dsm:hover {
+.search-button-dsm:hover {
     background-color: #6e6e6e;
+  }
+  
+  /* botoees embaixo */
+.linha-cadastro-dsm {
+    display: flex;
+    gap: 16px;
+    margin-top: 16px;
+   
+  }
+  
+.btn-cadastrar-usuario {
+    background-color: #0d924f;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    border-radius: 5px;
+  }
+  
+.btn-cadastrar-projeto {
+    background-color: #004aad;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    border-radius: 5px;
+  }
+  
+.ms-2 {
+    margin-left: 0.5rem;
   }
   
