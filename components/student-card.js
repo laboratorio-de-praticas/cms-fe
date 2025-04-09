@@ -14,7 +14,10 @@ const StudentCard = () => {
             <div className="student-row" key={index}>
                 <div className="student-card">
                 <div className="student-info">
-                    <div className="student-avatar"></div>
+                    <div className="student-avatar">
+                      {/* por foto aqui */}
+                      <img src="/imgs/foto-perfil.png" width={70} height={70} alt="" />
+                    </div>
                     <div>
                     <div className="student-name">{name}</div>
                     <div className="student-class">DSM 4</div>
