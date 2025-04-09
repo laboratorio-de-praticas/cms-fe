@@ -11,13 +11,12 @@ export default function Home() {
       <Header />
       <Navbar />
       <main>
-        <br/> 
+        <br />
+        {/* <Forms /> */}
         <SearchHome />
         <StudentCard />
-        {/* <h3 class='text-center'>Formulário para cadastro de Alunos / Candidatos</h3>
-        <Forms /> */}
       </main>
-      <br/>
+      <br />
       <Footer />
     </>
   );

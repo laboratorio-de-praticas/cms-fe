@@ -3,12 +3,13 @@ const Forms = () =>{
         <div class="container">
             <div class="row">
                 {/* Posteriormente colocar o action para envio das informações pro banco de dados */}
+                {/* corrigir fidelidade ao figma */}
                 <form class="g-3"  method='post'>
-                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                    <div class="btn-group grupo-1" role="group" aria-label="Basic radio toggle button group">
                     <input type="radio" class="btn-check" name="options" id="option1" autocomplete="off" />
-                    <label class="btn btn-secondary" for="option1">DSM</label>
+                    <label class="btn btn-secondary btn-dsm" for="option1">DSM</label>
                     <input type="radio" class="btn-check" name="options" id="option2" autocomplete="off" />
-                    <label class="btn btn-secondary" for="option2">GE</label>
+                    <label class="btn btn-secondary btn-ge" for="option2">GE</label>
                     </div>
                     <div class="row g-3">
                     <div class="col-md-6">
