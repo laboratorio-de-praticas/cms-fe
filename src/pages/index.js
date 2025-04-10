@@ -11,7 +11,6 @@ export default function Home() {
       <Header />
       <Navbar />
       <main>
-        <br />
         {/* <Forms /> */}
         <SearchHome />
         <StudentCard />
