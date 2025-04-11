@@ -43,7 +43,7 @@
     flex-direction: column;
     align-items: flex-start;
     height: auto;
-    border: 2px solid #f1c40f; /* borda amarela */
+    border: 2px solid #F4BD50; /* borda amarela */
     box-shadow: 0 0 8px rgba(241, 196, 15, 0.4); /* leve glow */
   }
   
@@ -88,6 +88,7 @@
     gap: 12px;
     width: 100%;
     align-items: flex-end; /* alinha os campos na base */
+
   }
   
   .field-group.single {
@@ -95,7 +96,7 @@
   }
   
   .form-item {
-    flex: 1 1 200px;
+    flex: 1 1 20px;
     display: flex;
     flex-direction: column;
   }
@@ -116,28 +117,144 @@
     width: 100%;
   }
   
-  /* Botões DSM/GE */
-  .form-tags {
-    display: flex;
-    gap: 8px;
-    align-items: flex-end;
-    margin-bottom: 0; /* removido espaço extra */
+  .btn-group{
+    height: 40px;
   }
-  
-  .form-tags button {
-    padding: 6px 12px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: bold;
-    background-color: #eee;
-    color: #333;
-  }
-  
-  .form-tags button.active {
-    background-color: #808080;
+  /* botão lado amarelo */
+.btn-amarelo-curso {
+    background-color: #F4BD50;
     color: white;
+    border-radius: 5px 0px 0px 5px;
+    width: 80px;
+
   }
+  
+  /* botão lado branco */
+  .btn-branco-curso {
+    background-color: white;
+    color: #F4BD50;
+    border-radius: 0px 5px 5px 0px;
+    border-color: #F4BD50;
+    width: 80px;
+  
+  }
+  /* botao de semestre */
+  .semestre-container {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 12px;
+    border: 2px solid #F4BD50;
+    border-radius: 6px;
+    white-space: nowrap;
+    color: #F4BD50;
+    height: 40px;
+    width: 210;
+  }
+  
+  .semestre-label {
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .semestre-input {
+    border: none;
+    width: 60px;
+    color: #F4BD50;
+    font-weight: 800;
+    font-size: 18px;
+  }
+
+  /* campo nome */
+.nome-container {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 12px;
+    border: 2px solid #F4BD50;
+    border-radius: 6px;
+    white-space: nowrap;
+    margin-bottom: 8px;
+    height: 40px;
+  }
+  
+  .nome-label {
+    font-weight: bold;
+    margin: 0;
+    color: #F4BD50;
+  }
+  
+  .nome-input {
+    padding: 4px 8px;
+    width: 300px;
+    background-color: transparent;
+    border: none;
+    color: #808080;
+  }
+  
+  /* botao de semestre */
+  .semestre-container {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 12px;
+    border: 2px solid #F4BD50;
+    border-radius: 6px;
+    white-space: nowrap;
+    color: #F4BD50;
+    height: 40px;
+    width: 210px; /* corrigido: estava sem unidade */
+  }
+  
+  .semestre-label {
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .semestre-input {
+    border: none;
+    width: 60px;
+    color: #F4BD50;
+    font-weight: 800;
+    font-size: 18px;
+    background-color: transparent;
+  }
+  
+  /* celular, nascimento e ingresso centralizados */
+  .celular-container,
+  .nascimento-container,
+  .ingresso-container {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 12px;
+    border: 2px solid #F4BD50;
+    border-radius: 6px;
+    background-color: #fff;
+    white-space: nowrap;
+    height: 40px;
+  }
+  
+  .celular-label,
+  .nascimento-label,
+  .ingresso-label {
+    font-weight: bold;
+    color: #F4BD50;
+    margin: 0;
+  }
+  
+  .celular-input,
+  .nascimento-input,
+  .ingresso-input {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-size: 16px;
+    color: #808080;
+    padding: 4px;
+    width: auto;
+  }
+  
   
   /* Botões ação */
   .form-actions {
@@ -149,30 +266,29 @@
   
   .editar-button,
   .cancelar-button {
-    padding: 0.5rem 1rem;
-    border: none;
+    padding: 0 16px;
     border-radius: 5px;
     cursor: pointer;
     font-weight: bold;
-    transition: background-color 0.2s ease;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
   }
   
   .editar-button {
-    background-color: #808080;
+    background-color: #F4BD50;
+    border: none;
     color: white;
   }
   
-  .editar-button:hover {
-    background-color: #666;
-  }
-  
   .cancelar-button {
-    background-color: #ddd;
-    color: #333;
-  }
+    background-color: white;
+    color: #F4BD50;
+    border-color:  #F4BD50;
+    border: 2px solid;
   
-  .cancelar-button:hover {
-    background-color: #ccc;
   }
   
   

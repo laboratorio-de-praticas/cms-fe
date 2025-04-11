@@ -9,6 +9,9 @@ const StudentCard = () => {
   ];
 
   const [formAberto, setFormAberto] = useState({});
+  const [dados, setDados] = useState(
+    students.map((name) => ({ nome: name, semestre: 4, celular: "", nascimento: "", ingresso: "2023" }))
+  );
 
   const toggleFormulario = (index) => {
     setFormAberto((prevState) => ({
@@ -17,77 +20,103 @@ const StudentCard = () => {
     }));
   };
 
+  const handleChange = (index, campo, valor) => {
+    const novosDados = [...dados];
+    novosDados[index][campo] = valor;
+    setDados(novosDados);
+  };
+
   return (
     <div className="container-fluid container-students">
       <div className="student-card-wrapper">
-        {students.map((name, index) => (
+        {students.map((_, index) => (
           <div className="student-row" key={index}>
             <div className={`student-card ${formAberto[index] ? "expanded" : ""}`}>
-              {/* Se o formulário estiver aberto, mostra só o formulário */}
               {formAberto[index] ? (
-            <form className="student-form inside-card">
-                <div className="form-avatar">
-                <img src="/imgs/foto-perfil.png" alt="Foto" />
-                </div>
-                <div className="form-fields">
-                {/* Primeira linha */}
-                <div className="field-group">
-                    <div className="form-tags">
-                    <button type="button" className="active">DSM</button>
-                    <button type="button">GE</button>
+                <form className="student-form inside-card">
+                  <div className="form-avatar">
+                    <img src="/imgs/foto-perfil.png" alt="Foto" />
+                  </div>
+                  <div className="form-fields">
+                    <div className="field-group">
+                      <div className="form-tags">
+                        <div className="btn-group-curso" role="group">
+                          <input type="radio" className="btn-check" name={`options-${index}`} id={`option1-${index}`} autoComplete="off" />
+                          <label className="btn btn-amarelo-curso" htmlFor={`option1-${index}`}>DSM</label>
+                          <input type="radio" className="btn-check" name={`options-${index}`} id={`option2-${index}`} autoComplete="off" />
+                          <label className="btn btn-branco-curso" htmlFor={`option2-${index}`}>GE</label>
+                        </div>
+                      </div>
+                      <div className="semestre-container">
+                        <label className="semestre-label">Semestre Atual:</label>
+                        <input
+                          className="semestre-input"
+                          type="number"
+                          value={dados[index].semestre}
+                          onChange={(e) => handleChange(index, "semestre", e.target.value)}
+                        />
+                      </div>
                     </div>
-                    <div className="form-item">
-                    <strong>Semestre Atual:</strong>
-                    <input value="4" readOnly />
+
+                    <div className="nome-container">
+                      <label className="nome-label">Nome:</label>
+                      <input
+                        className="nome-input"
+                        name="nome"
+                        type="text"
+                        value={dados[index].nome}
+                        onChange={(e) => handleChange(index, "nome", e.target.value)}
+                      />
                     </div>
-                </div>
-            
-                {/* Segunda linha */}
-                <div className="field-group single">
-                    <div className="form-item full">
-                    <strong>Nome:</strong>
-                    <input value={name} readOnly />
+
+                    <div className="field-group">
+                        <div className="celular-container">
+                            <label className="celular-label">Celular:</label>
+                            <input
+                                type="tel"
+                                className="celular-input"
+                                value={dados[index].celular}
+                                onChange={(e) => handleChange(index, "celular", e.target.value)}
+                            />
+
+                        </div>
+                        <div className="nascimento-container">
+                            <label className="nascimento-label">Data de nascimento:</label>
+                            <input
+                            className="nascimento-input"
+                            value={dados[index].nascimento}
+                            onChange={(e) => handleChange(index, "nascimento", e.target.value)}
+                            />
+                        </div>
                     </div>
-                </div>
-            
-                {/* Terceira linha */}
-                <div className="field-group">
-                    <div className="form-item">
-                    <strong>Celular:</strong>
-                    <input value="(**) *****-*****" readOnly />
+
+                    <div className="field-group">
+                        <div className="ingresso-container">
+                            <label className="ingresso-label">Ano de Ingresso:</label>
+                            <input
+                            className="ingresso-input"
+                            value={dados[index].ingresso}
+                            onChange={(e) => handleChange(index, "ingresso", e.target.value)}
+                            />
+                        </div>
+                      <div className="form-actions">
+                        <button type="button" className="editar-button">Editar</button>
+                        <button type="button" className="cancelar-button" onClick={() => toggleFormulario(index)}>
+                          Cancelar
+                        </button>
+                      </div>
                     </div>
-                    <div className="form-item">
-                    <strong>Data de nascimento:</strong>
-                    <input value="11/03/2024" readOnly />
-                    </div>
-                </div>
-            
-                {/* Quarta linha */}
-                <div className="field-group">
-                    <div className="form-item">
-                    <strong>Ano de Ingresso:</strong>
-                    <input value="2023" readOnly />
-                    </div>
-                    <div className="form-actions">
-                    <button type="button" className="editar-button">Editar</button>
-                    <button type="button" className="cancelar-button" onClick={() => toggleFormulario(index)}>
-                        Cancelar
-                    </button>
-                    </div>
-                </div>
-                </div>
-            </form>
-          
+                  </div>
+                </form>
               ) : (
-                // Caso contrário, mostra a visualização normal
                 <>
                   <div className="student-info">
                     <div className="student-avatar">
                       <img src="/imgs/foto-perfil.png" width={70} height={70} alt="" />
                     </div>
                     <div>
-                      <div className="student-name">{name}</div>
-                      <div className="student-class">DSM 4</div>
+                      <div className="student-name">{dados[index].nome}</div>
+                      <div className="student-class">DSM {dados[index].semestre}</div>
                     </div>
                   </div>
                   <div className="student-actions">
@@ -102,7 +131,6 @@ const StudentCard = () => {
               )}
             </div>
 
-            {/* Botões fora do card */}
             <div className="student-buttons">
               <img
                 src="/imgs/edit-student.svg"
