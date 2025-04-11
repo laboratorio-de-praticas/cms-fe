@@ -1,3 +1,4 @@
+/* card minimizado */
 .container-students {
     display: flex;
     flex-direction: column;
@@ -46,8 +47,65 @@
     border: 2px solid #F4BD50; /* borda amarela */
     box-shadow: 0 0 8px rgba(241, 196, 15, 0.4); /* leve glow */
   }
+
+  .student-info {
+    display: flex;
+    align-items: center;
+  }
   
+  .student-avatar img{
+    border-radius: 100%;
+    width: 70px;
+    height: 70px;
+    margin-right: 16px;
+  }
   
+  .student-name {
+    font-weight: bold;
+    color: #808080;
+    font-size: 18px;
+  }
+  
+  .student-class {
+    font-size: 0.875rem;
+    color: #808080;
+  }
+  
+  .student-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .student-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+  }
+  
+  /* icons */
+  .icon-button {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+  
+  .icon-button:hover {
+    transform: scale(1.1);
+  }
+  
+  /* seta */
+  .seta-card {
+    transition: transform 0.3s ease;
+    transform: rotate(0deg); /* seta pra cima */
+  }
+  
+  .seta-card.virada {
+    transform: rotate(180deg); /* seta pra baixo */
+  }
+  
+/* ------------------------------------------------------------------------------------------------------------------- */
 /* Formulário dentro do card */
 .student-form.inside-card {
     display: flex;
@@ -290,65 +348,70 @@
     border: 2px solid;
   
   }
-  
-  
-  .student-info {
+   
+  /* ------------------------------------------------------------------ */
+  /* Detalhes do estudante */
+  .student-details-view {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 16px 20px 0;
+    border-top: 1px solid #ddd;
+    margin-top: 12px;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    width: 100%;
   }
   
-  .student-avatar img{
-    border-radius: 100%;
+  .student-details-view .student-avatar img {
     width: 70px;
     height: 70px;
-    margin-right: 16px;
+    border-radius: 100%;
+    object-fit: cover;
   }
   
-  .student-name {
-    font-weight: bold;
-    color: #808080;
-    font-size: 18px;
+  .student-details-view .student-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 14px;
+    color: #333;
   }
   
-  .student-class {
-    font-size: 0.875rem;
-    color: #808080;
+  .student-details-view .student-details p {
+    margin: 0;
+    color: #666;
   }
   
-  .student-actions {
+  .student-details-view .student-details strong {
+    color: #333;
+    margin-right: 4px;
+  }
+  
+  .student-details-view .student-actions {
     display: flex;
     align-items: center;
-    gap: 8px;
+    justify-content: center;
   }
   
-  .student-buttons {
-    display: flex;
-    flex-direction: row;
-    gap: 8px;
-  }
-  
-  /* icons */
-  .icon-button {
+  .student-details-view .seta-card {
     width: 24px;
     height: 24px;
     cursor: pointer;
-    transition: transform 0.2s ease;
-  }
-  
-  .icon-button:hover {
-    transform: scale(1.1);
-  }
-  
-  /* seta */
-  .seta-card {
     transition: transform 0.3s ease;
-    transform: rotate(0deg); /* seta pra cima */
   }
   
-  .seta-card.virada {
-    transform: rotate(180deg); /* seta pra baixo */
+  /* Quando apenas os detalhes estiverem abertos */
+.student-card.details-open {
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+    padding-bottom: 16px;
   }
   
+ 
   /* responsivo */
   @media (max-width: 768px) {
     .student-row {
