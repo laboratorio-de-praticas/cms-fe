@@ -24,15 +24,124 @@
   .student-card {
     flex: 1;
     display: flex;
+    align-items: center; /* Centraliza verticalmente */
     justify-content: space-between;
-    align-items: center;
-    padding: 12px 16px;
+    height: 100px;
+    padding: 0 20px; /* Apenas horizontal */
     border-radius: 8px;
     background-color: white;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     border: 1px solid #808080;
-    height: 85px;
     min-width: 280px;
+    flex-wrap: nowrap;
+    transition: height 0.3s ease;
+  }
+  
+  
+  /* Quando o formulário estiver aberto */
+  .student-card.expanded {
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+    border: 2px solid #f1c40f; /* borda amarela */
+    box-shadow: 0 0 8px rgba(241, 196, 15, 0.4); /* leve glow */
+  }
+  
+  
+/* Formulário dentro do card */
+.student-form.inside-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    background-color: #fff;
+    border-radius: 10px;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  
+  .form-avatar {
+    flex-shrink: 0;
+  }
+  
+  .form-avatar img {
+    width: 100px;
+    height: 100px;
+    border-radius: 8px;
+  }
+  
+  .form-fields {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 32px;
+    flex: 1;
+  }
+  
+  .form-fields div {
+    font-weight: bold;
+    color: #555;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+  }
+  
+  .form-fields input {
+    border: none;
+    background-color: transparent;
+    color: #333;
+    font-weight: normal;
+    font-size: 14px;
+    padding: 2px 4px;
+  }
+  
+  /* Tags (DSM, GE, etc) */
+  .form-tags {
+    display: flex;
+    gap: 8px;
+    margin-top: 4px;
+  }
+  
+  .form-tags button {
+    padding: 4px 12px;
+    border-radius: 6px;
+    border: 1px solid #f1c40f;
+    background-color: white;
+    color: #f1c40f;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s ease;
+  }
+  
+  .form-tags button.active {
+    background-color: #f1c40f;
+    color: white;
+  }
+  
+  /* Área dos botões de ação */
+  .form-buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 12px;
+  }
+  
+  /* Botões Cancelar e Editar */
+  .cancelar-button,
+  .editar-button {
+    padding: 6px 20px;
+    border: 1px solid #ccc;
+    background-color: white;
+    color: #666;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.2s ease;
+  }
+  
+  .cancelar-button:hover,
+  .editar-button:hover {
+    background-color: #f2f2f2;
   }
   
   .student-info {
@@ -81,6 +190,16 @@
   
   .icon-button:hover {
     transform: scale(1.1);
+  }
+  
+  /* seta */
+  .seta-card {
+    transition: transform 0.3s ease;
+    transform: rotate(0deg); /* seta pra cima */
+  }
+  
+  .seta-card.virada {
+    transform: rotate(180deg); /* seta pra baixo */
   }
   
   /* responsivo */
