@@ -25,37 +25,59 @@ const StudentCard = () => {
             <div className={`student-card ${formAberto[index] ? "expanded" : ""}`}>
               {/* Se o formulário estiver aberto, mostra só o formulário */}
               {formAberto[index] ? (
-                <form className="student-form inside-card">
-                  <div className="form-avatar">
-                    <img src="/imgs/foto-perfil.png" alt="Foto" width={100} height={100} />
-                  </div>
-                  <div className="form-fields">
-                    <div><strong>Nome:</strong> <input value={name} readOnly /></div>
-                    <div><strong>Celular:</strong> <input value="(**) *****-*****" readOnly /></div>
-                    <div><strong>Data de nascimento:</strong> <input value="11/03/2024" readOnly /></div>
-                    <div><strong>Ano de Ingresso:</strong> <input value="2023" readOnly /> | <strong>Semestre Atual:</strong> <input value="4" readOnly /></div>
+            <form className="student-form inside-card">
+                <div className="form-avatar">
+                <img src="/imgs/foto-perfil.png" alt="Foto" />
+                </div>
+                <div className="form-fields">
+                {/* Primeira linha */}
+                <div className="field-group">
                     <div className="form-tags">
-                      <button type="button" className="active">DSM</button>
-                      <button type="button">GE</button>
+                    <button type="button" className="active">DSM</button>
+                    <button type="button">GE</button>
                     </div>
-                    <div className="form-buttons">
-                        <button
-                            type="button"
-                            className="editar-button"
-                            onClick={() => alert("Editar clicado!")}
-                        >
-                            Editar
-                        </button>
-                        <button
-                            type="button"
-                            className="cancelar-button"
-                            onClick={() => toggleFormulario(index)}
-                        >
-                            Cancelar
-                        </button>
-                        </div>
-                  </div>
-                </form>
+                    <div className="form-item">
+                    <strong>Semestre Atual:</strong>
+                    <input value="4" readOnly />
+                    </div>
+                </div>
+            
+                {/* Segunda linha */}
+                <div className="field-group single">
+                    <div className="form-item full">
+                    <strong>Nome:</strong>
+                    <input value={name} readOnly />
+                    </div>
+                </div>
+            
+                {/* Terceira linha */}
+                <div className="field-group">
+                    <div className="form-item">
+                    <strong>Celular:</strong>
+                    <input value="(**) *****-*****" readOnly />
+                    </div>
+                    <div className="form-item">
+                    <strong>Data de nascimento:</strong>
+                    <input value="11/03/2024" readOnly />
+                    </div>
+                </div>
+            
+                {/* Quarta linha */}
+                <div className="field-group">
+                    <div className="form-item">
+                    <strong>Ano de Ingresso:</strong>
+                    <input value="2023" readOnly />
+                    </div>
+                    <div className="form-actions">
+                    <button type="button" className="editar-button">Editar</button>
+                    <button type="button" className="cancelar-button" onClick={() => toggleFormulario(index)}>
+                        Cancelar
+                    </button>
+                    </div>
+                </div>
+                </div>
+            </form>
+          
               ) : (
                 // Caso contrário, mostra a visualização normal
                 <>

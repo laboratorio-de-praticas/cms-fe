@@ -52,108 +52,139 @@
 .student-form.inside-card {
     display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding: 16px;
-    background-color: #fff;
-    border-radius: 10px;
-    gap: 24px;
     flex-wrap: wrap;
-  }
-  
-  .form-avatar {
-    flex-shrink: 0;
-  }
-  
-  .form-avatar img {
-    width: 100px;
-    height: 100px;
+    width: 100%;
+    padding: 16px;
+    gap: 16px;
+    background-color: #fff;
     border-radius: 8px;
   }
   
-  .form-fields {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px 32px;
-    flex: 1;
-  }
-  
-  .form-fields div {
-    font-weight: bold;
-    color: #555;
+  .form-avatar {
+    flex: 1 1 120px;
     display: flex;
+    justify-content: center;
     align-items: center;
-    gap: 6px;
-    font-size: 14px;
   }
   
-  .form-fields input {
-    border: none;
-    background-color: transparent;
+  .form-avatar img {
+    width: 190px;
+    height: 190px;
+    object-fit: cover;
+    border-radius: 5%;
+  }
+  
+  .form-fields {
+    flex: 3 1 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* reduzido o gap entre as linhas do formulário */
+  }
+  
+  /* Grupos de linhas do formulário */
+  .field-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    width: 100%;
+    align-items: flex-end; /* alinha os campos na base */
+  }
+  
+  .field-group.single {
+    flex-direction: column;
+  }
+  
+  .form-item {
+    flex: 1 1 200px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-item.full {
+    width: 100%;
+  }
+  
+  .form-item strong {
+    margin-bottom: 4px;
     color: #333;
-    font-weight: normal;
-    font-size: 14px;
-    padding: 2px 4px;
   }
   
-  /* Tags (DSM, GE, etc) */
+  .form-item input {
+    padding: 6px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+  }
+  
+  /* Botões DSM/GE */
   .form-tags {
     display: flex;
     gap: 8px;
-    margin-top: 4px;
+    align-items: flex-end;
+    margin-bottom: 0; /* removido espaço extra */
   }
   
   .form-tags button {
-    padding: 4px 12px;
-    border-radius: 6px;
-    border: 1px solid #f1c40f;
-    background-color: white;
-    color: #f1c40f;
-    font-weight: bold;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
     cursor: pointer;
-    transition: 0.2s ease;
+    font-weight: bold;
+    background-color: #eee;
+    color: #333;
   }
   
   .form-tags button.active {
-    background-color: #f1c40f;
+    background-color: #808080;
     color: white;
   }
   
-  /* Área dos botões de ação */
-  .form-buttons {
+  /* Botões ação */
+  .form-actions {
     display: flex;
-    gap: 12px;
-    margin-top: 12px;
+    align-items: flex-end;
+    gap: 8px;
+    flex: 1 1 auto;
   }
   
-  /* Botões Cancelar e Editar */
-  .cancelar-button,
-  .editar-button {
-    padding: 6px 20px;
-    border: 1px solid #ccc;
-    background-color: white;
-    color: #666;
-    font-weight: bold;
-    border-radius: 6px;
+  .editar-button,
+  .cancelar-button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
-    transition: 0.2s ease;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
   }
   
-  .cancelar-button:hover,
-  .editar-button:hover {
-    background-color: #f2f2f2;
+  .editar-button {
+    background-color: #808080;
+    color: white;
   }
+  
+  .editar-button:hover {
+    background-color: #666;
+  }
+  
+  .cancelar-button {
+    background-color: #ddd;
+    color: #333;
+  }
+  
+  .cancelar-button:hover {
+    background-color: #ccc;
+  }
+  
   
   .student-info {
     display: flex;
     align-items: center;
   }
   
-  .student-avatar {
+  .student-avatar img{
+    border-radius: 100%;
     width: 70px;
     height: 70px;
-    background-color: #D9D9D9;
-    border-radius: 50%;
     margin-right: 16px;
   }
   
