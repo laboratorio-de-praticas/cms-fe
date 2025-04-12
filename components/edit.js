@@ -1,101 +1,126 @@
 const Edit=()=>{
     return(
-        <div class="container">
-        <div class="row">
-            {/* Posteriormente colocar o action para envio das informações pro banco de dados */}
-            <form class="g-3"  method='post'>
-                <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                <input type="radio" class="btn-check" name="options" id="option1" autocomplete="off" />
-                <label class="btn btn-secondary" for="option1">DSM</label>
-                <input type="radio" class="btn-check" name="options" id="option2" autocomplete="off" />
-                <label class="btn btn-secondary" for="option2">GE</label>
+        <div className="container" style={{ color: '#004854' }}>
+            <div className="row">
+                <div className="col-md-4">
+                    <h5>Cadastro</h5>
+                    <h3 className='fw-bold'>Alunos</h3>
                 </div>
-                <div class="row g-3">
-                <div class="col-md-6">
-                    <br/>
-                    <div class='input-group'>
-                        <span class='input-group-text fw-bold bg-white'>Nome:</span>
-                        <input type="text" class="form-control border-start-0" name='nome' value='' required/>
+                <hr />
+            </div>
+
+            <form className="g-3" method="POST" onSubmit={handleSubmit} encType="multipart/form-data">
+                <div className="row d-flex justify-content-center">
+                    <div className="col-md-3">
+                        <div className="btn-group grupo-1" role="group">
+                            <input type="radio" className="btn-check" name="curso" id="option1" autoComplete="off" value="DSM" onChange={handleCursoChange} />
+                            <label className="btn btn-secondary" htmlFor="option1">DSM</label>
+                            <input type="radio" className="btn-check" name="curso" id="option2" autoComplete="off" value="GE" onChange={handleCursoChange} />
+                            <label className="btn btn-secondary" htmlFor="option2">GE</label>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <br/>
-                    <div class='input-group'>
-                        <span class='input-group-text fw-bold bg-white'>RA:</span>
-                        <input type="text" class="form-control border-start-0" name='ra' value='' required/>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <br/>
-                    <div class='input-group'>
-                        <span class='input-group-text fw-bold bg-white'>Email Institucional:</span>
-                        <input type="email" class="form-control border-start-0" name='email_institucional' value='' required/>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <br/>
-                    <div class='input-group'>
-                        <span class='input-group-text fw-bold bg-white'>Telefone:</span>
-                        <input type="text" class="form-control border-start-0" name='telefone' value='' required/>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <br/>
-                    <div class='input-group'>
-                        <span class='input-group-text fw-bold bg-white'>Senha:</span>
-                        <input type="password" class="form-control border-start-0" name='senha' value='' required/>
-                    </div>
-                </div>                    
-                <div class="col-md-6">
-                    <br/>
-                    <div class='input-group'>
-                        <span class='input-group-text fw-bold bg-white'>Ano de Ingresso:</span>
-                        <input type="text" class="form-control border-start-0" name='ano_ingresso' value='' required/>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <br/>
-                    <div class='input-group'>
-                        <span class='input-group-text fw-bold bg-white'>Semestre Atual:</span>
-                        <input type="text" class="form-control border-start-0" name='turma_atual' value='' required/>
+
+                    <div className="col-md-3">
+                        <div className="input-group">
+                            <span className="input-group-text fw-bold bg-white" style={{ color: '#004854'}}>Semestre Atual:</span>
+                            <input type="text" className="form-control border-start-0" name="turma_atual" value={formData.turma_atual} onChange={handleChange} required />
+                        </div>
                     </div>
                 </div>
 
-                <div class="col-md-6">
-                    <br/>
-                    <div class='input-group'>
-                        <span class='input-group-text fw-bold bg-white'>Data Nascimento:</span>
-                        <input type="date" class="form-control border-start-0" name='data_nasc' value='' required/>
+                {/* Nome */}
+                <br />
+                <div className="row d-flex justify-content-center">
+                    <div className="col-md-6">
+                        <div className="input-group">
+                            <span className="input-group-text fw-bold bg-white" style={{ color: '#004854' }}>Nome:</span>
+                            <input type="text" className="form-control border-start-0" name="nome" value={formData.nome} onChange={handleChange} required />
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <br/>
-                    <div class='input-group'>
-                        <span class='input-group-text fw-bold bg-white'>Foto 3x4:</span>
-                        <input type="file" class="form-control border-start-0" name='foto' value='' required/>
+
+                {/* Email Institucional */}
+                <br />
+                <div className="row d-flex justify-content-center">
+                    <div className="col-md-6">
+                        <div className="input-group">
+                            <span className="input-group-text fw-bold bg-white" style={{ color: '#004854' }}>Email Institucional:</span>
+                            <input type="email" className="form-control border-start-0" name="email_institucional" value={formData.email_institucional} onChange={handleChange} required />
+                        </div>
                     </div>
                 </div>
-                <div class='col-md-6'>
-                    <br/>
-                    <div class='fw-bold'>Quer ser candidato a representante de turma?</div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value='' />
-                        <label class="form-check-label" for="inlineCheckbox1">Sim</label>
+
+                {/* Telefone e RA */}
+                <br />
+                <div className="row d-flex justify-content-center">
+                    <div className="col-md-3">
+                        <div className="input-group">
+                            <span className="input-group-text fw-bold bg-white" style={{ color: '#004854' }}>Celular:</span>
+                            <input type="text" className="form-control border-start-0" name="telefone" value={formData.telefone} onChange={handleChange} required />
+                        </div>
                     </div>
-                    {/* <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2" />
-                        <label class="form-check-label" for="inlineCheckbox2">Não</label>
-                    </div> */}
+                    <div className="col-md-3">
+                        <div className="input-group">
+                            <span className="input-group-text fw-bold bg-white" style={{ color: '#004854' }}>RA:</span>
+                            <input type="text" className="form-control border-start-0" name="ra" value={formData.ra} onChange={handleChange} required />
+                        </div>
+                    </div>
                 </div>
-                <br/>
-                <div class="col-md-6">
-                    <br/>
-                    <button type="submit" class="btn btn-success">Editar</button>
+
+                {/* Ano de Ingresso e Senha */}
+                <br />
+                <div className="row d-flex justify-content-center">
+                    <div className="col-md-3">
+                        <div className="input-group">
+                            <span className="input-group-text fw-bold bg-white" style={{ color: '#004854' }}>Ano de Ingresso:</span>
+                            <input type="text" className="form-control border-start-0" name="ano_ingresso" value={formData.ano_ingresso} onChange={handleChange} required />
+                        </div>
+                    </div>
+                    <div className="col-md-3">
+                        <div className="input-group">
+                            <span className="input-group-text fw-bold bg-white" style={{ color: '#004854' }}>Senha:</span>
+                            <input type="password" className="form-control border-start-0" name="senha" value={formData.senha} onChange={handleChange} required />
+                        </div>
+                    </div>
                 </div>
+
+                {/* Foto */}
+                <br />
+                <div className="row d-flex justify-content-center">
+                    <div className="col-md-6">
+                        <div className="input-group">
+                            <span className="input-group-text fw-bold bg-white" style={{ color: '#004854' }}>Foto 3x4:</span>
+                            <input type="file" className="form-control border-start-0" name="foto" onChange={handleChange} required />
+                        </div>
+                    </div>
+                </div>
+
+                {/* Candidato e Líder */}
+                <br />
+                <div className="row d-flex justify-content-center">
+                    <div className="col-md-6">
+                        <div className="input-group gap-3">
+                            <div className="fw-bold">Desejo me cadastrar como Representante de Turma</div>
+                            <input className="form-check-input" type="checkbox" name="deseja_ser_candidato" checked={formData.deseja_ser_candidato} onChange={handleChange} />
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div className="row d-flex justify-content-center">
+                    <div className="col-md-6">
+                        <div className="input-group gap-3">
+                            <div className="fw-bold">Desejo me cadastrar como Líder do grupo PI</div>
+                            <input className="form-check-input" type="checkbox" name="deseja_ser_lider" checked={formData.deseja_ser_lider} onChange={handleChange} />
+                        </div>
+                    </div>
+                </div>
+
+                <br />
+                <div className="row d-flex justify-content-center">
+                    <button type="submit" className="btn btn-success col-md-6">Cadastrar</button>
                 </div>
             </form>
         </div>
-    </div>
     )
 }
 export default Edit

@@ -26,7 +26,7 @@ const Navbar = () => {
                 </a>
               </li>
               <li class="nav-item home-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="/">
                   Home
                 </a>
               </li>
@@ -44,11 +44,11 @@ const Navbar = () => {
                 <ul className="dropdown-menu custom-dropdown">
                   <div className="dropdown-top-bar"></div>
                   <li>
-                    <a className="dropdown-item" href="#">Usuário</a>
+                    <a className="dropdown-item" href="/formStudent">Usuário</a>
                   </li>
                   <li className="dropdown-divider-white"></li>
                   <li>
-                    <a className="dropdown-item" href="#">Projeto</a>
+                    <a className="dropdown-item" href="/formProject">Projeto</a>
                   </li>
                 </ul>
               </li>

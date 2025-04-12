@@ -1,28 +1,23 @@
-/* botoes solitarios */
-.btn-todos {
-  background-color: white;
-  border-color: #808080;
-  color: #808080;
-  border-radius: 5px;
-}
 
-.grupo-2 {
-  margin-left: 10px;
+/* btn duplo */
+.btn-group{
+  height: 40px;
 }
-
-/* botão aluno */
-.btn-aluno {
-  background-color: #808080;
+/* botão lado cinza */
+.btn-cinza {
+  background-color: #004854;
   color: white;
   border-radius: 5px;
+  
 }
 
-/* botão projeto */
-.btn-projeto {
+/* botão lado branco */
+.btn-branco {
   background-color: white;
-  color: #808080;
+  color: #004854;
   border-radius: 5px;
-  border-color: #808080;
+  border-color: #004854;
+
 }
 
 .container-filtros-dsm {
@@ -45,17 +40,18 @@
 /* dropdown */
 .custom-dropdown-dsm {
   position: relative;
-  display: inline-block;
-  width: 130px;
+  display: flex;
+  width: 160px;
   height: 40px;
-  margin-left: 20px;
+  margin-left: 0px;
+  
 }
 
 .dropdown-select-dsm {
   width: 100%;
   height: 100%;
   padding: 6px 35px 6px 12px;
-  border: 1px solid #808080;
+  border: 1px solid #004854;
   border-radius: 5px;
   appearance: none;
   background-color: white;
@@ -71,7 +67,7 @@
 
 .dropdown-arrow-dsm {
   position: absolute;
-  right: 12px;
+  right: 25px;
   top: 50%;
   transform: translateY(-50%);
   pointer-events: none;
@@ -97,7 +93,7 @@
   width: 100%;
   height: 100%;
   padding-left: 45px;
-  border: 1px solid #808080;
+  border: 1px solid #004854;
   border-radius: 5px;
   font-size: 16px;
   color: #333;
@@ -110,7 +106,7 @@
 }
 
 .search-input-dsm:focus {
-  border: 1px solid #808080;
+  border: 1px solid #004854;
   box-shadow: none;
   outline: none;
 }
@@ -129,7 +125,7 @@
   padding: 0 20px;
   border: none;
   border-radius: 5px;
-  background-color: #808080;
+  background-color: #004854;
   color: white;
   font-size: 16px;
   cursor: pointer;
@@ -139,42 +135,9 @@
   background-color: #6e6e6e;
 }
 
-/* botões embaixo */
-.linha-cadastro-dsm {
-  display: flex;
-  gap: 16px;
-  margin-top: 16px;
-}
 
-.btn-cadastrar-usuario {
-  background-color: #0d924f;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  font-weight:500;
-  border-radius: 5px;
-  height: 35px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
-.btn-cadastrar-projeto {
-  background-color: #004aad;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  font-weight: 500;
-  border-radius: 5px;
-  height: 35px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
-.ms-2 {
-  margin-left: 0.5rem;
-}
 
 /* responsivo */
 @media (max-width: 768px) {
