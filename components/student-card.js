@@ -185,7 +185,7 @@ const StudentCard = () => {
                         <input type="radio" className="btn-check" name="options" id="option1" autoComplete="off" />
                         <label className="btn btn-color-curso" htmlFor="option1">DSM</label>
                         <input type="radio" className="btn-check" name="options" id="option2" autoComplete="off" />
-                        <label className="btn btn-branco-curso" htmlFor="option2">GE</label>
+                        <label className="btn btn-branco-detalhes" htmlFor="option2">GE</label>
                     </div>
                   </div>
                 </div>
