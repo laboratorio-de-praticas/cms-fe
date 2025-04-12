@@ -334,6 +334,7 @@
   color: #808080;
   padding: 4px;
   width: auto;
+ 
 }
 
   /* btn */
@@ -351,6 +352,7 @@
     cursor: pointer;
     font-weight: bold;
     height: 40px;
+    width: 150px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -576,19 +578,127 @@
   width: 60px;
 
 }
-  /* responsivo */
-  @media (max-width: 768px) {
-    .student-row {
-      flex-direction: column;
-      align-items: stretch;
-    }
-  
-    .student-card {
-      width: 100%;
-    }
-  
-    .student-buttons {
-      justify-content: center;
-    }
+/* Responsividade para tablets (até 992px) */
+@media (max-width: 992px) {
+  .student-row {
+    gap: 12px;
+    justify-content: center;
   }
-  
+
+  .student-card {
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+    padding: 12px;
+  }
+
+  .student-info {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .student-avatar img {
+    margin-right: 0;
+    margin-bottom: 8px;
+  }
+
+  .student-actions {
+    justify-content: flex-start;
+    margin-top: 10px;
+  }
+
+  .form-avatar img {
+    width: 140px;
+    height: 140px;
+  }
+
+  .nome-container,
+  .celular-container,
+  .nascimento-container,
+  .ingresso-container,
+  .semestre-container {
+    width: 100%;
+  }
+
+  .nome-input {
+    width: 100%;
+  }
+
+  .form-fields {
+    flex: 1 1 100%;
+  }
+
+  .nome-detalhe,
+  .cel-detalhe {
+    width: 100%;
+  }
+
+  .cel-nasc-line {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+/* Responsividade para celulares (até 576px) */
+@media (max-width: 576px) {
+  .student-card {
+    padding: 10px;
+  }
+
+  .student-name {
+    font-size: 16px;
+  }
+
+  .student-avatar img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .form-avatar img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .editar-button,
+  .cancelar-button {
+    width: 100%;
+  }
+
+  .form-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn-amarelo-curso,
+  .btn-branco-curso {
+    width: 100%;
+  }
+
+  .nome-container,
+  .semestre-container,
+  .celular-container,
+  .nascimento-container,
+  .ingresso-container {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .nome-input,
+  .semestre-input,
+  .celular-input,
+  .nascimento-input,
+  .ingresso-input {
+    width: 100%;
+  }
+
+  .nome-detalhe,
+  .cel-detalhe {
+    width: 100%;
+  }
+
+  .seta-card {
+    top: 5px;
+    right: 5px;
+  }
+}
