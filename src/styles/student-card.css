@@ -95,16 +95,8 @@
     transform: scale(1.1);
   }
   
-  /* seta */
-  .seta-card {
-    transition: transform 0.3s ease;
-    transform: rotate(0deg); /* seta pra cima */
-  }
-  
-  .seta-card.virada {
-    transform: rotate(180deg); /* seta pra baixo */
-  }
-  
+
+
 /* ------------------------------------------------------------------------------------------------------------------- */
 /* Formulário dentro do card */
 .student-form.inside-card {
@@ -136,18 +128,15 @@
     flex: 3 1 300px;
     display: flex;
     flex-direction: column;
-    gap: 8px; /* reduzido o gap entre as linhas do formulário */
+    gap: 8px; 
   }
   
-  /* Grupos de linhas do formulário */
-  .field-group {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    width: 100%;
-    align-items: flex-end; /* alinha os campos na base */
-
-  }
+.field-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 20px;
+}
   
   .field-group.single {
     flex-direction: column;
@@ -256,6 +245,7 @@
   .semestre-container {
     display: inline-flex;
     align-items: center;
+    justify-content: center; /* Alinha horizontalmente */
     gap: 12px;
     padding: 8px 12px;
     border: 1.5px solid #F4BD50;
@@ -266,6 +256,7 @@
     width: 210px; /* corrigido: estava sem unidade */
   }
   
+  
   .semestre-label {
     font-weight: bold;
     margin: 0;
@@ -273,50 +264,79 @@
   
   .semestre-input {
     border: none;
-    width: 60px;
+    width: 38px;
     color: #F4BD50;
-    font-weight: 800;
+    font-weight: 700;
     font-size: 18px;
     background-color: transparent;
   }
   
-  /* celular, nascimento e ingresso centralizados */
-  .celular-container,
-  .nascimento-container,
-  .ingresso-container {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    padding: 8px 12px;
-    border: 1.5px solid #F4BD50;
-    border-radius: 6px;
-    background-color: #fff;
-    white-space: nowrap;
-    height: 40px;
-  }
-  
-  .celular-label,
-  .nascimento-label,
-  .ingresso-label {
-    font-weight: bold;
-    color: #F4BD50;
-    margin: 0;
-  }
-  
-  .celular-input,
-  .nascimento-input,
-  .ingresso-input {
-    border: none;
-    outline: none;
-    background-color: transparent;
-    font-size: 16px;
-    color: #808080;
-    padding: 4px;
-    width: auto;
-  }
-  
-  
-  /* Botões ação */
+  /* celular e nascimento */
+.celular-container,
+.nascimento-container {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px;
+  border: 1.5px solid #F4BD50;
+  border-radius: 6px;
+  background-color: #fff;
+  white-space: nowrap;
+  height: 40px;
+  min-width: 200px;
+  flex: 1 1 200px;
+}
+
+.celular-label,
+.nascimento-label {
+  font-weight: bold;
+  color: #F4BD50;
+  margin: 0;
+}
+
+.celular-input,
+.nascimento-input {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  font-size: 16px;
+  color: #808080;
+  padding: 4px;
+  width: auto;
+}
+
+/* ingresso */
+.ingresso-container {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px;
+  border: 1.5px solid #F4BD50;
+  border-radius: 6px;
+  background-color: #fff;
+  height: 40px;
+  min-width: 200px;
+  flex: 1 1 200px;
+}
+
+.ingresso-label {
+  font-weight: bold;
+  color: #F4BD50;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.ingresso-input {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  font-size: 16px;
+  color: #808080;
+  padding: 4px;
+  width: auto;
+}
+
+  /* btn */
   .form-actions {
     display: flex;
     align-items: flex-end;
@@ -359,18 +379,10 @@
     justify-content: space-between;
     gap: 16px;
     padding: 16px 20px 0;
-    border-top: 1px solid #ddd;
     margin-top: 12px;
     flex-wrap: wrap;
     box-sizing: border-box;
     width: 100%;
-  }
-  
-  .student-details-view .student-avatar img {
-    width: 70px;
-    height: 70px;
-    border-radius: 100%;
-    object-fit: cover;
   }
   
   .student-details-view .student-details {
@@ -398,22 +410,172 @@
     justify-content: center;
   }
   
-  .student-details-view .seta-card {
-    width: 24px;
-    height: 24px;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-  }
+/* setas */
+.seta-card {
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.student-details-view {
+  position: relative; 
+}
+
+.student-details-view .seta-card {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
   
-  /* Quando apenas os detalhes estiverem abertos */
 .student-card.details-open {
     flex-direction: column;
     align-items: flex-start;
     height: auto;
     padding-bottom: 16px;
   }
-  
- 
+.detail-line{
+  padding-top: 10px;
+}
+/* nome */
+.nome-detalhe {
+  border-color: #004854;
+  border-radius: 6px;
+  border: 1.5px solid;
+  height: 40px;
+  width: 600px;
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: center; 
+  padding-left: 10px;
+  font-size: 16px;
+  white-space: nowrap;
+  margin-bottom: 8px;
+  color: #004854 !important;
+}
+
+.nome-detalhe strong{
+  color: #004854 !important; 
+}
+/* linha cel nasc*/
+.cel-nasc-line {
+  display: flex;
+  justify-content: flex-start; /* Alinha os itens à esquerda */
+  gap: 20px; /* Espaço entre os campos */
+  margin-bottom: 8px;
+}
+
+/* cel */
+.cel-detalhe {
+  border-color: #004854;
+  border-radius: 6px;
+  border: 1.5px solid;
+  height: 40px;
+  width: 280px; /* Ajuste a largura para encaixar melhor */
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 10px;
+  font-size: 16px;
+  white-space: nowrap;
+  color: #004854 !important;
+}
+
+.cel-detalhe strong {
+  color: #004854 !important;
+}
+
+/* nasc */
+.nasc-detalhe {
+  border-color: #004854;
+  border-radius: 6px;
+  border: 1.5px solid;
+  height: 40px;
+  width: 300px; 
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 10px;
+  font-size: 16px;
+  white-space: nowrap;
+  color: #004854 !important;
+}
+
+.nasc-detalhe strong {
+  color: #004854 !important;
+}
+
+/* ingresso, semestre e curso*/
+.ingresso-sem-curso {
+  display: flex;
+  justify-content: flex-start; /* Alinha os itens à esquerda */
+  gap: 20px; /* Espaço entre os campos */
+  margin-bottom: 8px;
+}
+
+/* ingresso */
+.ingresso-detalhe {
+  border-color: #004854;
+  border-radius: 6px;
+  border: 1.5px solid;
+  height: 40px;
+  width: 280px;
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: center; 
+  padding-left: 10px;
+  font-size: 16px;
+  white-space: nowrap;
+  margin-bottom: 8px;
+  color: #004854 !important;
+}
+
+.ingresso-detalhe strong{
+  color: #004854 !important; 
+}
+/* semestre */
+.sem-detalhe {
+  border-color: #004854;
+  border-radius: 6px;
+  border: 1.5px solid;
+  height: 40px;
+  width: 160px;
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: center; 
+  padding-left: 10px;
+  font-size: 16px;
+  white-space: nowrap;
+  margin-bottom: 8px;
+  color: #004854 !important;
+}
+
+.sem-detalhe strong{
+  color: #004854 !important; 
+}
+
+/* btn duplo */
+.btn-group{
+  height: 40px;
+}
+/* botão lado cinza */
+.btn-color-curso {
+  background-color: #004854;
+  color: white;
+  border-radius: 5px;
+  width: 60px;
+}
+
+/* botão lado branco */
+.btn-branco-curso {
+  background-color: white;
+  color: #004854;
+  border-radius: 5px;
+  border-color: #004854;
+  width: 60px;
+
+}
   /* responsivo */
   @media (max-width: 768px) {
     .student-row {

@@ -54,8 +54,9 @@ const StudentCard = () => {
         {students.map((_, index) => (
           <div className="student-row" key={index}>
             <div className={`student-card 
-                ${formAberto[index] ? "expanded" : ""} 
-                ${detalhesAbertos[index] && !formAberto[index] ? "details-open" : ""}`}>
+              ${formAberto[index] ? "expanded" : ""} 
+              ${detalhesAbertos[index] && !formAberto[index] ? "details-open" : ""}`}>
+              
               {/* FORMULÁRIO DE EDIÇÃO */}
               {formAberto[index] && (
                 <form className="student-form inside-card">
@@ -156,36 +157,55 @@ const StudentCard = () => {
                 </form>
               )}
 
-              {/* MODO DETALHES (SEM INFO BÁSICA) */}
+              {/* DETALHES */}
               {!formAberto[index] && detalhesAbertos[index] && (
                 <div className="student-details-view">
-                    <div className="student-avatar">
-                    <img src="/imgs/foto-perfil.png" width={70} height={70} alt="Avatar do aluno" />
-                    </div>
-
-                    <div className="student-details">
-                    <p>
-                        <strong>Celular:</strong> {dados[index].celular || "Não informado"}
-                    </p>
-                    <p>
-                        <strong>Nascimento:</strong> {dados[index].nascimento || "Não informado"}
-                    </p>
-                    <p>
-                        <strong>Ingresso:</strong> {dados[index].ingresso || "Não informado"}
-                    </p>
-                    </div>
-
-                    <div className="student-actions">
-                    <img
-                        src="/imgs/arrow-student-card.svg"
-                        alt="seta"
-                        className="seta-card"
-                        onClick={() => toggleDetalhes(index)}
-                    />
-                    </div>
+                <div className="form-avatar">
+                  <img src="/imgs/foto-perfil.png" alt="Avatar do aluno" />
                 </div>
-                )}
-
+              
+                <div className="student-details">
+                  {/* Primeira linha: Nome */}
+                  <div className="detail-line ">
+                    <p class="nome-detalhe"><strong>Nome:</strong> {dados[index].nome}</p>
+                  </div>
+              
+                  {/* Segunda linha: Celular e Data de Nascimento */}
+                  <div className="detail-line cel-nasc-line">
+                    <p class="cel-detalhe"><strong>Celular:</strong> {dados[index].celular || "Não informado"}</p>
+                    <p class="nasc-detalhe"><strong>Nascimento:</strong> {dados[index].nascimento || "Não informado"}</p>
+                  </div>
+              
+                  {/* Terceira linha: Ano de Ingresso, Semestre e Curso */}
+                  <div className="detail-line ingresso-sem-curso">
+                    <p class="ingresso-detalhe"><strong>Ingresso:</strong> {dados[index].ingresso}</p>
+                    <p class="sem-detalhe"><strong>Semestre Atual:</strong> {dados[index].semestre}</p>
+                    <div className="btn-group" role="group">
+                        {/* aqui seria legal o back end colocar como colorido o valor do curso que a pessoa esta */}
+                        <input type="radio" className="btn-check" name="options" id="option1" autoComplete="off" />
+                        <label className="btn btn-color-curso" htmlFor="option1">DSM</label>
+                        <input type="radio" className="btn-check" name="options" id="option2" autoComplete="off" />
+                        <label className="btn btn-branco-curso" htmlFor="option2">GE</label>
+                    </div>
+                  </div>
+                </div>
+              
+                <div className="student-actions">
+                  <img
+                    src={
+                      detalhesAbertos[index]
+                        ? "/imgs/arrow-down-card.svg"
+                        : "/imgs/arrow-student-card.svg"
+                    }
+                    alt="seta"
+                    className="seta-card"
+                    onClick={() => toggleDetalhes(index)}
+                    style={{ cursor: "pointer" }}
+                  />
+                </div>
+              </div>
+              
+              )}
 
               {/* MODO RESUMIDO */}
               {!formAberto[index] && !detalhesAbertos[index] && (
@@ -201,9 +221,13 @@ const StudentCard = () => {
                   </div>
                   <div className="student-actions">
                     <img
-                      src="/imgs/arrow-student-card.svg"
+                      src={
+                        detalhesAbertos[index]
+                          ? "/imgs/arrow-down-card.svg"
+                          : "/imgs/arrow-student-card.svg"
+                      }
                       alt="seta"
-                      className={`seta-card`}
+                      className="seta-card"
                       style={{ cursor: "pointer" }}
                       onClick={() => toggleDetalhes(index)}
                     />
@@ -219,6 +243,7 @@ const StudentCard = () => {
                 className="icon-button"
                 onClick={() => toggleFormulario(index)}
               />
+              <span>|</span>
               <img
                 src="/imgs/Delete-student.svg"
                 alt="Deletar"
