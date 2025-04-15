@@ -1,30 +1,48 @@
+import { useState } from 'react';
 import '../src/styles/request-board.css';
 
 const RequestBoard = () => {
-    return(
-        <div className="container-fluid request-board">
+    // Estado para controlar se o card-request está visível
+    const [isCardVisible, setIsCardVisible] = useState(true);
+
+    // Função para alternar a visibilidade do card-request
+    const toggleCardVisibility = () => {
+        setIsCardVisible(!isCardVisible);
+    };
+
+    return (
+        <div className="request-board">
             <div className="header-board">
-                
                 <p className="titulo-pedidos">Pedidos</p>
 
                 <div className="linha-topo">
-                <h2 className="titulo-h2">Aspirantes a Candidato</h2>
-                <div className="acoes-direita">
-                    <a href="#">Ocultar Todos</a>
-                    <span className="request-board-divider">|</span>
-                    <a href="#">Histórico</a>
-                </div>
+                    <h2 className="titulo-h2">Aspirantes a Candidato</h2>
+                    <div className="acoes-direita">
+                        <a href="#">Ocultar Todos</a>
+                        <span className="request-board-divider">|</span>
+                        <a href="#">Histórico</a>
+                    </div>
                 </div>
                 <div className="divider-title-board"></div>
             </div>
+
             <div className="body-board">
                 <div className="turma">
                     <div className="titulo-turma">
-                        <div className="row">
                         <p>DSM 6</p>
-                        <a href="#">⌃</a> 
-                        </div>
-                        <div className="turma-divider"></div>
+                        <a href="#" className="seta-turma" onClick={toggleCardVisibility}>
+                            <img 
+                                src={isCardVisible ? "/imgs/arrow-student-card.svg" : "/imgs/arrow-down-student.svg"} 
+                                width={15} 
+                                height={15} 
+                                alt="Toggle visibility"
+                            />
+                        </a>
+                    </div>
+                    <div className="turma-divider"></div>
+                    
+                    {/* Aqui controlamos a visibilidade do card-request */}
+                    {isCardVisible && (
                         <div className="card-request">
                             <img src="/imgs/foto-perfil.png" width={70} height={70} alt="" />
                             <div className="data-request">
@@ -36,13 +54,11 @@ const RequestBoard = () => {
                                 <button>Recusar</button>
                             </div>
                         </div>
-                    </div>
-                    
+                    )}
                 </div>
             </div>
         </div>
-            
     );
-}
-export default  RequestBoard;
-// autora: Isabele Letícia
+};
+
+export default RequestBoard;
