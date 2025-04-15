@@ -98,6 +98,7 @@
   }
   
   .card-request {
+    margin-top: 20px;
     display: flex;
     align-items: center;
     background-color: white;
@@ -141,17 +142,81 @@
     padding: 8px 16px;
     border-radius: 6px;
     font-weight: bold;
-    color: white;
     cursor: pointer;
     font-size: 14px;
     width: 120px;
   }
   
-  .actions-card-request button:first-child {
-    background-color: #0B9247; /* verde aceitar */
+  .aceitar{
+    background-color: #0B9247; 
+    color: white;
   }
   
-  .actions-card-request button:last-child {
-    background-color: #B20000; /* vermelho recusar */
+  .recusar {
+    background-color: #B20000; 
+    color: white;
   }
   
+  .aceito{
+    background-color: white;
+    border: 1.5px solid #61C454;
+    color: #61C454;
+
+  }
+
+  .revisar{
+    background-color: #F4BD50;
+    border: 1.5px solid #F4BD50;
+    color: white;
+
+  }
+  .actions-card-historic button{
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 14px;
+    width: 120px;
+  }
+
+  .actions-card-historic {
+    margin-left: auto;
+    display: flex;
+    gap: 8px;
+  }
+  /* ------------------------------------------------ */
+  /* paginacao */
+  /* paginacao */
+.atual {
+  border-color: #808080;
+  border-radius: 5px;
+  color: #808080;
+  border: 1px solid;
+  width: 30px;
+  height: 30px;
+  
+}
+.anterior{
+  border-radius: 5px;
+  color: white;
+  background-color: #808080;
+  border: none;
+  width: 30px;
+  height: 30px;
+}
+.prox{
+  border-radius: 5px;
+  border: none;
+  color: white;
+  background-color: #808080;
+  width: 30px;
+  height: 30px;
+}
+.pagination{
+display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px; 
+  margin: 20px 0;
+  text-align: center;
+}
