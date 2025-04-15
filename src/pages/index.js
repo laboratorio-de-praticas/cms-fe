@@ -3,6 +3,7 @@ import Footer from '../../components/footer.js';
 import Navbar from '../../components/navbar.js';
 import SearchHome from '../../components/search-home.js';
 import StudentCard from '../../components/student-card.js';
+import MenuProfile from '../../components/menu-profile.js';
 
 export default function Home() {
   return (
@@ -12,8 +13,8 @@ export default function Home() {
       <main>
         <SearchHome />
         <StudentCard />
+        <MenuProfile />
       </main>
-      <br />
       <Footer />
     </>
   );
