@@ -320,13 +320,17 @@ const StudentCard = () => {
             </div>
 
             <div className="student-buttons">
-              <img
-                src="/imgs/edit-student.svg"
-                alt="Editar"
-                className="icon-button"
-                onClick={() => toggleFormulario(index)}
-              />
-              <span>|</span>
+              {!formAberto[index] && (
+                <>
+                  <img
+                    src="/imgs/edit-student.svg"
+                    alt="Editar"
+                    className="icon-button"
+                    onClick={() => toggleFormulario(index)}
+                  />
+                  <span>|</span>
+                </>
+              )}
               <img
                 src="/imgs/Delete-student.svg"
                 alt="Deletar"
@@ -340,7 +344,10 @@ const StudentCard = () => {
       <div className="pagination">
         {/* Botão para a página anterior */}
         {paginaAtual > 1 && (
-          <button class="anterior" onClick={() => irParaPagina(paginaAtual - 1)}>
+          <button
+            class="anterior"
+            onClick={() => irParaPagina(paginaAtual - 1)}
+          >
             {paginaAtual - 1}
           </button>
         )}
