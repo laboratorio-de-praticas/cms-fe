@@ -25,13 +25,19 @@ nav {
   }
   
   .home-item {
-    font-weight: 700;
+    font-weight: 400;
     margin-left: 180px;
   }
   
-  .cadastro-item {
+  .pedidos-item {
     font-weight: 400;
   }
+
+  .nav-link.active-page {
+    font-weight: bold;
+    color: white; /* ou a cor que quiser */
+  }
+  
   
   .logo-cps-55,
   .logo-fatec-registro {
@@ -100,43 +106,6 @@ nav {
     height: 16px;
   }
   
-  
-/* menu dropdown */
-.dropdown-menu.custom-dropdown {
-    background-color: #B20000 !important;
-    border-radius: 0 !important;
-    border: none !important;
-    padding: 0;
-    margin-top: 0.5rem;
-    overflow: hidden;
-  }
-  
-
-  .dropdown-top-bar {
-    height: 4px;
-    background-color: #8B0000;
-  }
-  
-
-  .dropdown-item {
-    color: white !important;
-    padding: 10px 20px;
-    font-weight: 400;
-    background-color: #B20000 !important;
-  }
-  
- 
-  .dropdown-item:hover {
-    background-color: #990000 !important;
-    color: white !important;
-  }
-  
-  .dropdown-divider-white {
-    height: 1px;
-    background-color: white;
-    margin: 0;
-  }
-  
 /* responsividade */
 @media (max-width: 992px) {
     nav {
@@ -172,10 +141,6 @@ nav {
     .nav-link {
       padding: 8px 0;
       font-size: 18px;
-    }
-  
-    .dropdown-menu.custom-dropdown {
-      position: relative !important;
     }
 
     .perfil-retangulo {
