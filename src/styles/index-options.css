@@ -5,9 +5,8 @@
     max-width: 1200px;
     margin-left: 30px;
     margin-right: auto;
-    margin-bottom: 50px; 
+    margin-bottom: 50px;
 }
-
 
 .btn-option {
     width: 200px;
@@ -42,4 +41,38 @@
 .btn-option:hover {
     transform: scale(1.05);
     cursor: pointer;
+}
+
+/* Responsividade para telas menores que 768px (ex: celulares) */
+@media (max-width: 768px) {
+    .options {
+        margin-left: auto;
+        margin-right: auto;
+        padding: 20px;
+    }
+
+    .row.justify-content-start {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .col-auto {
+        margin-bottom: 20px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .btn-option {
+        width: 90%;
+        height: auto;
+        padding: 20px 0;
+        margin-right: 0;
+        font-size: 18px;
+    }
+
+    .btn-option img {
+        width: 60px;
+        height: 60px;
+    }
 }

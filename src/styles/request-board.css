@@ -220,3 +220,60 @@ display: flex;
   margin: 20px 0;
   text-align: center;
 }
+/* responsivo */
+@media (max-width: 768px) {
+  .request-board {
+    padding: 10px;
+  }
+
+  .linha-topo {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .titulo-h2 {
+    font-size: 20px;
+  }
+
+  .acoes-direita {
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .card-request {
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+    padding: 12px;
+  }
+
+  .actions-card-request,
+  .actions-card-historic {
+    margin-left: 0;
+    margin-top: 10px;
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .actions-card-request button,
+  .actions-card-historic button {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 5px;
+  }
+
+  .pagination {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .titulo-turma {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+}
