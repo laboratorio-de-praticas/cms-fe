@@ -1,20 +1,20 @@
 import "../src/styles/menu-profile.css";
-const MenuProfile = () => {
+const MenuProfile = ({ menuAberto, fecharMenu }) => {
     return(
-        <div className="container-fluid menu-perfil-container">
+        <div className={`menu-perfil-container ${menuAberto ? "aberto" : ""}`}>
             <div className="row">
-                <img src="/imgs/close-x.svg" class="" width={20} height={20} alt="" />
+                <img src="/imgs/close-x.svg" className="close-menu" width={20} height={20} alt="Fechar" onClick={fecharMenu} />
             </div>
             <div className="row">
                 <div className="col-md">
-                    <img class="foto-perfil" src="imgs/foto-perfil.png" alt="" />
+                    <img class="foto-perfil-menu" src="imgs/foto-perfil.png" alt="" />
                 </div>
             </div>
             <div className="row">
                 <div className="profile-description">
-                    <p className="nome-perfil">aa</p>
-                    <p className="curso-perfil">dsm4</p>
-                    <p className="tipo-usuarioperfil">adm</p>
+                    <p className="nome-perfil-menu">aa</p>
+                    <p className="curso-perfil-menu">dsm4</p>
+                    <p className="tipo-usuarioperfil-menu">adm</p>
                 </div>
             </div>
             <div className="row">

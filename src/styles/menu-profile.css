@@ -1,92 +1,118 @@
-.menu-perfil-container{
+.menu-perfil-container {
+    position: fixed;
+    top: 0;
+    right: -320px; 
+    width: 300px;
+    height: 100vh;
+    background-color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
+    justify-content: flex-start;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    transition: right 0.3s ease-in-out;
+    padding: 20px;
 }
-.foto-perfil{
-    width: 150px;
-    height: 150px;
+
+.menu-perfil-container.aberto {
+    right: 0; 
+}
+
+.foto-perfil-menu {
+    width: 110px;
+    height: 110px;
     border-radius: 100%;
     margin-top: 20px;
 }
-.profile-description{
+
+
+.menu-perfil-container .profile-description,
+.menu-perfil-container .profile-divider,
+.menu-perfil-container button {
+    width: 260px; 
+}
+
+
+.profile-description {
     margin-top: 20px;
-    align-items:flex-start;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     justify-content: center;
-    width: 300px;
-    height: 100%;
-    border: 1.5px solid;
-    border-color: #808080;
+    width: 100%;
+    border: 1.5px solid #808080;
     border-radius: 5px;
     box-shadow: 0px 0px 5px #808080;
+    padding: 10px;
 }
-.nome-perfil{
+
+.nome-perfil-menu {
     font-size: 16px;
     font-weight: bold;
     color: #808080;
 }
-.curso-perfil{
+
+.curso-perfil-menu {
     color: #808080;
     font-size: 16px;
 }
-.tipo-usuarioperfil{
+
+.tipo-usuarioperfil-menu {
     color: #FBB900;
     font-weight: bold;
     font-size: 16px;
 }
 
-.editar-perfil{
+.editar-perfil,
+.sair-perfil,
+.cadastrar-projeto,
+.editar-projeto {
     margin-top: 20px;
-    color: white;
     font-size: 16px;
-    width: 300px;
+    width: 100%;
     height: 50px;
-    background-color: #B20000;
-    border: 1.5px solid;
-    border-color: #B20000;
     border-radius: 5px;
+    border: 1.5px solid;
 }
 
-.sair-perfil{
-    margin-top: 20px;
-    color: #B20000;
-    font-size: 16px;
-    width: 300px;
-    height: 50px;
-    background-color: white;
-    border: 1.5px solid;
-    border-color: #B20000;
-    border-radius: 5px;
-}
-.cadastrar-projeto{
-    margin-top: 20px;
+.editar-perfil {
     color: white;
-    font-size: 16px;
-    width: 300px;
-    height: 50px;
-    background-color: #034EA2;
-    border: 1.5px solid;
-    border-color: #034EA2;
-    border-radius: 5px;
+    background-color: #B20000;
+    border-color: #B20000;
 }
-.editar-projeto{
-    margin-top: 20px;
-    color: #034EA2;
-    font-size: 16px;
-    width: 300px;
-    height: 50px;
+
+.sair-perfil {
+    color: #B20000;
     background-color: white;
-    border: 1.5px solid;
-    border-color: #034EA2;
-    border-radius: 5px;
+    border-color: #B20000;
 }
-.profile-divider{
-    width: 300px;
+
+.cadastrar-projeto {
+    color: white;
+    background-color: #034EA2;
+    border-color: #034EA2;
+    margin-top: 20px;
+}
+
+.editar-projeto {
+    color: #034EA2;
+    background-color: white;
+    border-color: #034EA2;
+}
+
+.profile-divider {
+    width: 100%;
     height: 1px;
     background-color: #808080;
     margin-top: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 0;
+}
+
+
+.close-menu {
+    position:absolute;
+    top: 20px;
+    right: -120px;
+    cursor: pointer;
 }

@@ -1,5 +1,5 @@
 import '../src/styles/navbar.css'
-const Navbar = () => {
+const Navbar = ({ abrirMenu }) => {
     return (
       <nav class="navbar navbar-expand-lg nav-padrao">
         <div class="container-fluid">
@@ -64,7 +64,7 @@ const Navbar = () => {
               <span className="nome-perfil">José Alves da Silva</span>
               <span className="turma-perfil">DSM-4</span>
             </div>
-            <a href="#">
+            <a href="#" onClick={(e) => { e.preventDefault(); abrirMenu(); }}>
               <img
                 src="/imgs/vector-down.svg"
                 alt=""
