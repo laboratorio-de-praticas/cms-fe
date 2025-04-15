@@ -1,14 +1,12 @@
-
-import SearchHome from '../../components/search-home.js';
-import StudentCard from '../../components/student-card.js';
-// eu coloquei header, navbar e footer no app.js e ai tirei das outras paginas pra nao duplicar ;)
+import Welcome from '../../components/welcome.js';
+import IndexOptions from '../../components/index-options.js';
 export default function Home() {
-  return (
-    <>
-      <main>
-        <SearchHome />
-        <StudentCard />
-      </main>
-    </>
-  );
-}
+    return (
+      <>
+        <main>
+        <Welcome></Welcome>
+        <IndexOptions></IndexOptions>
+        </main>
+      </>
+    );
+  }

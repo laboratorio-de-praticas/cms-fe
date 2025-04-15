@@ -6,6 +6,7 @@ const Navbar = ({ abrirMenu }) => {
   const caminhoAtual = router.pathname;
 
   return (
+    
     <nav className="navbar navbar-expand-lg nav-padrao">
       <div className="container-fluid">
         <a className="navbar-brand" href="#">
@@ -31,10 +32,10 @@ const Navbar = ({ abrirMenu }) => {
               </a>
             </li>
             <li className="nav-item home-item">
-              <a
-                className={`nav-link ${caminhoAtual === '/' ? 'active-page' : ''}`}
-                href="/"
-              >
+            <a
+              className={`nav-link ${['/homeLogado', '/'].includes(caminhoAtual) ? 'active-page' : ''}`}
+              href="/homeLogado"
+            >
                 Home
               </a>
             </li>
