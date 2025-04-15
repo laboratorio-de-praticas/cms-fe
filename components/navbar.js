@@ -6,7 +6,6 @@ const Navbar = ({ abrirMenu }) => {
   const caminhoAtual = router.pathname;
 
   return (
-    
     <nav className="navbar navbar-expand-lg nav-padrao">
       <div className="container-fluid">
         <a className="navbar-brand" href="#">
@@ -32,10 +31,10 @@ const Navbar = ({ abrirMenu }) => {
               </a>
             </li>
             <li className="nav-item home-item">
-            <a
-              className={`nav-link ${['/homeLogado', '/'].includes(caminhoAtual) ? 'active-page' : ''}`}
-              href="/homeLogado"
-            >
+              <a
+                className={`nav-link ${['/homeLogado', '/'].includes(caminhoAtual) ? 'active-page' : ''}`}
+                href="/homeLogado"
+              >
                 Home
               </a>
             </li>
@@ -50,28 +49,30 @@ const Navbar = ({ abrirMenu }) => {
             </li>
           </ul>
         </div>
-        <div className="perfil-retangulo">
-          <img
-            src="/imgs/foto-perfil.png"
-            alt="Foto de Perfil"
-            className="foto-perfil"
-          />
-          <div className="info-perfil">
-            <span className="nome-perfil">José Alves da Silva</span>
-            <span className="turma-perfil">DSM-4</span>
-          </div>
-          <a href="#" onClick={(e) => { e.preventDefault(); abrirMenu(); }}>
+        {/* Condição para ocultar o perfil quando estiver na página inicial */}
+        {caminhoAtual !== '/' && (
+          <div className="perfil-retangulo">
             <img
-              src="/imgs/vector-down.svg"
-              alt=""
-              className="icon-vector"
+              src="/imgs/foto-perfil.png"
+              alt="Foto de Perfil"
+              className="foto-perfil"
             />
-          </a>
-        </div>
+            <div className="info-perfil">
+              <span className="nome-perfil">José Alves da Silva</span>
+              <span className="turma-perfil">DSM-4</span>
+            </div>
+            <a href="#" onClick={(e) => { e.preventDefault(); abrirMenu(); }}>
+              <img
+                src="/imgs/vector-down.svg"
+                alt=""
+                className="icon-vector"
+              />
+            </a>
+          </div>
+        )}
       </div>
     </nav>
   );
 };
 
 export default Navbar;
-// autora: Isabele Letícia
