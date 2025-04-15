@@ -12,9 +12,9 @@ const MenuProfile = ({ menuAberto, fecharMenu }) => {
             </div>
             <div className="row">
                 <div className="profile-description">
-                    <p className="nome-perfil-menu">aa</p>
-                    <p className="curso-perfil-menu">dsm4</p>
-                    <p className="tipo-usuarioperfil-menu">adm</p>
+                    <p className="nome-perfil-menu">Calebe Cardoso Almeida Pereira</p>
+                    <p className="curso-perfil-menu">DSM 4</p>
+                    <p className="tipo-usuarioperfil-menu">ADM</p>
                 </div>
             </div>
             <div className="row">
