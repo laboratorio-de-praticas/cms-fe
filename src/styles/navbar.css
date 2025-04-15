@@ -35,7 +35,7 @@ nav {
 
   .nav-link.active-page {
     font-weight: bold;
-    color: white; /* ou a cor que quiser */
+    color: white;
   }
   
   
@@ -48,11 +48,11 @@ nav {
   .separador {
     color: #000000;
     font-size: 30px;
-    font-weight:400;
+    font-weight:100;
     padding: 0 10px;
   }
   
-  /* essa parte foi necessária para tirar efeitos do bootstrap */
+
   .navbar-nav .nav-link:hover,
 .navbar-nav .nav-link:focus {
   background-color: transparent !important;
@@ -61,7 +61,7 @@ nav {
 }
 
 .perfil-box {
-    margin-left: auto; /* empurra pra direita */
+    margin-left: auto; 
     padding-left: 20px;
   }
   
