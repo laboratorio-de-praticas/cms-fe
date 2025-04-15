@@ -73,3 +73,4 @@ const Navbar = ({ abrirMenu }) => {
 };
 
 export default Navbar;
+// autora: Isabele Letícia

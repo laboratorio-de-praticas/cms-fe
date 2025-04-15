@@ -1,0 +1,142 @@
+.request-board {
+  
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding: 20px; 
+  }
+  
+  /* header  do request board*/
+  .titulo-pedidos {
+    font-size: 16px;
+    color: #004854;
+    margin-bottom: 10px;
+    text-align: left;
+  }
+  
+  .linha-topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .titulo-h2 {
+    font-size: 24px;
+    color: #004854;
+    margin: 0;
+  }
+  
+  .acoes-direita {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .acoes-direita a {
+    font-size: 16px;
+    color: #BFBFBF;
+    text-decoration: none;
+  }
+  
+  .request-board-divider {
+    font-size: 16px;
+    color: #BFBFBF;
+  }
+  
+  .divider-title-board {
+    height: 1px;
+    background-color: #004854;
+    width: 100%;
+  }
+  /* body do request board */
+  .body-board {
+    padding: 20px;
+  }
+  
+  .turma {
+    margin-bottom: 20px;
+  }
+  
+  .cabecalho-turma {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .titulo-turma p {
+    font-weight: bold;
+    font-size: 18px;
+    color: #6c757d; /* cinza */
+    margin: 0;
+  }
+  
+  .titulo-turma a {
+    font-size: 14px;
+    color: #6c757d;
+    text-decoration: none;
+  }
+  
+  .turma-divider {
+    height: 1px;
+    background-color: #808080; /* azul da imagem */
+    margin: 8px 0 16px;
+    border-radius: 2px;
+  }
+  
+  .card-request {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border: 1px solid #808080;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0px 0px 2px #808080;
+    gap: 16px;
+    max-width: 800px;
+    height: 80px;
+  }
+  
+  .card-request img {
+    border-radius: 50%;
+    background-color: #ddd;
+  }
+  
+  .data-request{
+    color: #004854;
+     
+  }
+
+  .nome-candidato-request {
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .turma-candidato-request {
+    margin: 0;
+  }
+  
+  .actions-card-request {
+    margin-left: auto;
+    display: flex;
+    gap: 8px;
+  }
+  
+  .actions-card-request button {
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    width: 150px;
+  }
+  
+  .actions-card-request button:first-child {
+    background-color: #0B9247; /* verde aceitar */
+  }
+  
+  .actions-card-request button:last-child {
+    background-color: #B20000; /* vermelho recusar */
+  }
+  

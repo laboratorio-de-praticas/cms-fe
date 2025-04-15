@@ -47,3 +47,4 @@ const SearchHome = () => {
 };
 
 export default SearchHome;
+// autora: Isabele Letícia

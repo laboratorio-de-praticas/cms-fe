@@ -48,3 +48,4 @@ const MenuProfile = ({ menuAberto, fecharMenu }) => {
 }
 
 export default MenuProfile;
+// autora: Isabele Letícia
