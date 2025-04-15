@@ -1,19 +1,14 @@
-import Header from '../../components/header.js'
-import CreateProject from '../../components/CreateProject.js';
-import Footer from '../../components/footer.js';
-import Navbar from '../../components/navbar.js';
 
+import CreateProject from '../../components/CreateProject.js';
+// eu coloquei header, navbar e footer no app.js e ai tirei das outras paginas pra nao duplicar ;)
 export default function FormProject(){
     return(
         <>
-        <Header />
-        <Navbar />
         <main>
             <br/>
             <CreateProject />
             <br/>
         </main>
-        <Footer />
         </>
     )
 }

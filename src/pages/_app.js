@@ -8,6 +8,7 @@ import Footer from '../../components/footer.js';
 import { useEffect } from 'react';
 
 export default function App({ Component, pageProps }) {
+  // FUNCAO PRA MENU LATERAL DA NAVBAR ABRIR E FECHAR
   const [menuAberto, setMenuAberto] = useState(false);
 
   useEffect(() => {
