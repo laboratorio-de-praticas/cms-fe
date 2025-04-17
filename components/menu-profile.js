@@ -59,3 +59,5 @@ const MenuProfile = ({ menuAberto, fecharMenu }) => {
 
 export default MenuProfile;
 // autora: Isabele Letícia
+// esse menu vai ter varias visoes
+// de acordo com o tipo de usuario, mas por enquanto esta no aluno
