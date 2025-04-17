@@ -39,9 +39,27 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
 ----------------------------------------------------------------------------------------------------------------------------------------------
-PONTOS A SEREM OBSERVADOS DURANTE INTEGRAÇÃO COM BACK-END
-1.menu-profile possui mais de uma possibilidade de aparência pois cada tipo de usuário o verá de uma forma.
-1.1 menu-profile visao do usuario aluno, ao visualizar a foto dos integrantes de seu grupo, deve ser feito um calculo de quantas pessoas são no grupo para as fotos serem reduzidas ou aumentadas proporcionalmente e de forma que todos as fotos fiquem na mesma linha.
-2.alinhar as paginas home e pedidos na visão do admin com relação a paginação dos cards. 
-3. pagina pedidos na visão do adm, deve ser colocado para repetir o card do aluno e também a turma, para que se tenham varias turmas e seus alunos candidatos
-4. home do adm, funcionalidade dos filtros e da barra de pesquisa.
+# Pontos a Serem Observados Durante Integração com Back-End
+
+## 1. Componente `menu-profile`
+- O `menu-profile` possui mais de uma possibilidade de aparência, pois cada tipo de usuário o verá de forma diferente.
+
+### 1.1 Visão do Usuário Aluno
+- Ao visualizar a foto dos integrantes de seu grupo:
+  - Deve ser feito um cálculo da quantidade de pessoas no grupo.
+  - As fotos devem ser redimensionadas proporcionalmente, de forma que todas fiquem alinhadas na mesma linha.
+
+## 2. Páginas "Home" e "Pedidos" na Visão do Admin
+- Alinhar o comportamento da paginação dos cards entre essas duas páginas para manter a consistência visual e funcional.
+
+## 3. Página "Pedidos" na Visão do Admin
+- Deve ser implementada a repetição dos seguintes elementos:
+  - **Card do aluno**
+  - **Informação da turma**
+- Isso permitirá que sejam exibidas várias turmas e seus respectivos alunos candidatos.
+
+## 4. Página "Home" na Visão do Admin
+- Implementar corretamente a funcionalidade:
+  - Dos **filtros**
+  - Da **barra de pesquisa**
+
