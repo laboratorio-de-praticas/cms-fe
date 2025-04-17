@@ -1,5 +1,5 @@
-import { useRouter } from 'next/router';
-import '../src/styles/navbar.css';
+import { useRouter } from "next/router";
+import "../src/styles/navbar.css";
 
 const Navbar = ({ abrirMenu }) => {
   const router = useRouter();
@@ -32,25 +32,62 @@ const Navbar = ({ abrirMenu }) => {
             </li>
             <li className="nav-item home-item">
               <a
-                className={`nav-link ${['/homeLogado', '/'].includes(caminhoAtual) ? 'active-page' : ''}`}
-                href="/homeLogado"
+                className={`nav-link ${
+                  ["/homeLogado", "/"].includes(caminhoAtual)
+                    ? "active-page"
+                    : ""
+                }`}
+                href={caminhoAtual === "/" ? "#" : "/homeLogado"}
               >
                 Home
               </a>
             </li>
             <span className="separador">|</span>
-            <li className="nav-item pedidos-item">
-              <a
-                className={`nav-link ${caminhoAtual === '/pedidos' ? 'active-page' : ''}`}
-                href="/pedidos"
-              >
-                Pedidos
-              </a>
-            </li>
+            {/* Condição para mostrar o dropdown de "Cadastro" quando estiver na página inicial */}
+            {caminhoAtual === "/" ? (
+              <li className="nav-item dropdown">
+                <a
+                  className="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Cadastro
+                </a>
+                <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li>
+                    <a className="dropdown-item" href="/cadastro/usuario">
+                      Usuário
+                    </a>
+                  </li>
+                  <li>
+                    <hr className="dropdown-divider" />
+                  </li>
+                  <li>
+                    <a className="dropdown-item" href="/cadastro/projeto">
+                      Projeto
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            ) : (
+              <li className="nav-item pedidos-item">
+                <a
+                  className={`nav-link ${
+                    caminhoAtual === "/pedidos" ? "active-page" : ""
+                  }`}
+                  href="/pedidos"
+                >
+                  Pedidos
+                </a>
+              </li>
+            )}
           </ul>
         </div>
         {/* Condição para ocultar o perfil quando estiver na página inicial */}
-        {caminhoAtual !== '/' && (
+        {caminhoAtual !== "/" && (
           <div className="perfil-retangulo">
             <img
               src="/imgs/foto-perfil.png"
@@ -61,12 +98,14 @@ const Navbar = ({ abrirMenu }) => {
               <span className="nome-perfil">José Alves da Silva</span>
               <span className="turma-perfil">DSM-4</span>
             </div>
-            <a href="#" onClick={(e) => { e.preventDefault(); abrirMenu(); }}>
-              <img
-                src="/imgs/vector-down.svg"
-                alt=""
-                className="icon-vector"
-              />
+            <a
+              href="#"
+              onClick={(e) => {
+                e.preventDefault();
+                abrirMenu();
+              }}
+            >
+              <img src="/imgs/vector-down.svg" alt="" className="icon-vector" />
             </a>
           </div>
         )}

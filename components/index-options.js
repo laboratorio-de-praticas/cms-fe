@@ -23,7 +23,7 @@ const IndexOptions = () => {
         <div className="col-auto">
           <button
             className="btn-option outlined"
-            onClick={() => handleRedirect('/cadAluno')} // Redireciona para /cadAluno
+            onClick={() => handleRedirect('/formStudent')}
           >
             <img src="/imgs/cadastro-aluno.svg" alt="" width={90} height={90} />
             <span>Cadastro Aluno</span>
@@ -32,7 +32,7 @@ const IndexOptions = () => {
         <div className="col-auto">
           <button
             className="btn-option outlined"
-            onClick={() => handleRedirect('/cadVisitante')} // Redireciona para /cadVisitante
+            onClick={() => handleRedirect('/cadVisitante')} 
           >
             <img src="/imgs/cadastro-visitante.svg" alt="" width={90} height={90} />
             <span>Cadastro Visitante</span>

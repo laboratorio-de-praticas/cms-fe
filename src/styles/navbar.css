@@ -52,6 +52,41 @@ nav {
     padding: 0 10px;
   }
   
+/* drop */
+.nav-item.dropdown {
+  position: relative; /* Garante que o dropdown-menu se posicione em relação a este item */
+}
+
+.nav-item.dropdown .dropdown-menu {
+  border-radius: 0;
+  background-color: #B20000;
+  top: 100%; /* Garante que fique logo abaixo do botão */
+  margin-top: 23px; /* Ajuste fino da distância */
+  z-index: 1000;
+}
+
+.nav-item.dropdown .dropdown-item {
+  color: white;
+  padding: 10px 20px;
+  text-align: left;
+}
+
+.nav-item.dropdown .dropdown-item:hover {
+  background-color: #9e0000;
+}
+
+.nav-item.dropdown .dropdown-divider {
+  border-color: white;
+}
+
+.nav-item.dropdown .dropdown-item:first-child {
+  box-shadow: 0 4px 6px rgba(178, 0, 0, 0.6);
+}
+
+.nav-item.dropdown .dropdown-toggle::after {
+  display: none !important; /* Remove completamente a seta */
+}
+
 
   .navbar-nav .nav-link:hover,
 .navbar-nav .nav-link:focus {
@@ -59,6 +94,8 @@ nav {
   color: white !important;
   text-decoration: none;
 }
+
+
 
 .perfil-box {
     margin-left: auto; 
