@@ -38,3 +38,10 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+----------------------------------------------------------------------------------------------------------------------------------------------
+PONTOS A SEREM OBSERVADOS DURANTE INTEGRAÇÃO COM BACK-END
+1.menu-profile possui mais de uma possibilidade de aparência pois cada tipo de usuário o verá de uma forma.
+1.1 menu-profile visao do usuario aluno, ao visualizar a foto dos integrantes de seu grupo, deve ser feito um calculo de quantas pessoas são no grupo para as fotos serem reduzidas ou aumentadas proporcionalmente e de forma que todos as fotos fiquem na mesma linha.
+2.alinhar as paginas home e pedidos na visão do admin com relação a paginação dos cards. 
+3. pagina pedidos na visão do adm, deve ser colocado para repetir o card do aluno e também a turma, para que se tenham varias turmas e seus alunos candidatos
+4. home do adm, funcionalidade dos filtros e da barra de pesquisa.
