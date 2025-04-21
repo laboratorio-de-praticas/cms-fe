@@ -1,9 +1,12 @@
 import { useRouter } from "next/router";
 import "../src/styles/navbar.css";
+import { useEffect, useState } from "react";
 
-const Navbar = ({ abrirMenu }) => {
+const Navbar = ({ abrirMenu, tipoUsuario = null }) => {
   const router = useRouter();
   const caminhoAtual = router.pathname;
+
+  const estaNoIndex = caminhoAtual === "/";
 
   return (
     <nav className="navbar navbar-expand-lg nav-padrao">
@@ -17,8 +20,10 @@ const Navbar = ({ abrirMenu }) => {
             height={56.8}
           />
         </a>
+
         <div className="collapse navbar-collapse" id="navbarNavDropdown">
           <ul className="navbar-nav">
+            {/* Logo Fatec */}
             <li className="nav-item">
               <a className="nav-link active" aria-current="page" href="#">
                 <img
@@ -30,21 +35,23 @@ const Navbar = ({ abrirMenu }) => {
                 />
               </a>
             </li>
+
+            {/* Home */}
             <li className="nav-item home-item">
               <a
                 className={`nav-link ${
-                  ["/homeLogado", "/"].includes(caminhoAtual)
-                    ? "active-page"
-                    : ""
+                  ["/homeLogado", "/"].includes(caminhoAtual) ? "active-page" : ""
                 }`}
-                href={caminhoAtual === "/" ? "#" : "/homeLogado"}
+                href={estaNoIndex ? "#" : "/homeLogado"}
               >
                 Home
               </a>
             </li>
+
             <span className="separador">|</span>
-            {/* Condição para mostrar o dropdown de "Cadastro" quando estiver na página inicial */}
-            {caminhoAtual === "/" ? (
+
+            {/* Apenas se estiver no index (deslogado) */}
+            {estaNoIndex && (
               <li className="nav-item dropdown">
                 <a
                   className="nav-link dropdown-toggle"
@@ -62,9 +69,7 @@ const Navbar = ({ abrirMenu }) => {
                       Usuário
                     </a>
                   </li>
-                  <li>
-                    <hr className="dropdown-divider" />
-                  </li>
+                  <li><hr className="dropdown-divider" /></li>
                   <li>
                     <a className="dropdown-item" href="/cadastro/projeto">
                       Projeto
@@ -72,22 +77,55 @@ const Navbar = ({ abrirMenu }) => {
                   </li>
                 </ul>
               </li>
-            ) : (
-              <li className="nav-item pedidos-item">
+            )}
+
+            {/* Se não estiver no index, mostra conforme o tipo de usuário */}
+            {!estaNoIndex && tipoUsuario === "adm" && (
+              <>
+                <li className="nav-item">
+                  <a
+                    className={`nav-link ${caminhoAtual === "/gerenciar" ? "active-page" : ""}`}
+                    href="/gerenciar"
+                  >
+                    Gerenciar
+                  </a>
+                </li>
+                <span className="separador">|</span>
+                <li className="nav-item">
+                  <a
+                    className={`nav-link ${caminhoAtual === "/pedidos" ? "active-page" : ""}`}
+                    href="/pedidos"
+                  >
+                    Pedidos
+                  </a>
+                </li>
+                <span className="separador">|</span>
+                <li className="nav-item">
+                  <a
+                    className={`nav-link ${caminhoAtual === "/eventos" ? "active-page" : ""}`}
+                    href="/eventos"
+                  >
+                    Eventos
+                  </a>
+                </li>
+              </>
+            )}
+
+            {!estaNoIndex && tipoUsuario === "aluno" && (
+              <li className="nav-item">
                 <a
-                  className={`nav-link ${
-                    caminhoAtual === "/pedidos" ? "active-page" : ""
-                  }`}
-                  href="/pedidos"
+                  className={`nav-link ${caminhoAtual === "/cadastro/projeto" ? "active-page" : ""}`}
+                  href="/cadastro/projeto"
                 >
-                  Pedidos
+                  Cadastrar
                 </a>
               </li>
             )}
           </ul>
         </div>
-        {/* Condição para ocultar o perfil quando estiver na página inicial */}
-        {caminhoAtual !== "/" && (
+
+        {/* Exibir perfil apenas se não for index */}
+        {!estaNoIndex && (
           <div className="perfil-retangulo">
             <img
               src="/imgs/foto-perfil.png"

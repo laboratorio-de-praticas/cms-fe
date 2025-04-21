@@ -21,7 +21,7 @@ export default function App({ Component, pageProps }) {
   return (
     <div style={{ position: 'relative' }}>
       <Header/>
-      <Navbar abrirMenu={abrirMenu} />
+      <Navbar tipoUsuario="adm"  abrirMenu={abrirMenu} />
       <MenuProfile menuAberto={menuAberto} fecharMenu={fecharMenu} />
       <main>
         <Component {...pageProps} />

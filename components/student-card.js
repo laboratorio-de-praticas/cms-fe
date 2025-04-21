@@ -86,7 +86,7 @@ const StudentCard = () => {
                 }
               `}
             >
-              {/* FORMULÁRIO DE EDIÇÃO */}
+              {/*  EDIÇÃO */}
               {formAberto[index] && (
                 <form className="student-form inside-card">
                   <div className="form-avatar">
@@ -345,7 +345,7 @@ const StudentCard = () => {
         {/* Botão para a página anterior */}
         {paginaAtual > 1 && (
           <button
-            class="anterior"
+            className="anterior" // Mudado de 'class' para 'className'
             onClick={() => irParaPagina(paginaAtual - 1)}
           >
             {paginaAtual - 1}
@@ -353,11 +353,14 @@ const StudentCard = () => {
         )}
 
         {/* Página atual */}
-        <span class="atual">{paginaAtual}</span>
+        <span className="atual">{paginaAtual}</span>
 
         {/* Botão para a próxima página */}
         {paginaAtual < totalPages && (
-          <button class="prox" onClick={() => irParaPagina(paginaAtual + 1)}>
+          <button
+            className="prox" // Mudado de 'class' para 'className'
+            onClick={() => irParaPagina(paginaAtual + 1)}
+          >
             {paginaAtual + 1}
           </button>
         )}

@@ -7,7 +7,7 @@ const MenuProfile = ({
   nome = "Calebe Cardoso Almeida Pereira",
   cursoOuSetor = "DSM 4",
   grupo = { nome: "Learny", descricao: "Ensino de Inglês Gamificado para crianças com TEA." },
-  integrantes = [ // lista de imagens dos integrantes (opcional se tipoUsuario for "adm")
+  integrantes = [ // imgs integrantes (opcional se tipoUsuario for "adm")
     "/imgs/foto-perfil.png",
     "/imgs/foto-perfil2.png",
     "/imgs/foto-perfil.png",
