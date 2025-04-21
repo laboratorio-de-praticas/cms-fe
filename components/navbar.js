@@ -42,7 +42,7 @@ const Navbar = ({ abrirMenu, tipoUsuario = null }) => {
                 className={`nav-link ${
                   ["/homeLogado", "/"].includes(caminhoAtual) ? "active-page" : ""
                 }`}
-                href={estaNoIndex ? "#" : "/homeLogado"}
+                href="/homeLogado"
               >
                 Home
               </a>

@@ -8,7 +8,6 @@ export default function HomeLogado() {
       <main>
         <SearchHome />
         <StudentCard />
-        
       </main>
     </>
   );

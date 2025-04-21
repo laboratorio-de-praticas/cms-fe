@@ -1,7 +1,5 @@
-import Header from '../../components/header.js'
-import Forms from "../../components/forms.js";
-import Footer from '../../components/footer.js';
-import Navbar from '../../components/navbar.js';
+import FormStudent from "../../components/formStudent.js";
+
 // eu coloquei header, navbar e footer no app.js e ai tirei das outras paginas pra nao duplicar ;)
 
 export default function Form(){
@@ -9,7 +7,7 @@ export default function Form(){
         <>
         <main>
             <br/>
-            <Forms />
+            <FormStudent />
             <br/>
         </main>
         </>

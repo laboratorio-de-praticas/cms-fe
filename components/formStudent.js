@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import "../src/styles/form-student.css";
 
-const Forms = () => {
+const FormStudent = () => {
     const [formData, setFormData] = useState({
         nome: '',
         ra: '',
@@ -15,6 +16,11 @@ const Forms = () => {
         curso: '',
         foto: null,
     });
+
+    const [showPopup, setShowPopup] = useState(true); // novo estado
+    useEffect(() => {
+        setShowPopup(true); // mostra o popup ao carregar
+    }, []);
 
     const handleChange = (e) => {
         const { name, value, type, checked, files } = e.target;
@@ -66,17 +72,31 @@ const Forms = () => {
     };
 
     return (
+            <>
+           {showPopup && (
+                <div className="popup-overlay">
+                    <div className="popup-content">
+                        <h5 className="fw-bold">
+                            Para prosseguir, confirme seu cadastro
+                        </h5>
+                        <br />
+                        <button
+                            className="btn btn-success"
+                            onClick={() => setShowPopup(false)}
+                        >
+                            Ok
+                        </button>
+                    </div>
+                </div>
+            )}
         <div className="container" style={{ color: '#004854', border: 'solid', borderWidth:1, borderRadius:5}}>
             <div className="row">
                 <div className="col-md-4">
-                <br/>
-                <br/>
                     <h5>Tela de cadastrado do</h5>
                     <h3 className='fw-bold'>CMS - Sistema de</h3>
                     <h3 className='fw-bold'>Gerenciamento de Conteúdo</h3>
                 </div>
             </div>
-            <br/>
             <form className="g-3" method="POST" onSubmit={handleSubmit} encType="multipart/form-data">
 
                 {/* Candidato e Líder */}
@@ -189,7 +209,8 @@ const Forms = () => {
                 <br />
             </form>
         </div>
+        </>
     );
 };
 
-export default Forms;
+export default FormStudent;
