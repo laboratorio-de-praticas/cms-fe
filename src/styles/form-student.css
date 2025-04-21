@@ -1,3 +1,4 @@
+/* popup */
 .popup-overlay {
     position: fixed;
     top: 0;
@@ -55,6 +56,146 @@
     border-color: #097e3c;
 }
 
+/* form */
+.form-student {
+    width: 100%;
+    padding: 1rem 0;
+  }
+
+  .title-form-student{
+    color: #004854;
+
+  }
+  .divider{
+    background-color: #004854;
+    height: 1.5px;
+  }
+  
+  .form-grid {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+  }
+  
+  .foto-container {
+    flex-shrink: 0;
+  }
+  
+  .photo-box {
+    width: 180px;
+    height: 180px;
+    border-radius: 8px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  
+  .photo-box svg {
+    width: 48px;
+    height: 48px;
+    fill: #004854;
+    
+  }
+  
+  .info-container {
+    flex: 1;
+  }
+  
+  /* Toggle buttons DSM / GE */
+  .toggle-group {
+    display: flex;
+    border: 1px solid #004854;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  
+  .toggle-group button {
+    background: white;
+    color: #004854;
+    font-weight: bold;
+    padding: 0.4rem 1.5rem;
+    border: 1px solid transparent;
+    outline: none;
+    transition: 0.2s;
+    cursor: pointer;
+  }
+  
+  .toggle-group button:hover {
+    background-color: #004854;
+    color: white;
+    border: 1px solid #004854;
+  }
+  
+  .toggle-group .active {
+    background-color: #004854;
+    color: white;
+    border: 1px solid #004854;
+  }
+  
+  .checkbox-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #004854;
+    font-size: 18px;
+    line-height: 1.2; 
+    height: 100%;      
+  }
+
+  .check-lider{
+    accent-color: #004854;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    border-radius: 30px;
+  }
+  
+  /* Campos fake input */
+  .input-fake {
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 0.5rem 1rem;
+    margin-bottom: 0.75rem;
+    color: #333;
+  }
+  
+  .input-fake strong {
+    color: #004854;
+    margin-right: 0.3rem;
+  }
+  
+  /* Botões */
+  .button-group {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .btn-success {
+    background-color: #43c067;
+    border: none;
+    font-weight: bold;
+    width: 140px;
+  }
+  
+  .btn-success:hover {
+    background-color: #38a957;
+  }
+  
+  .btn-outline-danger {
+    color: #b03030;
+    border: 2px solid #b03030;
+    font-weight: bold;
+    width: 140px;
+  }
+  
+  .btn-outline-danger:hover {
+    background-color: #b03030;
+    color: white;
+  }
+  
 /* Responsividade */
 @media (max-width: 768px) {
     .popup-content {
