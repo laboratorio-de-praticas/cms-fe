@@ -24,7 +24,6 @@
     width: 100%;
     max-height: 250px;
     height: auto;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -61,17 +60,17 @@
     padding-left: 3rem;
     padding-right: 3rem;
 }
-  
+
 .form-student {
     width: 100%;
     padding: 1rem 0;
 }
 
-.title-form-student{
+.title-form-student {
     color: #004854;
 }
 
-.divider{
+.divider {
     background-color: #004854;
     height: 1.5px;
 }
@@ -144,11 +143,11 @@
     gap: 0.5rem;
     color: #004854;
     font-size: 18px;
-    line-height: 1.2; 
-    height: 100%;      
+    line-height: 1.2;
+    height: 100%;
 }
 
-.check-lider{
+.check-lider {
     accent-color: #004854;
     width: 20px;
     height: 20px;
@@ -157,38 +156,31 @@
 }
 
 /* CAMPOS */
-
-/* Linha dos campos lado a lado */
-
 .form-row {
     display: flex;
-    gap: 0.2rem; /* Reduzi o valor do gap aqui */
-    margin-top: 15px;
+    gap: 0.2rem;
     justify-content: space-between;
 }
 
-/* Container geral de campo */
 .form-field {
     width: 100%;
 }
 
-/* Campo Nome */
 .inp-nome {
     width: 800px;
 }
 
-/* Campo RA */
-.inp-ra{
-    width: 480px; /* Definindo largura de 500px para o campo RA */
+.inp-ra {
+    width: 480px;
 }
 
-/* Campo Data */
 .inp-data {
-    width: 290px; /* Definindo largura de 300px para o campo Data */
+    width: 290px;
+}
+.inp-sem {
+    width: 400px;
 }
 
-
-/* Input estilizado */
 .styled-input {
     border: 1px solid #004854;
     border-radius: 8px;
@@ -198,32 +190,46 @@
     background-color: white;
     outline: none;
     transition: border 0.2s;
+    margin-top: 15px;
 }
 
-/* Estilo do placeholder */
 .styled-input::placeholder {
     font-weight: bold;
     color: #004854;
     opacity: 1;
 }
 
-/* Foco no input */
 .styled-input:focus {
     border-color: #007d9f;
     box-shadow: 0 0 0 2px rgba(0, 72, 84, 0.2);
 }
 
-/* Botões */
-.button-group {
+.row-final {
     display: flex;
-    gap: 1rem;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 15px;
+    flex-wrap: nowrap;
+}
+
+.row-final .campo-final {
+    flex: 1;
+    max-width: 400px;
+    margin: 0;
+}
+
+.row-final .button-group {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-start;
+    margin-left: 35px;
 }
 
 .btn-success {
-    background-color: #43c067;
+    background-color: #61C454;
     border: none;
     font-weight: bold;
-    width: 140px;
+    width: 210px;
 }
 
 .btn-success:hover {
@@ -231,64 +237,123 @@
 }
 
 .btn-outline-danger {
-    color: #b03030;
-    border: 2px solid #b03030;
+    color: #B20000;
+    border: 2px solid #B20000;
     font-weight: bold;
     width: 140px;
 }
 
 .btn-outline-danger:hover {
-    background-color: #b03030;
+    background-color: #B20000;
     color: white;
 }
 
-/* Responsividade */
-@media (max-width: 768px) {
-    .popup-content {
-        padding: 25px;
-        max-width: 90%;
-        max-height: none;
+/* Responsividade geral */
+@media (max-width: 1024px) {
+    /* Para tablets e telas menores que 1024px */
+    .form-grid {
+        flex-direction: column; /* Empilha os campos */
+        gap: 1.5rem; /* Aumenta o espaçamento entre os campos */
     }
 
-    .popup-content h5 {
-        font-size: 22px;
+    .foto-container {
+        width: 100%; /* Foto ocupa toda a largura disponível */
+        max-width: 200px;
+        margin: 0 auto; /* Centraliza a foto */
     }
 
-    .popup-content .btn-success {
-        width: 200px;
-        font-size: 16px;
-        height: 45px;
+    .photo-box {
+        width: 100%; /* Foto ocupa toda a largura */
+        max-width: 180px;
+        height: auto;
+        margin: 0 auto;
     }
 
-    .form-row {
-        flex-direction: column;
-        gap: 1rem;
+    .inp-nome, .inp-ra, .inp-data, .inp-sem {
+        width: 100%; /* Inputs ocupam toda a largura */
+        min-width: 0; /* Garante que os campos não ultrapassem o limite da tela */
     }
 
-    .form-field.ra,
-    .form-field.data {
-        width: 100%;
+    .toggle-group {
+        flex-direction: column; /* Empilha os botões do toggle */
+        width: 100%; /* Garante que o toggle ocupe toda a largura disponível */
+        border-radius: 5px; /* Adiciona borda arredondada */
+    }
+
+    .toggle-group button {
+        padding: 0.4rem 1rem;
+        border: 1px solid #004854; /* Corrige a borda */
+    }
+
+    .row-final .button-group {
+        width: 100%; /* Botões ocupam toda a largura */
+        justify-content: space-between; /* Espaçamento entre os botões */
     }
 }
 
-@media (max-width: 480px) {
-    .popup-content h5 {
-        font-size: 20px;
+@media (max-width: 768px) {
+    .container-form-student {
+        padding-left: 1rem;
+        padding-right: 1rem;
     }
 
-    .popup-content .btn-success {
-        width: 100%;
-        font-size: 16px;
-        height: 45px;
-    }
-
-    .form-row {
+    .form-grid {
         flex-direction: column;
         gap: 1rem;
     }
 
-    .form-field.ra,
-    .form-field.data {
+    .foto-container {
         width: 100%;
+        max-width: 150px;
+        margin: 0 auto;
+    }
+
+    .photo-box {
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+    }
+
+    .inp-nome, .inp-ra, .inp-data, .inp-sem {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .toggle-group {
+        flex-direction: column;
+        width: 60%;
+    }
+
+    .toggle-group button {
+        width: 100%;
+        padding: 0.3rem;
+    }
+
+    .row-final {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        margin-left: 0 !important; /* remove qualquer margem esquerda */
+    }
+
+    .row-final .campo-final {
+        width: 100%;
+        max-width: 100%;
+        margin-left: 0 !important;
+    }
+
+    .row-final .button-group {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        margin-left: 0 !important;
+    }
+
+    .btn-success, .btn-outline-danger {
+        width: 100%;
+        max-width: 250px;
+        margin-left: 0 !important;
     }
 }

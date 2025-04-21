@@ -136,33 +136,35 @@ const FormStudent = () => {
 
                         <div className="form-field data">
                         <input
-                    type={dateFocused ? "date" : "text"}
-                    onFocus={() => setDateFocused(true)}
-                    name="ano_ingresso"
-                    value={formData.ano_ingresso}
-                    onChange={handleChange}
-                    className="styled-input inp-data"
-                    placeholder="Data de Matrícula:"
-                    />
+                        type={dateFocused ? "date" : "text"}
+                        onFocus={() => setDateFocused(true)}
+                        name="ano_ingresso"
+                        value={formData.ano_ingresso}
+                        onChange={handleChange}
+                        className="styled-input inp-data"
+                        placeholder="Data de Matrícula:"
+                        />
                         </div>
                         </div>
                     {/* Semestre Atual */}
-                    <div className="form-field">
-                    <input 
-                        type="number" 
-                        name="turma_atual" 
-                        value={formData.turma_atual} 
-                        onChange={handleChange} 
-                        className="styled-input"
-                        placeholder="Semestre Atual:"
-                    />
-                    </div>
+                    <div className="row-final">
+                        <div className="campo-final">
+                        <input 
+                            type="number" 
+                            name="turma_atual" 
+                            value={formData.turma_atual} 
+                            onChange={handleChange} 
+                            className="styled-input inp-sem"
+                            placeholder="Semestre Atual:"
+                        />
+                        </div>
 
-                    {/* Botões */}
-                    <div className="button-group mt-3">
-                        <button type="submit" className="btn btn-success">Cadastrar</button>
-                        <a href="/" className="btn btn-outline-danger">Cancelar</a>
-                    </div>
+                        {/* Botões */}
+                        <div className="button-group mt-3">
+                            <button type="submit" className="btn btn-success">Cadastrar</button>
+                            <a href="/" className="btn btn-outline-danger">Cancelar</a>
+                        </div>
+                        </div>
                     </div>
                 </div>
                 </form>
