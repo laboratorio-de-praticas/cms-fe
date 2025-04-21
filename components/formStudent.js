@@ -23,7 +23,9 @@ const FormStudent = () => {
           curso: cursoSelecionado
         }));
       };
-      
+    
+    const [dateFocused, setDateFocused] = useState(false);
+
 
     const [showPopup, setShowPopup] = useState(true);
     useEffect(() => {
@@ -91,9 +93,9 @@ const FormStudent = () => {
                     </div>
                     </div>
 
-                    {/* Lado direito: form */}
+                    {/* lado direito */}
                     <div className="info-container">
-                    {/* Toggle e checkbox */}
+                    {/* toggle e checkbox */}
                     <div className="d-flex align-items-center gap-3 mb-3">
                         <div className="toggle-group">
                         <button type="button" className={formData.curso === 'DSM' ? 'active' : ''} onClick={() => handleCursoChange('DSM')}>DSM</button>
@@ -107,12 +109,54 @@ const FormStudent = () => {
                     </div>
 
                     {/* Campos */}
-                    <div className="input-fake"><strong>Nome:</strong> {formData.nome}</div>
-                    <div className="row gap-3">
-                        <div className="col input-fake"><strong>RA:</strong> {formData.ra}</div>
-                        <div className="col input-fake"><strong>Data de Matrícula:</strong> {formData.ano_ingresso}</div>
+                    {/* Nome */}
+                    <div className="form-field">
+                    <input 
+                        type="text" 
+                        name="nome" 
+                        value={formData.nome} 
+                        onChange={handleChange} 
+                        className="styled-input inp-nome"
+                        placeholder="Nome:"
+                    />
                     </div>
-                    <div className="input-fake"><strong>Semestre Atual:</strong> {formData.turma_atual}</div>
+
+                    {/* RA e Data de Matrícula lado a lado */}
+                    <div className="form-row">
+                        <div className="form-field ra">
+                            <input
+                            type="text"
+                            name="ra"
+                            value={formData.ra}
+                            onChange={handleChange}
+                            className="styled-input inp-ra"
+                            placeholder="RA:"
+                            />
+                        </div>
+
+                        <div className="form-field data">
+                        <input
+                    type={dateFocused ? "date" : "text"}
+                    onFocus={() => setDateFocused(true)}
+                    name="ano_ingresso"
+                    value={formData.ano_ingresso}
+                    onChange={handleChange}
+                    className="styled-input inp-data"
+                    placeholder="Data de Matrícula:"
+                    />
+                        </div>
+                        </div>
+                    {/* Semestre Atual */}
+                    <div className="form-field">
+                    <input 
+                        type="number" 
+                        name="turma_atual" 
+                        value={formData.turma_atual} 
+                        onChange={handleChange} 
+                        className="styled-input"
+                        placeholder="Semestre Atual:"
+                    />
+                    </div>
 
                     {/* Botões */}
                     <div className="button-group mt-3">
