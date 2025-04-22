@@ -35,7 +35,7 @@
 .popup-content h5 {
     color: #004854;
     font-size: 30px;
-    margin: 0;
+    margin-bottom: 30px;
 }
 
 .popup-content .btn-success {
@@ -55,6 +55,20 @@
     border-color: #097e3c;
 }
 
+.btn-sim{
+    background-color: '#0B9247';
+    color: 'white';
+    width: '120px';
+    height: '45px';
+    font-weight: 'bold';
+    border: 'none';
+    border-radius: '5px';
+    display: 'flex';
+    align-items: 'center';
+    justify-content: 'center';
+    text-decoration: 'none';
+}
+
 /* divisao */
 .divider-verde {
     margin: 0;
@@ -63,7 +77,6 @@
     width: 100%;
     position: relative;
     top: 0;
-    margin-top: -24px; /* Ajuste a distância conforme necessário */
 }
 
 

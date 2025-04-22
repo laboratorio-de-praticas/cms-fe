@@ -6,9 +6,7 @@ export default function Form(){
     return(
         <>
         <main>
-            <br/>
             <FormStudent />
-            <br/>
         </main>
         </>
     )
