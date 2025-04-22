@@ -3,7 +3,7 @@ import React from "react";
 
 const SearchHome = () => {
   return (
-    <div className="container-fluid container-filtros-dsm">
+    <div className="search-container-fluid container-filtros-dsm">
       <div className="row">
         <div className="col-12 d-flex flex-wrap align-items-center gap-2 mb-3">
           {/*btn todos*/}

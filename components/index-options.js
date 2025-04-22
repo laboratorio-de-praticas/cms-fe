@@ -7,8 +7,11 @@ const IndexOptions = () => {
   const { userType } = useUser(); // Obtendo o tipo de usuário do contexto
 
   const handleRedirect = (path) => {
-    router.push(path); 
+    console.log(`Redirecionando para: ${path}`);
+    router.replace(path);
   };
+  
+  
 
   return (
     <div className="container-fluid options">
@@ -24,13 +27,16 @@ const IndexOptions = () => {
               </button>
             </div>
             <div className="col-auto">
-              <button className="btn-option sistema" onClick={() => handleRedirect('/gerenciar')}>
-                <img src="/imgs/entrar-sistema.svg" alt="" width={90} height={90} />
-                <span>Entrar Sistema</span>
-              </button>
+            <button className="btn-option sistema" onClick={() => {
+              console.log('Clicou em Gerenciar');
+              handleRedirect('/gerenciar');
+            }}>
+              <img src="/imgs/entrar-sistema.svg" alt="" width={90} height={90} />
+              <span>Entrar Sistema</span>
+            </button>
             </div>
             <div className="col-auto">
-              <button className="btn-option pedidos" onClick={() => handleRedirect('/cadVisitante')}>
+              <button className="btn-option pedidos" onClick={() => handleRedirect('/pedidos')}>
                 <img src="/imgs/gerenciar-pedidos.svg" alt="" width={90} height={90} />
                 <span>Gerenciar Pedidos</span>
               </button>

@@ -75,7 +75,7 @@ const MenuProfile = ({
 
         {/* botões comuns */}
         <div className="row">
-          <button className="editar-perfil">Editar Perfil</button>
+          <a href="/editStudent"><button className="editar-perfil">Editar Perfil</button></a>
         </div>
         <div className="row">
           <button className="sair-perfil">Sair Perfil</button>

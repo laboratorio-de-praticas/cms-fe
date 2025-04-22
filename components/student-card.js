@@ -72,7 +72,7 @@ const StudentCard = () => {
   };
 
   return (
-    <div className="container-fluid container-students">
+    <div className="student-container-fluid container-students">
       <div className="student-card-wrapper">
         {paginarEstudantes().map((_, index) => (
           <div className="student-row" key={index}>
