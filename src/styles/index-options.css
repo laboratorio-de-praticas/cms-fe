@@ -52,6 +52,16 @@
     border: 2px solid #5fc86b;
     color: white;
 }
+.btn-option.projeto {
+    background-color: #034EA2;
+    border: 2px solid #034EA2;
+    color: white;
+}
+.btn-option.edit-projeto {
+    background-color: #F4BD50;
+    border: 2px solid #F4BD50;
+    color: white;
+}
 
 .btn-option:hover {
     transform: scale(1.05);
