@@ -88,10 +88,10 @@ const MenuProfile = ({
               <div className="profile-divider"></div>
             </div>
             <div className="row">
-              <button className="cadastrar-projeto">Cadastrar Projeto</button>
+              <button className="pedidos-menu">Pedidos</button>
             </div>
             <div className="row">
-              <button className="editar-projeto">Editar Projeto</button>
+              <button className="editar-projeto">Editar Projetos/Usuário</button>
             </div>
           </>
         )}
