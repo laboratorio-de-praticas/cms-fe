@@ -55,10 +55,25 @@
     border-color: #097e3c;
 }
 
+/* divisao */
+.divider-verde {
+    margin: 0;
+    padding: 0; 
+    border-top: 20px solid #61C454; 
+    width: 100%;
+    position: relative;
+    top: 0;
+    margin-top: -25px; /* Ajuste a distância conforme necessário */
+}
+
+
 /* form */
 .container-form-student {
     padding-left: 3rem;
     padding-right: 3rem;
+    margin-bottom: 50px;
+    padding-top: 0;
+    margin-top: 0; 
 }
 
 .form-student {
@@ -68,6 +83,7 @@
 
 .title-form-student {
     color: #004854;
+    margin-top: 10px;
 }
 
 .divider {
@@ -248,46 +264,45 @@
     color: white;
 }
 
-/* Responsividade geral */
+/* Responsividade */
 @media (max-width: 1024px) {
-    /* Para tablets e telas menores que 1024px */
     .form-grid {
-        flex-direction: column; /* Empilha os campos */
-        gap: 1.5rem; /* Aumenta o espaçamento entre os campos */
+        flex-direction: column; 
+        gap: 1.5rem; 
     }
 
     .foto-container {
-        width: 100%; /* Foto ocupa toda a largura disponível */
+        width: 100%; 
         max-width: 200px;
-        margin: 0 auto; /* Centraliza a foto */
+        margin: 0 auto;
     }
 
     .photo-box {
-        width: 100%; /* Foto ocupa toda a largura */
+        width: 100%; 
         max-width: 180px;
         height: auto;
         margin: 0 auto;
     }
 
     .inp-nome, .inp-ra, .inp-data, .inp-sem {
-        width: 100%; /* Inputs ocupam toda a largura */
-        min-width: 0; /* Garante que os campos não ultrapassem o limite da tela */
+        width: 100%; 
+        min-width: 0; 
     }
 
     .toggle-group {
-        flex-direction: column; /* Empilha os botões do toggle */
-        width: 100%; /* Garante que o toggle ocupe toda a largura disponível */
-        border-radius: 5px; /* Adiciona borda arredondada */
+        flex-direction: column; 
+        width: 100%; 
+        border-radius: 5px; 
     }
 
     .toggle-group button {
         padding: 0.4rem 1rem;
-        border: 1px solid #004854; /* Corrige a borda */
+        border: 1px solid #004854; 
     }
 
     .row-final .button-group {
-        width: 100%; /* Botões ocupam toda a largura */
-        justify-content: space-between; /* Espaçamento entre os botões */
+        width: 100%;
+        justify-content: space-between; 
     }
 }
 
@@ -333,7 +348,7 @@
         flex-direction: column;
         align-items: center;
         gap: 1rem;
-        margin-left: 0 !important; /* remove qualquer margem esquerda */
+        margin-left: 0 !important; 
     }
 
     .row-final .campo-final {

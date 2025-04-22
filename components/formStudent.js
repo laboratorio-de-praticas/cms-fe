@@ -75,7 +75,7 @@ const FormStudent = () => {
                 </div>
             </div>
         )}
-
+        <div className="divider-verde"></div>
         <div className="container-md container-form-student">
             <div className="title-form-student">
                 <div className="col-md-12 text-left my-3">
