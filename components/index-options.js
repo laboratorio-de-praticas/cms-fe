@@ -6,7 +6,7 @@ const IndexOptions = () => {
 
   // ⚠️ Simulação do tipo de usuário. O backend deve retornar esse valor.
   // Exemplo: 'adm' ou 'aluno'
-  const tipoUsuario = "aluno"; // ← Troque manualmente pra "aluno" pra testar
+  const tipoUsuario = "adm"; // ← Troque manualmente pra "aluno" pra testar
 
   const handleRedirect = (path) => {
     router.push(path); 
@@ -26,7 +26,7 @@ const IndexOptions = () => {
               </button>
             </div>
             <div className="col-auto">
-              <button className="btn-option sistema" onClick={() => handleRedirect('/cadVisitante')}>
+              <button className="btn-option sistema" onClick={() => handleRedirect('/gerenciar')}>
                 <img src="/imgs/entrar-sistema.svg" alt="" width={90} height={90} />
                 <span>Entrar Sistema</span>
               </button>
