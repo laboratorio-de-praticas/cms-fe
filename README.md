@@ -39,6 +39,11 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
 ----------------------------------------------------------------------------------------------------------------------------------------------
+# Caminho das telas visao aluno:
+## 1.formStudent
+## 2.eventosCandidatura
+## 3.homeLogado
+----------------------------------------------------------------------------------------------------------------------------------------------
 # Pontos a Serem Observados Durante Integração com Back-End
 
 ## 1. Componente `menu-profile`
