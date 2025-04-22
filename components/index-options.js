@@ -1,12 +1,10 @@
 import { useRouter } from 'next/router';
+import { useUser } from '../context/userContext'; // Importando o hook do contexto
 import "../src/styles/index-options.css";
 
 const IndexOptions = () => {
   const router = useRouter();
-
-  // ⚠️ Simulação do tipo de usuário. O backend deve retornar esse valor.
-  // Exemplo: 'adm' ou 'aluno'
-  const tipoUsuario = "adm"; // ← Troque manualmente pra "aluno" pra testar
+  const { userType } = useUser(); // Obtendo o tipo de usuário do contexto
 
   const handleRedirect = (path) => {
     router.push(path); 
@@ -17,7 +15,7 @@ const IndexOptions = () => {
       <div className="row justify-content-start">
 
         {/* === Botões exclusivos para ADMINISTRADOR === */}
-        {tipoUsuario === "adm" && (
+        {userType === "adm" && (
           <>
             <div className="col-auto">
               <button className="btn-option visitante" onClick={() => handleRedirect('/cadVisitante')}>
@@ -47,7 +45,7 @@ const IndexOptions = () => {
         )}
 
         {/* === Botões exclusivos para ALUNO === */}
-        {tipoUsuario === "aluno" && (
+        {userType === "aluno" && (
           <>
             <div className="col-auto">
               <button className="btn-option projeto" onClick={() => handleRedirect('/cadVisitante')}>
@@ -63,8 +61,7 @@ const IndexOptions = () => {
             </div>
           </>
         )}
-
-        {/* === TODO: Backend deve enviar 'tipoUsuario' via autenticação ou contexto global === */}
+        
       </div>
     </div>
   );

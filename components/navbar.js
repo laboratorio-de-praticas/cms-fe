@@ -1,12 +1,13 @@
 import { useRouter } from "next/router";
 import "../src/styles/navbar.css";
 import { useEffect, useState } from "react";
+import { useUser } from "../context/userContext.js"; // <-- novo
 
-const Navbar = ({ abrirMenu, tipoUsuario = null }) => {
+const Navbar = ({ abrirMenu }) => {
   const router = useRouter();
   const caminhoAtual = router.pathname;
-
   const estaNoIndex = caminhoAtual === "/";
+  const { userType } = useUser(); // <-- pegando o tipo do usuaRIO 
 
   return (
     <nav className="navbar navbar-expand-lg nav-padrao">
@@ -23,7 +24,6 @@ const Navbar = ({ abrirMenu, tipoUsuario = null }) => {
 
         <div className="collapse navbar-collapse" id="navbarNavDropdown">
           <ul className="navbar-nav">
-            {/* Logo Fatec */}
             <li className="nav-item">
               <a className="nav-link active" aria-current="page" href="#">
                 <img
@@ -36,12 +36,9 @@ const Navbar = ({ abrirMenu, tipoUsuario = null }) => {
               </a>
             </li>
 
-            {/* Home */}
             <li className="nav-item home-item">
               <a
-                className={`nav-link ${
-                  ["/homeLogado", "/"].includes(caminhoAtual) ? "active-page" : ""
-                }`}
+                className={`nav-link ${["/homeLogado", "/"].includes(caminhoAtual) ? "active-page" : ""}`}
                 href="/homeLogado"
               >
                 Home
@@ -79,39 +76,29 @@ const Navbar = ({ abrirMenu, tipoUsuario = null }) => {
               </li>
             )}
 
-            {/* Se não estiver no index, mostra conforme o tipo de usuário */}
-            {!estaNoIndex && tipoUsuario === "adm" && (
+            {!estaNoIndex && userType === "adm" && (
               <>
                 <li className="nav-item">
-                  <a
-                    className={`nav-link ${caminhoAtual === "/gerenciar" ? "active-page" : ""}`}
-                    href="/gerenciar"
-                  >
+                  <a className={`nav-link ${caminhoAtual === "/gerenciar" ? "active-page" : ""}`} href="/gerenciar">
                     Gerenciar
                   </a>
                 </li>
                 <span className="separador">|</span>
                 <li className="nav-item">
-                  <a
-                    className={`nav-link ${caminhoAtual === "/pedidos" ? "active-page" : ""}`}
-                    href="/pedidos"
-                  >
+                  <a className={`nav-link ${caminhoAtual === "/pedidos" ? "active-page" : ""}`} href="/pedidos">
                     Pedidos
                   </a>
                 </li>
                 <span className="separador">|</span>
                 <li className="nav-item">
-                  <a
-                    className={`nav-link ${caminhoAtual === "/eventos" ? "active-page" : ""}`}
-                    href="/eventos"
-                  >
+                  <a className={`nav-link ${caminhoAtual === "/eventos" ? "active-page" : ""}`} href="/eventos">
                     Eventos
                   </a>
                 </li>
               </>
             )}
 
-            {!estaNoIndex && tipoUsuario === "aluno" && (
+            {!estaNoIndex && userType === "aluno" && (
               <li className="nav-item">
                 <a
                   className={`nav-link ${caminhoAtual === "/cadastro/projeto" ? "active-page" : ""}`}
@@ -124,14 +111,9 @@ const Navbar = ({ abrirMenu, tipoUsuario = null }) => {
           </ul>
         </div>
 
-        {/* Exibir perfil apenas se não for index */}
         {!estaNoIndex && (
           <div className="perfil-retangulo">
-            <img
-              src="/imgs/foto-perfil.png"
-              alt="Foto de Perfil"
-              className="foto-perfil"
-            />
+            <img src="/imgs/foto-perfil.png" alt="Foto de Perfil" className="foto-perfil" />
             <div className="info-perfil">
               <span className="nome-perfil">José Alves da Silva</span>
               <span className="turma-perfil">DSM-4</span>

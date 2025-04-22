@@ -1,14 +1,13 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/globals.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Navbar from '../../components/navbar.js';
 import MenuProfile from '../../components/menu-profile.js';
 import Header from '../../components/header.js';
 import Footer from '../../components/footer.js';
-import { useEffect } from 'react';
+import { UserProvider } from '../../context/userContext.js'; // importa seu contexto
 
 export default function App({ Component, pageProps }) {
-  // FUNCAO PRA MENU LATERAL DA NAVBAR ABRIR E FECHAR
   const [menuAberto, setMenuAberto] = useState(false);
 
   useEffect(() => {
@@ -19,14 +18,16 @@ export default function App({ Component, pageProps }) {
   const fecharMenu = () => setMenuAberto(false);
 
   return (
-    <div style={{ position: 'relative' }}>
-      <Header/>
-      <Navbar tipoUsuario="aluno"  abrirMenu={abrirMenu} />
-      <MenuProfile menuAberto={menuAberto} fecharMenu={fecharMenu} />
-      <main>
-        <Component {...pageProps} />
-      </main>
-      <Footer/>
-    </div>
+    <UserProvider> {/* aqui começa o contexto */}
+      <div style={{ position: 'relative' }}>
+        <Header />
+        <Navbar abrirMenu={abrirMenu} />
+        <MenuProfile menuAberto={menuAberto} fecharMenu={fecharMenu} />
+        <main>
+          <Component {...pageProps} />
+        </main>
+        <Footer />
+      </div>
+    </UserProvider>
   );
 }

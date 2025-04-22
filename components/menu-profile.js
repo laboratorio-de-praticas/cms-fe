@@ -1,19 +1,21 @@
+import { useUser } from '../context/userContext'; // Importando o hook do contexto
 import "../src/styles/menu-profile.css";
 
 const MenuProfile = ({
   menuAberto,
   fecharMenu,
-  tipoUsuario = "adm", // "aluno" ou "adm"
   nome = "Calebe Cardoso Almeida Pereira",
   cursoOuSetor = "DSM 4",
   grupo = { nome: "Learny", descricao: "Ensino de Inglês Gamificado para crianças com TEA." },
-  integrantes = [ // imgs integrantes (opcional se tipoUsuario for "adm")
+  integrantes = [ // lista de imagens dos integrantes (opcional se tipoUsuario for "adm")
     "/imgs/foto-perfil.png",
     "/imgs/foto-perfil2.png",
     "/imgs/foto-perfil.png",
     "/imgs/foto-perfil2.png"
   ]
 }) => {
+  const { userType } = useUser(); // Obtendo o tipo de usuário do contexto
+
   return (
     <>
       {/* sombra */}
@@ -47,7 +49,7 @@ const MenuProfile = ({
 
         {/* conteúdo condicional baseado no tipo de usuário */}
         <div className="row">
-          {tipoUsuario === "aluno" ? (
+          {userType === "aluno" ? (
             <div className="profile-description">
               <p className="nome-perfil-menu">{nome}</p>
               <p className="curso-perfil-menu">{cursoOuSetor}</p>
@@ -64,9 +66,9 @@ const MenuProfile = ({
             </div>
           ) : (
             <div className="profile-description-adm">
-              <p className="nome-perfil-menu">{nome}</p>
-              <p className="curso-perfil-menu">{cursoOuSetor}</p>
-              <p className="tipo-usuarioperfil-menu">ADM</p>
+              <p className="nome-perfil-menu-adm">{nome}</p>
+              <p className="curso-perfil-menu-adm">{cursoOuSetor}</p>
+              <p className="tipo-usuarioperfil-menu-adm">ADM</p>
             </div>
           )}
         </div>
@@ -80,7 +82,7 @@ const MenuProfile = ({
         </div>
 
         {/* botões extras para adm */}
-        {tipoUsuario === "adm" && (
+        {userType === "adm" && (
           <>
             <div className="row">
               <div className="profile-divider"></div>
@@ -99,7 +101,3 @@ const MenuProfile = ({
 };
 
 export default MenuProfile;
-
-// autora: Isabele Letícia
-// este menu muda com base no tipo de usuário (aluno ou adm)
-// pessoal do back: passar tipoUsuario, nome, curso/setor, grupo (se for aluno) e lista de integrantes
