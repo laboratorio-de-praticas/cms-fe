@@ -19,15 +19,14 @@ const FormStudent = () => {
 
     const handleCursoChange = (cursoSelecionado) => {
         setFormData(prev => ({
-          ...prev,
-          curso: cursoSelecionado
+            ...prev,
+            curso: cursoSelecionado
         }));
-      };
+    };
     
     const [dateFocused, setDateFocused] = useState(false);
-
-
     const [showPopup, setShowPopup] = useState(true);
+
     useEffect(() => {
         setShowPopup(true);
     }, []);
@@ -64,6 +63,13 @@ const FormStudent = () => {
         }
     };
 
+    const handleImageChange = (e) => {
+        const file = e.target.files[0];
+        setFormData(prev => ({
+            ...prev,
+            foto: file
+        }));
+    };
     return (
         <>
         {showPopup && (
@@ -89,8 +95,17 @@ const FormStudent = () => {
                     {/* Lado esquerdo: foto */}
                     <div className="foto-container">
                     <div className="photo-box">
-                        <img src="/imgs/camera.svg" width={80} height={80} alt="" />
-                    </div>
+                        <input 
+                            type="file" 
+                            accept="image/*" 
+                            id="imageUpload" 
+                            style={{ display: 'none' }} 
+                            onChange={handleImageChange} 
+                        />
+                        <label htmlFor="imageUpload">
+                            <img src="/imgs/camera.svg" width={80} height={80} alt="Upload Image" />
+                        </label>
+                        </div>
                     </div>
 
                     {/* lado direito */}
