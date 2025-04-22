@@ -66,9 +66,9 @@ const MenuProfile = ({
             </div>
           ) : (
             <div className="profile-description-adm">
-              <p className="nome-perfil-menu-adm">{nome}</p>
-              <p className="curso-perfil-menu-adm">{cursoOuSetor}</p>
-              <p className="tipo-usuarioperfil-menu-adm">ADM</p>
+              <p className="nome-perfil-menu">{nome}</p>
+              <p className="curso-perfil-menu">{cursoOuSetor}</p>
+              <p className="tipo-usuarioperfil-menu">ADM</p>
             </div>
           )}
         </div>
