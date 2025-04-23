@@ -40,8 +40,10 @@ function CreateProject() {
       setFormData({
         turma: 'DSM',
         nomeProjeto: '',
+        equipe:'',
         integrantes: '',
         semestre: '',
+        resumo:'',
         notaTrl: '',
       });
     }
@@ -56,6 +58,7 @@ function CreateProject() {
           <div className="row">
             <div className="col-md-3">
               <div className="foto-turma d-flex align-items-start">
+                {/* lado esquerdo */}
                 <div className="foto-container">
                   <div className="photo-box">
                     <input type="file" accept="image/*" id="imageUpload" style={{ display: 'none' }} onChange={handleImageChange} />
@@ -64,15 +67,83 @@ function CreateProject() {
                       </label>
                   </div>
                 </div>
+                {/* lado direito */}
+                <div className="info-container">
+                        <div className="d-flex align-items-center gap-3 mb-3">
+                        <div className="form-field">
+                              <input 
+                                  type="text" 
+                                  name="equipe" 
+                                  value={formData.equipe} 
+                                  onChange={handleChange} 
+                                  className="styled-input equipe"
+                                  placeholder="Equipe:"
+                              />
+                            </div>
+                            <div className="toggle-group">
+                                <button type="button" className={`btnazul ${formData.curso === 'DSM' ? 'active' : ''}`}  onClick={() => handleCursoChange('DSM')}>DSM</button>
+                                <button type="button" className={`btnbranco ${formData.curso === 'GE' ? 'active' : ''}`} onClick={() => handleCursoChange('GE')}>GE</button>
+                            </div>
+                            <div className="form-field">
+                              <div className="semestre-group">
+                                <label className="semestre-label"><strong>Semestre:</strong></label>
+                                <input 
+                                  type="text" 
+                                  name="ano" 
+                                  value={formData.ano} 
+                                  onChange={handleChange} 
+                                  placeholder="2023"
+                                  className="input-semestre input-ano"
+                                />
+                                <span className="separator">|</span>
+                                <input 
+                                  type="text" 
+                                  name="numeroSemestre" 
+                                  value={formData.numeroSemestre} 
+                                  onChange={handleChange} 
+                                  placeholder="2"
+                                  className="input-semestre input-num"
+                                />
+                              </div>
+                            </div>
+                          
+                        </div>
+
+                        <div className="form-field">
+                            <input 
+                                type="text" 
+                                name="nomeProjeto" 
+                                value={formData.Projeto} 
+                                onChange={handleChange} 
+                                className="styled-input nomeproj"
+                                placeholder="Projeto:"
+                            />
+                        </div>
+
+                        <div className="form-row">
+                            <div className="form-field ra">
+                                <input
+                                    type="text"
+                                    name="resumo"
+                                    value={formData.resumo}
+                                    onChange={handleChange}
+                                    className="styled-input resumo"
+                                    placeholder="Resumo:"
+                                />
+                            </div>
+                        </div>
+
+                    </div>
               </div>
             </div>
-
           </div>
           <div className="row row-border d-flex justify-content-center g-3 mt-3">
-            <div className="col-md-12 title-add"> Adicionar Integrantes </div>
-            <div className="col-md-9 d-flex justify-content-center mb-4">
-              <input className="search ms-4"/>
+          <div className="col-md-9 d-flex justify-content-center mb-4">
+            <div className="search-wrapper">
+              <input className="search" placeholder="Pesquisar aluno" />
+              <img src="/imgs/search-blue.svg" alt="Ícone de lupa" className="search-icon" />
             </div>
+          </div>
             <div className="col-md-3 d-flex justify-content-center mb-4">
               <button className="btn-add">Adicionar</button>
             </div>
@@ -82,51 +153,51 @@ function CreateProject() {
           <div className="row row-border d-flex justify-content-center g-3">
             <div className="col-md-12 title-add"> Áreas Temáticas (máx. 3) </div>
             <div className="col-md-6 d-flex justify-content-center">
-            <div class="form-check">
-                <label class="form-check-label" for="checkDefault"> Comunicação </label>
-                <input class="form-check-input" type="checkbox" value="" id="checkDefault" />
+            <div className="form-check">
+                <label className="form-check-label" for="checkDefault"> Comunicação </label>
+                <input className="form-check-input" type="checkbox" value="" id="checkDefault" />
               </div>
             </div>
             <div className="col-md-6 d-flex justify-content-center">
-            <div class="form-check">
-                <label class="form-check-label" for="checkDefault"> Meio Ambiente </label>
-                <input class="form-check-input" type="checkbox" value="" id="checkDefault" />
+            <div className="form-check">
+                <label className="form-check-label" for="checkDefault"> Meio Ambiente </label>
+                <input className="form-check-input" type="checkbox" value="" id="checkDefault" />
               </div>
             </div>
             <div className="col-md-6 d-flex justify-content-center">
-            <div class="form-check">
-                <label class="form-check-label" for="checkDefault"> Cultura </label>
-                <input class="form-check-input" type="checkbox" value="" id="checkDefault" />
+            <div className="form-check">
+                <label className="form-check-label" for="checkDefault"> Cultura </label>
+                <input className="form-check-input" type="checkbox" value="" id="checkDefault" />
               </div>
             </div>
             <div className="col-md-6 d-flex justify-content-center">
-            <div class="form-check">
-                <label class="form-check-label" for="checkDefault"> Saúde </label>
-                <input class="form-check-input" type="checkbox" value="" id="checkDefault" />
+            <div className="form-check">
+                <label className="form-check-label" for="checkDefault"> Saúde </label>
+                <input className="form-check-input" type="checkbox" value="" id="checkDefault" />
               </div>
             </div>
             <div className="col-md-6 d-flex justify-content-center">
-            <div class="form-check">
-                <label class="form-check-label" for="checkDefault"> Direitos Humanos </label>
-                <input class="form-check-input" type="checkbox" value="" id="checkDefault" />
+            <div className="form-check">
+                <label className="form-check-label" for="checkDefault"> Direitos Humanos </label>
+                <input className="form-check-input" type="checkbox" value="" id="checkDefault" />
               </div>
             </div>
             <div className="col-md-6 d-flex justify-content-center">
-            <div class="form-check">
-                <label class="form-check-label" for="checkDefault"> Tecnologia e Produção </label>
-                <input class="form-check-input" type="checkbox" value="" id="checkDefault" />
+            <div className="form-check">
+                <label className="form-check-label" for="checkDefault"> Tecnologia e Produção </label>
+                <input className="form-check-input" type="checkbox" value="" id="checkDefault" />
               </div>
             </div>
             <div className="col-md-6 d-flex justify-content-center">
-            <div class="form-check">
-                <label class="form-check-label" for="checkDefault"> Educação </label>
-                <input class="form-check-input" type="checkbox" value="" id="checkDefault" />
+            <div className="form-check">
+                <label className="form-check-label" for="checkDefault"> Educação </label>
+                <input className="form-check-input" type="checkbox" value="" id="checkDefault" />
               </div>
             </div>
             <div className="col-md-6 d-flex justify-content-center mb-4">
-              <div class="form-check">
-                <label class="form-check-label" for="checkDefault"> Trabalho </label>
-                <input class="form-check-input" type="checkbox" value="" id="checkDefault" />
+              <div className="form-check">
+                <label className="form-check-label" for="checkDefault"> Trabalho </label>
+                <input className="form-check-input" type="checkbox" value="" id="checkDefault" />
               </div>
             </div>
           </div>

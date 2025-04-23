@@ -47,22 +47,122 @@ hr {
   transition: background 0.3s ease;
 }
 
-.foto-box:hover {
-  background-color: #e0e0e0;
+/* Toggle buttons DSM / GE */
+.toggle-group {
+  display: flex;
+  border: 1px solid #004854;
+  border-radius: 5px;
+  overflow: hidden;
 }
 
-.turma button {
-  width: 95px;
+.btnbranco {
+  background: white;
+  color: #004854;
+  font-weight: bold;
+  padding: 0.4rem 1.5rem;
+  border: 1px solid transparent;
+  outline: none;
+  transition: 0.2s;
+  cursor: pointer;
 }
 
-.turma .ativo {
-  background-color: #003B5C;
-  color: #fff;
-}
-
-.turma button:hover {
+.toggle-group button:hover {
   background-color: #004854;
   color: white;
+  border: 1px solid #004854;
+}
+
+.toggle-group .active {
+  background-color: #004854;
+  color: white;
+  border: 1px solid #004854;
+}
+.btnazul{
+  background: #004854;
+  color: white;
+  font-weight: bold;
+  padding: 0.4rem 1.5rem;
+  border: 1px solid transparent;
+  outline: none;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.styled-input {
+  border: 1px solid #004854;
+  border-radius: 5px;
+  padding: 0 12px;
+  font-weight: bold;
+  color: #004854;
+  height: 40px;
+}
+
+.styled-input::placeholder {
+  color: #004854;
+  font-weight: bold;
+}
+
+/* Tamanhos personalizados */
+.styled-input.equipe {
+  width: 320px;
+}
+
+.semestre-group {
+  display: flex;
+  align-items: center;
+  border: 1px solid #004854;
+  border-radius: 5px;
+  padding: 8px 12px;
+  width: 300px;
+  height: 40px;
+}
+
+.semestre-label {
+  color: #004854;
+  margin-right: 8px;
+}
+
+.input-semestre {
+  border: none;
+  outline: none;
+  color: #004854;
+  width: 60px;
+  text-align: center;
+  background-color: transparent;
+}
+
+.input-ano {
+  margin-right: 8px;
+  
+}
+
+.input-num {
+  margin-left: 8px;
+  color: #004854;
+}
+
+.separator {
+  color: #004854;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+
+.styled-input.nomeproj {
+  width: 810px;
+}
+
+.styled-input.resumo {
+  margin-top: 15px;
+  width: 810px;
+  height: 100px;
+}
+
+
+
+
+.foto-box:hover {
+  background-color: #e0e0e0;
 }
 
 .foto-container {
@@ -156,23 +256,18 @@ hr {
   border: 1px solid #004854;
 }
 
-.title-add{
-  text-align: center;
-  font-weight: bold;
-  color: #004854;
-  font-size: 17px;
-  margin: 10px;
-}
+
 
 .btn-add {
   padding: 10px 20px;
-  background-color: #28a745;
+  background-color: #61C454;
   border: none;
   color: white;
-  font-weight: bold;
   border-radius: 6px;
   transition: background 0.3s ease;
   cursor: pointer;
+  height: 40px;
+  margin-top: 50px;
 }
 
 .btn-add:hover {
@@ -216,9 +311,38 @@ hr {
   font-weight: bold;
 }
 
-.search{
+.search-wrapper {
+  position: relative;
   width: 100%;
+  max-width: 900px;
 }
+
+.search-icon {
+  position: absolute;
+  top: 75%;
+  left: 70px;  /* Ajuste a posição horizontal do ícone */
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  pointer-events: none; /* Evita interação com o ícone */
+}
+
+.search {
+  width: 100%;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid #004854;
+  padding-left: 35px; /* Ajuste o padding à esquerda para acomodar o ícone */
+  box-sizing: border-box; /* Garante que o padding seja incluído no cálculo da largura total */
+  margin-top: 50px;
+  margin-left: 60px;
+}
+
+.search::placeholder {
+  color: #004854;
+  padding-left: 0; /* Remove qualquer padding extra do placeholder */
+}
+
 
 /* .create-project-container {
   max-width: 800px;

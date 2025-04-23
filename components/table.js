@@ -1,8 +1,8 @@
 const Table=()=>{
     return(
-        <div class='container'>
-            <table class="table">
-                <thead class='text-center'>
+        <div className='container'>
+            <table className="table">
+                <thead className='text-center'>
                     <tr>
                     <th scope="col">RA</th>
                     <th scope="col">Nome</th>
@@ -14,9 +14,9 @@ const Table=()=>{
                     <th colspan='2'>Ações</th>
                     </tr>
                 </thead>
-                <tbody class="table-group-divider">
+                <tbody className="table-group-divider">
                     <tr>
-                        <td class='fw-bold'>1</td>
+                        <td className='fw-bold'>1</td>
                         <td>Mark</td>
                         <td>mark.zellin01@fatec.sp.gov.br</td>
                         <td>(13)99999-9999</td>

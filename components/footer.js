@@ -4,7 +4,7 @@ import '../src/styles/footer.css'
 const Footer=()=>{
     return (
       <footer>
-        <div class="footer-fundo d-flex justify-content-center">
+        <div className="footer-fundo d-flex justify-content-center">
           <Image
             src="/imgs/logo_cps_gov.png"
             alt="Logo CPS Gov"
