@@ -54,13 +54,13 @@ const IndexOptions = () => {
         {userType === "aluno" && (
           <>
             <div className="col-auto">
-              <button className="btn-option projeto" onClick={() => handleRedirect('/cadVisitante')}>
+              <button className="btn-option projeto" onClick={() => handleRedirect('/formProject')}>
                 <img src="/imgs/cadastro-proj.svg" alt="" width={90} height={90} />
                 <span>Cadastrar Projeto</span>
               </button>
             </div>
             <div className="col-auto">
-              <button className="btn-option edit-projeto" onClick={() => handleRedirect('/cadVisitante')}>
+              <button className="btn-option edit-projeto" onClick={() => handleRedirect('/editProject')}>
                 <img src="/imgs/edit-proj.svg" alt="" width={90} height={90} />
                 <span>Editar Projeto</span>
               </button>

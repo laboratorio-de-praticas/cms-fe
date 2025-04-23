@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import '../src/styles/create-project.css';
+import React, { useState } from 'react'
+import "../src/styles/create-project.css"
 
 function CreateProject() {
   const [formData, setFormData] = useState({
@@ -27,6 +27,14 @@ function CreateProject() {
     });
   };
 
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    setFormData(prev => ({
+        ...prev,
+        foto: file
+    }));
+};
+
   const handleCancel = () => {
     if (window.confirm('Deseja cancelar o cadastro?')) {
       setFormData({
@@ -40,22 +48,190 @@ function CreateProject() {
   };
 
   return (
+    <>
+    <div className="divider-azul"></div>
     <div className="container-projeto">
-      <h2>Cadastro de Projetos</h2>
-      <hr />
-
       <form className="form-projeto" onSubmit={handleSubmit}>
-        <div className="foto-turma">
-          <div className="foto-box">
-            <CameraIcon size={48} strokeWidth={1.5} />
-          </div>
+        <div className="container">
+          <div className="row">
+            <div className="col-md-3">
+              <div className="foto-turma d-flex align-items-start">
+                <div className="foto-container">
+                  <div className="photo-box">
+                    <input type="file" accept="image/*" id="imageUpload" style={{ display: 'none' }} onChange={handleImageChange} />
+                      <label htmlFor="imageUpload">
+                        <img src="/imgs/camera.svg" width={80} height={80} alt="Upload Image" />
+                      </label>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-          <div className="turma">
-            <button type="button" className={formData.turma === 'DSM' ? 'ativo' : ''} onClick={() => setFormData({ ...formData, turma: 'DSM' })}>DSM</button>
-            <button type="button" className={formData.turma === 'GE' ? 'ativo' : ''} onClick={() => setFormData({ ...formData, turma: 'GE' })}>GE</button>
+          </div>
+          <div className="row row-border d-flex justify-content-center g-3 mt-3">
+            <div className="col-md-12 title-add"> Adicionar Integrantes </div>
+            <div className="col-md-9 d-flex justify-content-center mb-4">
+              <input className="search ms-4"/>
+            </div>
+            <div className="col-md-3 d-flex justify-content-center mb-4">
+              <button className="btn-add">Adicionar</button>
+            </div>
+          </div>
+          <br/>
+          <br/>
+          <div className="row row-border d-flex justify-content-center g-3">
+            <div className="col-md-12 title-add"> Áreas Temáticas (máx. 3) </div>
+            <div className="col-md-6 d-flex justify-content-center">
+            <div class="form-check">
+                <label class="form-check-label" for="checkDefault"> Comunicação </label>
+                <input class="form-check-input" type="checkbox" value="" id="checkDefault" />
+              </div>
+            </div>
+            <div className="col-md-6 d-flex justify-content-center">
+            <div class="form-check">
+                <label class="form-check-label" for="checkDefault"> Meio Ambiente </label>
+                <input class="form-check-input" type="checkbox" value="" id="checkDefault" />
+              </div>
+            </div>
+            <div className="col-md-6 d-flex justify-content-center">
+            <div class="form-check">
+                <label class="form-check-label" for="checkDefault"> Cultura </label>
+                <input class="form-check-input" type="checkbox" value="" id="checkDefault" />
+              </div>
+            </div>
+            <div className="col-md-6 d-flex justify-content-center">
+            <div class="form-check">
+                <label class="form-check-label" for="checkDefault"> Saúde </label>
+                <input class="form-check-input" type="checkbox" value="" id="checkDefault" />
+              </div>
+            </div>
+            <div className="col-md-6 d-flex justify-content-center">
+            <div class="form-check">
+                <label class="form-check-label" for="checkDefault"> Direitos Humanos </label>
+                <input class="form-check-input" type="checkbox" value="" id="checkDefault" />
+              </div>
+            </div>
+            <div className="col-md-6 d-flex justify-content-center">
+            <div class="form-check">
+                <label class="form-check-label" for="checkDefault"> Tecnologia e Produção </label>
+                <input class="form-check-input" type="checkbox" value="" id="checkDefault" />
+              </div>
+            </div>
+            <div className="col-md-6 d-flex justify-content-center">
+            <div class="form-check">
+                <label class="form-check-label" for="checkDefault"> Educação </label>
+                <input class="form-check-input" type="checkbox" value="" id="checkDefault" />
+              </div>
+            </div>
+            <div className="col-md-6 d-flex justify-content-center mb-4">
+              <div class="form-check">
+                <label class="form-check-label" for="checkDefault"> Trabalho </label>
+                <input class="form-check-input" type="checkbox" value="" id="checkDefault" />
+              </div>
+            </div>
+          </div>
+          <br/>
+          <br/>
+          <div className="row row-border d-flex justify-content-center g-3">
+            <div className="col-md-12 title-add"> Linhas de Extenção (máx. 5) </div>
+            <div className="col-md-9 d-flex justify-content-center mb-4">
+              <input className="search ms-4"/>
+            </div>
+            <div className="col-md-3 d-flex justify-content-center mb-4">
+              <button className="btn-add">Adicionar</button>
+            </div>
+          </div>
+          <br/>
+          <br/>
+          <div className="row row-border d-flex justify-content-center g-3">
+            <div className="col-md-12 title-add mb-4"> Cadastro em Evento </div>
+            <div className="col-md-9 d-flex justify-content-between align-items-center mb-4 evento">
+              <div className="text-white ms-5 title-event">HubTec´25</div>
+              <button className="btn-inscri me-5">Inscrever-se</button>
+            </div>
+            <div className="col-md-9 d-flex justify-content-between align-items-center mb-4 evento">
+              <div className="text-white ms-5 title-event">FTX´25</div>
+              <button className="btn-inscri-y me-5">Inscrito</button>
+            </div>
+          </div>
+          <div className="row mt-4">
+            <div className="col-md-12">
+              <button className="btn-cadastrar">Cadastrar</button>
+            </div>
           </div>
         </div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{/* 
         <div className="form-campos">
           <label>
             Nome do Projeto:
@@ -108,9 +284,10 @@ function CreateProject() {
         <div className="botoes">
           <button type="submit" className="btn-cadastrar">Cadastrar</button>
           <button type="button" className="btn-cancelar" onClick={handleCancel}>Cancelar</button>
-        </div>
+        </div> */}
       </form>
     </div>
+  </>
   );
 }
 

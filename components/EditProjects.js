@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './edit-projects.css';
+import '../src/styles/edit-projects.css';
 
 function EditProjects() {
   const [projetos, setProjetos] = useState([

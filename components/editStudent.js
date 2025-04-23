@@ -30,6 +30,7 @@ const EditStudent=()=>{
 
     const [dateFocused, setDateFocused] = useState(false);
     const [showPopup, setShowPopup] = useState(true);
+    const [showRepresentativePopup, setShowRepresentativePopup] = useState(false);
 
     useEffect(() => {
         setShowPopup(true);
@@ -125,12 +126,47 @@ const EditStudent=()=>{
 
     return (
         <>
-        {showPopup && (
+{showRepresentativePopup && (
             <div className="popup-overlay">
                 <div className="popup-content">
-                    <h5 className="fw-bold">Para prosseguir, confirme seu cadastro</h5>
-                    <br />
-                    <button className="btn btn-success" onClick={() => setShowPopup(false)}>Ok</button>
+                    <h5 className="fw-bold">Deseja continuar cadastrado como representante?</h5>
+                    <div style={{ display: 'flex', gap: '20px' }}>
+                    <a 
+                        href="/eventosCandidatura"
+                        className="btn-sim"
+                        style={{
+                            backgroundColor: '#0B9247',
+                            color: 'white',
+                            width: '120px',
+                            height: '45px',
+                            fontWeight: 'bold',
+                            border: 'none',
+                            borderRadius: '5px',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            textDecoration: 'none'
+                        }}
+                    >
+                        Sim
+                    </a>
+
+                        <button 
+                            className="btn"
+                            style={{
+                                backgroundColor: '#B20000',
+                                color: 'white',
+                                width: '120px',
+                                height: '45px',
+                                fontWeight: 'bold',
+                                border: 'none',
+                                borderRadius: '5px'
+                            }}
+                            onClick={() => setShowRepresentativePopup(false)}
+                        >
+                            Não
+                        </button>
+                    </div>
                 </div>
             </div>
         )}
@@ -227,7 +263,7 @@ const EditStudent=()=>{
 
                             <div className="button-group mt-3">
                                 <button type="submit" className="btn btn-warning">Editar</button>
-                                <a href="/" className="btn btn-outline-danger">Cancelar</a>
+                                <a href="/homeLogado" className="btn btn-outline-danger">Cancelar</a>
                             </div>
                         </div>
                     </div>

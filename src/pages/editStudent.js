@@ -3,7 +3,6 @@ export default function Edit(){
     return(
         <>
         <main>
-            <br/>
                 <EditStudent />
             <br/>
         </main>
