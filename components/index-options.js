@@ -42,7 +42,7 @@ const IndexOptions = () => {
               </button>
             </div>
             <div className="col-auto">
-              <button className="btn-option eventos" onClick={() => handleRedirect('/CadEvents')}>
+              <button className="btn-option eventos" onClick={() => handleRedirect('/eventos')}>
                 <img src="/imgs/ver-eventos.svg" alt="" width={90} height={90} />
                 <span>Ver eventos</span>
               </button>

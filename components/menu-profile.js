@@ -1,30 +1,39 @@
-import { useUser } from '../context/userContext'; // Importando o hook do contexto
+import { useUser } from '../context/userContext';
 import "../src/styles/menu-profile.css";
+import { useState } from 'react';
 
 const MenuProfile = ({
   menuAberto,
   fecharMenu,
   nome = "Calebe Cardoso Almeida Pereira",
   cursoOuSetor = "DSM 4",
-  grupo = { nome: "Learny", descricao: "Ensino de Inglês Gamificado para crianças com TEA." },
-  integrantes = [ // lista de imagens dos integrantes (opcional se tipoUsuario for "adm")
-    "/imgs/foto-perfil.png",
-    "/imgs/foto-perfil2.png",
-    "/imgs/foto-perfil.png",
-    "/imgs/foto-perfil2.png"
+  grupo = {
+    nome: "Learny",
+    descricao: "Ensino de Inglês Gamificado para crianças com TEA."
+  },
+  integrantes = [
+    { nome: "Calebe", foto: "/imgs/foto-perfil.png", cursoOuSetor: "DSM 4", papel: "Líder" },
+    { nome: "João", foto: "/imgs/foto-perfil2.png", cursoOuSetor: "DSM 4", papel: "Dev" },
+    { nome: "Ana", foto: "/imgs/foto-perfil.png", cursoOuSetor: "DSM 4", papel: "Design" },
+    { nome: "Maria", foto: "/imgs/foto-perfil2.png", cursoOuSetor: "DSM 4", papel: "Scrum Master" }
   ]
 }) => {
-  const { userType } = useUser(); // Obtendo o tipo de usuário do contexto
+  const { userType } = useUser();
+
+  const [perfilAtivo, setPerfilAtivo] = useState(null);
+
+  const exibirPerfil = perfilAtivo || {
+    nome,
+    cursoOuSetor,
+    papel: "Líder", //cargo padrao q eu coloquei (isa)
+    grupo,
+  };
 
   return (
     <>
-      {/* sombra */}
-      {menuAberto && (
-        <div className="shadow-overlay" onClick={fecharMenu}></div>
-      )}
+      {menuAberto && <div className="shadow-overlay" onClick={fecharMenu}></div>}
 
       <div className={`menu-perfil-container ${menuAberto ? "aberto" : ""}`}>
-        {/* botão de fechar */}
         <div className="row">
           <img
             src="/imgs/close-x.svg"
@@ -32,35 +41,54 @@ const MenuProfile = ({
             width={20}
             height={20}
             alt="Fechar"
-            onClick={fecharMenu}
+            onClick={() => {
+              fecharMenu();
+              setPerfilAtivo(null); // limpa ao fechar
+            }}
           />
         </div>
 
-        {/* foto de perfil */}
+        {/* Foto de perfil */}
         <div className="row">
           <div className="col-md">
             <img
               className="foto-perfil-menu"
-              src="/imgs/foto-perfil.png"
+              src={
+                integrantes.find((i) => i.nome === exibirPerfil.nome)?.foto ||
+                "/imgs/foto-perfil.png"
+              }
               alt="Foto do perfil"
             />
           </div>
         </div>
 
-        {/* conteúdo condicional baseado no tipo de usuário */}
         <div className="row">
           {userType === "aluno" ? (
             <div className="profile-description">
-              <p className="nome-perfil-menu">{nome}</p>
-              <p className="curso-perfil-menu">{cursoOuSetor}</p>
-              <p className="tipo-usuarioperfil-menu">Aluno - Líder</p>
+              <p className="nome-perfil-menu">{exibirPerfil.nome}</p>
+              <p className="curso-perfil-menu">{exibirPerfil.cursoOuSetor}</p>
+              <p className="tipo-usuarioperfil-menu">Aluno - {exibirPerfil.papel}</p>
               <div className="profile-divider"></div>
               <p className="nome-grupo-menu">{grupo.nome}</p>
               <p className="descgrupo-menu">{grupo.descricao}</p>
               <div className="integrantes">
-                {/* aqui o back pode ajustar para exibir proporcionalmente com base no número de integrantes */}
-                {integrantes.map((img, index) => (
-                  <img key={index} src={img} width={50} height={50} alt={`Integrante ${index + 1}`} />
+                {integrantes.map((integrante, index) => (
+                  <a
+                    key={index}
+                    href="#"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setPerfilAtivo(integrante);
+                    }}
+                  >
+                    <img
+                      src={integrante.foto}
+                      width={50}
+                      height={50}
+                      alt={`Integrante ${integrante.nome}`}
+                      style={{ cursor: 'pointer' }}
+                    />
+                  </a>
                 ))}
               </div>
             </div>
@@ -73,15 +101,15 @@ const MenuProfile = ({
           )}
         </div>
 
-        {/* botões comuns */}
         <div className="row">
-          <a href="/editStudent"><button className="editar-perfil">Editar Perfil</button></a>
+          <a href="/editStudent">
+            <button className="editar-perfil">Editar Perfil</button>
+          </a>
         </div>
         <div className="row">
           <button className="sair-perfil">Sair Perfil</button>
         </div>
 
-        {/* botões extras para adm */}
         {userType === "adm" && (
           <>
             <div className="row">

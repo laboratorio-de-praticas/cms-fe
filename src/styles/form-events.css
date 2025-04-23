@@ -17,37 +17,37 @@ h3 {
 
 .status-desativar {
     display: flex;
-    justify-content: flex-end; /* Alinha os itens à direita */
-    gap: 10px; /* Espaçamento entre os itens */
-    align-items: center; /* Alinha verticalmente os itens */
-    height: 100%; /* Garante que o container ocupe toda a altura disponível */
-    flex-wrap: nowrap; /* Garante que os itens não quebrem linha */
-    min-height: 40px; /* Garante que a altura mínima seja 40px */
+    justify-content: flex-end;
+    gap: 10px; 
+    align-items: center; 
+    height: 100%; 
+    flex-wrap: nowrap;
+    min-height: 40px;
 }
 
 .status, .desativar {
     display: flex;
-    align-items: center; /* Centraliza verticalmente os itens */
-    justify-content: center; /* Centraliza horizontalmente */
-    height: 40px; /* Garantindo que ambos tenham a mesma altura */
+    align-items: center; 
+    justify-content: center;
+    height: 40px;
     font-size: 18px;
     border-radius: 5px;
 }
 
-/* Estilos para o status */
+/* status */
 .status p {
     color: white;
     font-weight: bold;
     background-color: #61C454;
     text-align: center;
-    min-width: 150px; /* Garantindo que o status tenha o tamanho mínimo */
+    min-width: 150px; 
     display: flex;
     align-items: center; 
     justify-content: center;
     height: 40PX;
     border-radius: 5px;
-    margin: 0; /* Remove margens internas padrão */
-    line-height: 40px; /* Garante alinhamento vertical exato */
+    margin: 0;
+    line-height: 40px; 
     padding: 0;
     box-sizing: border-box;
 }
@@ -57,30 +57,30 @@ h3 {
     font-weight: bold;
     background-color: #B20000 !important;
     text-align: center;
-    min-width: 150px; /* Garantindo que o status tenha o tamanho mínimo */
+    min-width: 150px; 
     display: flex;
     align-items: center; 
     justify-content: center;
     height: 40PX;
     border-radius: 5px;
-    margin: 0; /* Remove margens internas padrão */
-    line-height: 40px; /* Garante alinhamento vertical exato */
+    margin: 0; 
+    line-height: 40px; 
     padding: 0;
     box-sizing: border-box; 
 }
 
-/* Estilos para o botão desativar */
+/*desativar */
 .desativar {
     color: white;
     font-weight: bold;
     background-color: white;
     text-align: center;
-    min-width: 100px; /* Garantindo que o botão tenha o tamanho mínimo */
+    min-width: 100px; 
     border: 2px solid #B20000;
     color: #B20000;
     display: flex;
-    align-items: center; /* Centraliza o texto verticalmente */
-    justify-content: center; /* Centraliza o texto horizontalmente */
+    align-items: center;
+    justify-content: center; 
     height: 40PX;
 }
 .ativar {
@@ -88,30 +88,30 @@ h3 {
     font-weight: bold;
     background-color: white;
     text-align: center;
-    min-width: 100px; /* Garantindo que o botão tenha o tamanho mínimo */
+    min-width: 100px; 
     border: 2px solid #61C454;
     color: #61C454;
     display: flex;
-    align-items: center; /* Centraliza o texto verticalmente */
-    justify-content: center; /* Centraliza o texto horizontalmente */
+    align-items: center;
+    justify-content: center;
     height: 40PX;
     border-radius: 5px;
 }
 
-/* Ajuste para as linhas do formulário */
+/* formulário */
 .row {
     margin-top: 20px;
 }
 
 .col-6:first-child .title-cadevento {
-    text-align: left; /* Alinha à esquerda */
+    text-align: left; 
 }
 .photo-box {
-    width: 100%; /* Ocupa toda a largura disponível */
-    height: 120px; /* Altura retangular (ajustável) */
-    background-color: white; /* Só pra destacar visualmente */
-    border-radius: 8px; /* Bordas suavemente arredondadas */
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.15); /* Sombra bonita */
+    width: 100%; 
+    height: 120px; 
+    background-color: white; 
+    border-radius: 8px; 
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.15);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -121,7 +121,7 @@ h3 {
 }
 
 .photo-box:hover {
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25); /* Sombra mais forte no hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25); 
 }
 .divider-cadevento{
     height: 2px;
@@ -200,8 +200,8 @@ textarea::placeholder{
 }
 @media (max-width: 768px) {
     .row {
-      flex-direction: column !important; /* Empilha os itens verticalmente */
-      align-items: stretch; /* Faz os inputs ocuparem 100% */
+      flex-direction: column !important;
+      align-items: stretch; 
     }
   
     .col-6 {
@@ -210,7 +210,7 @@ textarea::placeholder{
     }
   
     .status-desativar {
-      justify-content: center; /* Centraliza no mobile */
+      justify-content: center; 
       flex-direction: column;
       gap: 10px;
       align-items: center;

@@ -26,7 +26,7 @@ const ShowEventos = () => {
                 <div className="card-evento">
                 <h3 className="evento-title">HubTec'25</h3>
                 <div className="acoes-evento">
-                    <a href="/ediEvents" className="editar-evento">Editar</a>
+                    <a href="/editEvents" className="editar-evento">Editar</a>
                     <a href="#" className="deletar-evento">Deletar</a>
                 </div>
                 </div>
