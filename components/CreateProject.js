@@ -122,14 +122,13 @@ function CreateProject() {
 
                         <div className="form-row">
                             <div className="form-field ra">
-                                <input
-                                    type="text"
-                                    name="resumo"
-                                    value={formData.resumo}
-                                    onChange={handleChange}
-                                    className="styled-input resumo"
-                                    placeholder="Resumo:"
-                                />
+                              <textarea
+                                name="resumo"
+                                value={formData.resumo}
+                                onChange={handleChange}
+                                className="styled-input resumo"
+                                placeholder="Resumo:"
+                              />
                             </div>
                         </div>
 
@@ -137,7 +136,7 @@ function CreateProject() {
               </div>
             </div>
           </div>
-          <div className="row row-border d-flex justify-content-center g-3 mt-3">
+          <div className="row row-border d-flex justify-content-center g-3 mt-3 pesquisa">
           <div className="col-md-9 d-flex justify-content-center mb-4">
             <div className="search-wrapper">
               <input className="search" placeholder="Pesquisar aluno" />
@@ -148,74 +147,66 @@ function CreateProject() {
               <button className="btn-add">Adicionar</button>
             </div>
           </div>
-          <br/>
-          <br/>
-          <div className="row row-border d-flex justify-content-center g-3">
-            <div className="col-md-12 title-add"> Áreas Temáticas (máx. 3) </div>
-            <div className="col-md-6 d-flex justify-content-center">
-            <div className="form-check">
-                <label className="form-check-label" for="checkDefault"> Comunicação </label>
-                <input className="form-check-input" type="checkbox" value="" id="checkDefault" />
-              </div>
-            </div>
-            <div className="col-md-6 d-flex justify-content-center">
-            <div className="form-check">
-                <label className="form-check-label" for="checkDefault"> Meio Ambiente </label>
-                <input className="form-check-input" type="checkbox" value="" id="checkDefault" />
-              </div>
-            </div>
-            <div className="col-md-6 d-flex justify-content-center">
-            <div className="form-check">
-                <label className="form-check-label" for="checkDefault"> Cultura </label>
-                <input className="form-check-input" type="checkbox" value="" id="checkDefault" />
-              </div>
-            </div>
-            <div className="col-md-6 d-flex justify-content-center">
-            <div className="form-check">
-                <label className="form-check-label" for="checkDefault"> Saúde </label>
-                <input className="form-check-input" type="checkbox" value="" id="checkDefault" />
-              </div>
-            </div>
-            <div className="col-md-6 d-flex justify-content-center">
-            <div className="form-check">
-                <label className="form-check-label" for="checkDefault"> Direitos Humanos </label>
-                <input className="form-check-input" type="checkbox" value="" id="checkDefault" />
-              </div>
-            </div>
-            <div className="col-md-6 d-flex justify-content-center">
-            <div className="form-check">
-                <label className="form-check-label" for="checkDefault"> Tecnologia e Produção </label>
-                <input className="form-check-input" type="checkbox" value="" id="checkDefault" />
-              </div>
-            </div>
-            <div className="col-md-6 d-flex justify-content-center">
-            <div className="form-check">
-                <label className="form-check-label" for="checkDefault"> Educação </label>
-                <input className="form-check-input" type="checkbox" value="" id="checkDefault" />
-              </div>
-            </div>
-            <div className="col-md-6 d-flex justify-content-center mb-4">
-              <div className="form-check">
-                <label className="form-check-label" for="checkDefault"> Trabalho </label>
-                <input className="form-check-input" type="checkbox" value="" id="checkDefault" />
-              </div>
+          <div className="row row-border g-3 areaconj">
+  <div className="col-md-12 title-proj"> Áreas Temáticas (máx. 3) </div>
+
+  <div className="d-flex justify-content-center flex-wrap gap-4">
+    <div className="col-md-5 d-flex flex-column align-items-end">
+      <div className="form-check d-flex align-items-center">
+        <label className="form-check-label me-2" htmlFor="check1">Comunicação</label>
+        <input className="form-check-input custom-checkbox" type="checkbox" id="check1" />
+      </div>
+      <div className="form-check d-flex align-items-center">
+        <label className="form-check-label me-2" htmlFor="check2">Meio Ambiente</label>
+        <input className="form-check-input custom-checkbox" type="checkbox" id="check2" />
+      </div>
+      <div className="form-check d-flex align-items-center">
+        <label className="form-check-label me-2" htmlFor="check3">Cultura</label>
+        <input className="form-check-input custom-checkbox" type="checkbox" id="check3" />
+      </div>
+      <div className="form-check d-flex align-items-center mb-3">
+        <label className="form-check-label me-2" htmlFor="check4">Saúde</label>
+        <input className="form-check-input custom-checkbox" type="checkbox" id="check4" />
+      </div>
+    </div>
+
+    <div className="col-md-5 d-flex flex-column align-items-end">
+      <div className="form-check d-flex align-items-center">
+        <label className="form-check-label me-2" htmlFor="check5">Direitos Humanos</label>
+        <input className="form-check-input custom-checkbox" type="checkbox" id="check5" />
+      </div>
+      <div className="form-check d-flex align-items-center">
+        <label className="form-check-label me-2" htmlFor="check6">Tecnologia e Produção</label>
+        <input className="form-check-input custom-checkbox" type="checkbox" id="check6" />
+      </div>
+      <div className="form-check d-flex align-items-center">
+        <label className="form-check-label me-2" htmlFor="check7">Educação</label>
+        <input className="form-check-input custom-checkbox" type="checkbox" id="check7" />
+      </div>
+      <div className="form-check d-flex align-items-center mb-3">
+        <label className="form-check-label me-2" htmlFor="check8">Trabalho</label>
+        <input className="form-check-input custom-checkbox" type="checkbox" id="check8" />
+      </div>
+    </div>
+  </div>
+</div>
+
+          {/* extensao */}
+          <div className="row row-border d-flex justify-content-center g-3 mt-3 extensao">
+          <div className="col-md-12 title-proj">Linhas de Extensão (máx. 5) </div>
+          <div className="col-md-9 d-flex justify-content-center mb-4">
+            <div className="search-wrapper">
+              <input className="search" placeholder="Pesquisar aluno" />
+              <img src="/imgs/search-blue.svg" alt="Ícone de lupa" className="search-icon" />
             </div>
           </div>
-          <br/>
-          <br/>
-          <div className="row row-border d-flex justify-content-center g-3">
-            <div className="col-md-12 title-add"> Linhas de Extenção (máx. 5) </div>
-            <div className="col-md-9 d-flex justify-content-center mb-4">
-              <input className="search ms-4"/>
-            </div>
             <div className="col-md-3 d-flex justify-content-center mb-4">
               <button className="btn-add">Adicionar</button>
             </div>
           </div>
-          <br/>
-          <br/>
+          {/* eventos */}
           <div className="row row-border d-flex justify-content-center g-3">
-            <div className="col-md-12 title-add mb-4"> Cadastro em Evento </div>
+            <div className="col-md-12 title-add mb-4 title-proj"> Cadastro em Evento </div>
             <div className="col-md-9 d-flex justify-content-between align-items-center mb-4 evento">
               <div className="text-white ms-5 title-event">HubTec´25</div>
               <button className="btn-inscri me-5">Inscrever-se</button>
@@ -231,131 +222,6 @@ function CreateProject() {
             </div>
           </div>
         </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-{/* 
-        <div className="form-campos">
-          <label>
-            Nome do Projeto:
-            <input
-              type="text"
-              name="nomeProjeto"
-              value={formData.nomeProjeto}
-              onChange={handleChange}
-              required
-            />
-          </label>
-
-          <label>
-            Nome dos Integrantes:
-            <input
-              type="text"
-              name="integrantes"
-              value={formData.integrantes}
-              onChange={handleChange}
-              required
-            />
-          </label>
-
-          <label>
-            Semestre:
-            <input
-              type="text"
-              name="semestre"
-              value={formData.semestre}
-              onChange={handleChange}
-              required
-            />
-          </label>
-
-          <label>
-            Nota TRF:
-            <input
-              type="number"
-              name="notaTrf"
-              value={formData.notaTrf}
-              onChange={handleChange}
-              step="0.01"
-              min="0"
-              max="10"
-              required
-            />
-          </label>
-        </div>
-
-        <div className="botoes">
-          <button type="submit" className="btn-cadastrar">Cadastrar</button>
-          <button type="button" className="btn-cancelar" onClick={handleCancel}>Cancelar</button>
-        </div> */}
       </form>
     </div>
   </>
@@ -363,85 +229,3 @@ function CreateProject() {
 }
 
 export default CreateProject;
-
-// import React, { useState } from 'react';
-// import '../src/styles/create-project.css';
-
-// function CreateProject() {
-  // const [projects, setProjects] = useState([
-    // { id: 1, titulo: 'Sistema Escolar', descricao: 'Plataforma para alunos e professores' },
-    // { id: 2, titulo: 'Site Portfólio', descricao: 'Apresentação de projetos pessoais' },
-  // ]);
-
-  // const [mostrarForm, setMostrarForm] = useState(false);
-  // const [novoProjeto, setNovoProjeto] = useState({ titulo: '', descricao: '' });
-
-  // const toggleFormulario = () => {
-    // setMostrarForm((prev) => !prev);
-  // };
-
-  // const handleChange = (e) => {
-    // const { name, value } = e.target;
-    // setNovoProjeto((prev) => ({ ...prev, [name]: value }));
-  // };
-
-  // const handleSubmit = (e) => {
-    // e.preventDefault();
-    // const novoId = projects.length + 1;
-    // setProjects((prev) => [...prev, { id: novoId, ...novoProjeto }]);
-    // setNovoProjeto({ titulo: '', descricao: '' });
-    // setMostrarForm(false);
-  // };
-
-  // const handleDelete = (id) => {
-    // setProjects((prev) => prev.filter((p) => p.id !== id));
-  // };
-
-  // return (
-    // <div className="create-project-container">
-      // <h2>Projetos</h2>
-
-      // <button className="botao-novo" onClick={toggleFormulario}>
-        //{mostrarForm ? 'Cancelar' : 'Novo Projeto'}
-      // </button>
-
-      // {mostrarForm && (
-        // <form onSubmit={handleSubmit}>
-          // <input
-            // type="text"
-            // name="titulo"
-            // placeholder="Título"
-            // value={novoProjeto.titulo}
-            // onChange={handleChange}
-            // required
-          // />
-          // <input
-            // type="text"
-            // name="descricao"
-            // placeholder="Descrição"
-            // value={novoProjeto.descricao}
-            // onChange={handleChange}
-            // required
-          // />
-          // <button type="submit">Salvar</button>
-        // </form>
-      // )}
-
-      // <div className="lista-projetos">
-        // {projects.map((p) => (
-          // <div key={p.id} className="projeto">
-            // <h3>{p.titulo}</h3>
-            // <p>{p.descricao}</p>
-            // <button
-              // className="botao-excluir"
-              // onClick={() => handleDelete(p.id)}>
-              //Excluir
-            // </button>
-          // </div>
-        // ))}
-      // </div>
-    // </div>
-  // );
-// }
-
-// export default CreateProject;
