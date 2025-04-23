@@ -19,19 +19,20 @@ const MenuProfile = ({
   ]
 }) => {
   const { userType } = useUser();
-
   const [perfilAtivo, setPerfilAtivo] = useState(null);
 
   const exibirPerfil = perfilAtivo || {
     nome,
     cursoOuSetor,
-    papel: "Líder", //cargo padrao q eu coloquei (isa)
+    papel: "Líder", // cargo padrão do usuário
     grupo,
   };
 
+  const isPerfilDoIntegrante = perfilAtivo !== null;
+
   return (
     <>
-      {menuAberto && <div className="shadow-overlay" onClick={fecharMenu}></div>}
+      {menuAberto && <div className="shadow-overlay" onClick={() => { fecharMenu(); setPerfilAtivo(null); }}></div>}
 
       <div className={`menu-perfil-container ${menuAberto ? "aberto" : ""}`}>
         <div className="row">
@@ -43,12 +44,11 @@ const MenuProfile = ({
             alt="Fechar"
             onClick={() => {
               fecharMenu();
-              setPerfilAtivo(null); // limpa ao fechar
+              setPerfilAtivo(null);
             }}
           />
         </div>
 
-        {/* Foto de perfil */}
         <div className="row">
           <div className="col-md">
             <img
@@ -102,12 +102,22 @@ const MenuProfile = ({
         </div>
 
         <div className="row">
-          <a href="/editStudent">
-            <button className="editar-perfil">Editar Perfil</button>
-          </a>
+          {isPerfilDoIntegrante ? (
+            <button
+              className="voltar-perfil"
+              onClick={() => setPerfilAtivo(null)}
+            >
+              Voltar
+            </button>
+          ) : (
+            <a href="/editStudent">
+              <button className="editar-perfil">Editar Perfil</button>
+            </a>
+          )}
         </div>
+
         <div className="row">
-          <button className="sair-perfil">Sair Perfil</button>
+          <button className="sair-perfil">Sair </button>
         </div>
 
         {userType === "adm" && (
