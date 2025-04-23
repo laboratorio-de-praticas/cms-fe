@@ -5,11 +5,8 @@ export default function HomeLogado() {
   return (
     <>
       <main>
-        {/* adm */}
         <Welcome></Welcome>
         <IndexOptions></IndexOptions>
-        {/* aluno lider*/}
-        {/* aluno comum */}
       </main>
     </>
   );

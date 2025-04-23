@@ -1,0 +1,242 @@
+.container-cadevento {
+    padding: 30px;
+}
+
+.title-cadevento  {
+    color: #004854;
+}
+
+.title-evento p {
+    font-size: 25px;
+}
+
+h3 {
+    font-size: 35px;
+    margin-top: -20px;
+}
+
+.status-desativar {
+    display: flex;
+    justify-content: flex-end; /* Alinha os itens à direita */
+    gap: 10px; /* Espaçamento entre os itens */
+    align-items: center; /* Alinha verticalmente os itens */
+    height: 100%; /* Garante que o container ocupe toda a altura disponível */
+    flex-wrap: nowrap; /* Garante que os itens não quebrem linha */
+    min-height: 40px; /* Garante que a altura mínima seja 40px */
+}
+
+.status, .desativar {
+    display: flex;
+    align-items: center; /* Centraliza verticalmente os itens */
+    justify-content: center; /* Centraliza horizontalmente */
+    height: 40px; /* Garantindo que ambos tenham a mesma altura */
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+/* Estilos para o status */
+.status p {
+    color: white;
+    font-weight: bold;
+    background-color: #61C454;
+    text-align: center;
+    min-width: 150px; /* Garantindo que o status tenha o tamanho mínimo */
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    height: 40PX;
+    border-radius: 5px;
+    margin: 0; /* Remove margens internas padrão */
+    line-height: 40px; /* Garante alinhamento vertical exato */
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.status-des p{
+    color: white;
+    font-weight: bold;
+    background-color: #B20000 !important;
+    text-align: center;
+    min-width: 150px; /* Garantindo que o status tenha o tamanho mínimo */
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    height: 40PX;
+    border-radius: 5px;
+    margin: 0; /* Remove margens internas padrão */
+    line-height: 40px; /* Garante alinhamento vertical exato */
+    padding: 0;
+    box-sizing: border-box; 
+}
+
+/* Estilos para o botão desativar */
+.desativar {
+    color: white;
+    font-weight: bold;
+    background-color: white;
+    text-align: center;
+    min-width: 100px; /* Garantindo que o botão tenha o tamanho mínimo */
+    border: 2px solid #B20000;
+    color: #B20000;
+    display: flex;
+    align-items: center; /* Centraliza o texto verticalmente */
+    justify-content: center; /* Centraliza o texto horizontalmente */
+    height: 40PX;
+}
+.ativar {
+    color: white;
+    font-weight: bold;
+    background-color: white;
+    text-align: center;
+    min-width: 100px; /* Garantindo que o botão tenha o tamanho mínimo */
+    border: 2px solid #61C454;
+    color: #61C454;
+    display: flex;
+    align-items: center; /* Centraliza o texto verticalmente */
+    justify-content: center; /* Centraliza o texto horizontalmente */
+    height: 40PX;
+    border-radius: 5px;
+}
+
+/* Ajuste para as linhas do formulário */
+.row {
+    margin-top: 20px;
+}
+
+.col-6:first-child .title-cadevento {
+    text-align: left; /* Alinha à esquerda */
+}
+.photo-box {
+    width: 100%; /* Ocupa toda a largura disponível */
+    height: 120px; /* Altura retangular (ajustável) */
+    background-color: white; /* Só pra destacar visualmente */
+    border-radius: 8px; /* Bordas suavemente arredondadas */
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.15); /* Sombra bonita */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+}
+
+.photo-box:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25); /* Sombra mais forte no hover */
+}
+.divider-cadevento{
+    height: 2px;
+    background-color: #004854;
+    margin-top: 1%;
+}
+input{
+    border: 1px solid #004854;
+    border-radius: 5px;
+    background-color: white;
+    height: 40px;
+}
+input::placeholder{
+    color: #004854;
+    font-weight: bold;
+}
+textarea{
+    border: 1px solid #004854;
+    border-radius: 5px;
+    background-color: white;
+    height: 100px;
+}
+textarea::placeholder{
+    color: #004854;
+    font-weight: bold;
+}
+.nome-evento{
+    max-width: 630px;
+    width: 100%;
+}
+.tipo-evento{
+    margin-left: 20px;
+    max-width: 630px;
+    width: 100%;
+}
+.semestre-evento{
+    max-width: 630px;
+    width: 100%;
+}
+.ano-semestre-evento{
+    margin-left: 20px;
+    max-width: 630px;
+    width: 100%;
+}
+.concluir-evento{
+    background-color: #61C454;
+    color: white;
+    font-weight: bold;
+    border: 1px solid #61C454;
+    height: 40px;
+    max-width: 750px;
+    width: 100%;
+    border-radius: 5px;
+}
+.cancelar-evento{
+    margin-left: 30px;
+    background-color: #B20000;
+    color: white;
+    font-weight: bold;
+    border: 1px solid #B20000;
+    height: 40px;
+    max-width: 500px;
+    width: 100%;
+    border-radius: 5px;
+
+}
+@media (max-width: 768px) {
+    .row {
+      flex-direction: column !important; /* Empilha os itens verticalmente */
+      align-items: stretch; /* Faz os inputs ocuparem 100% */
+    }
+  
+    .col-6 {
+      width: 100%;
+      padding: 0;
+    }
+  
+    .status-desativar {
+      justify-content: center; /* Centraliza no mobile */
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+      margin-top: 10px;
+    }
+  
+    .status p,
+    .desativar,
+    .ativar {
+      width: 100%;
+      max-width: 300px;
+    }
+  
+    .tipo-evento,
+    .ano-semestre-evento,
+    .cancelar-evento {
+      margin-left: 0;
+      margin-top: 15px;
+    }
+  
+    .concluir-evento,
+    .cancelar-evento {
+      max-width: 100%;
+    }
+  
+    .photo-box {
+      height: 100px;
+    }
+  
+    h3 {
+      font-size: 28px;
+      margin-top: -10px;
+    }
+  
+    .title-cadevento p {
+      font-size: 20px;
+    }
+  }
+  
