@@ -101,8 +101,8 @@ const Navbar = ({ abrirMenu }) => {
             {!estaNoIndex && userType === "aluno" && (
               <li className="nav-item">
                 <a
-                  className={`nav-link ${caminhoAtual === "/cadastro/projeto" ? "active-page" : ""}`}
-                  href="/cadastro/projeto"
+                  className={`nav-link ${caminhoAtual === "/formProject" ? "active-page" : ""}`}
+                  href="/formProject"
                 >
                   Cadastrar
                 </a>
