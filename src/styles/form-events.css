@@ -188,6 +188,16 @@ textarea::placeholder{
     border-radius: 5px;
 
 }
+.editar-evento{
+    background-color: #F4BD50;
+    color: white;
+    font-weight: bold;
+    border: 1px solid #F4BD50;
+    height: 40px;
+    max-width: 750px;
+    width: 100%;
+    border-radius: 5px;
+}
 @media (max-width: 768px) {
     .row {
       flex-direction: column !important; /* Empilha os itens verticalmente */
@@ -222,7 +232,7 @@ textarea::placeholder{
     }
   
     .concluir-evento,
-    .cancelar-evento {
+    .cancelar-evento, .editar-evento {
       max-width: 100%;
     }
   
