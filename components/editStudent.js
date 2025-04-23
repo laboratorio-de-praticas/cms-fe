@@ -132,7 +132,7 @@ const EditStudent=()=>{
                     <h5 className="fw-bold">Deseja continuar cadastrado como representante?</h5>
                     <div style={{ display: 'flex', gap: '20px' }}>
                     <a 
-                        href="/eventosCandidatura"
+                        href="/homeLogado"
                         className="btn-sim"
                         style={{
                             backgroundColor: '#0B9247',
@@ -262,7 +262,7 @@ const EditStudent=()=>{
                             </div>
 
                             <div className="button-group mt-3">
-                                <button type="submit" className="btn btn-warning">Editar</button>
+                                <button onClick={() => setShowRepresentativePopup(true)} type="submit" className="btn btn-warning">Editar</button>
                                 <a href="/homeLogado" className="btn btn-outline-danger">Cancelar</a>
                             </div>
                         </div>
