@@ -137,16 +137,21 @@ function CreateProject() {
             </div>
           </div>
           <div className="row row-border d-flex justify-content-center g-3 mt-3 pesquisa">
-          <div className="col-md-9 d-flex justify-content-center mb-4">
-            <div className="search-wrapper">
+          <div className="col-md-12 d-flex align-items-center mb-4">
+            <div className="search-wrapper me-3">
               <input className="search" placeholder="Pesquisar aluno" />
               <img src="/imgs/search-blue.svg" alt="Ícone de lupa" className="search-icon" />
             </div>
+            <button className="btn-add">Adicionar</button>
           </div>
-            <div className="col-md-3 d-flex justify-content-center mb-4">
-              <button className="btn-add">Adicionar</button>
+              {/* <!-- Card do aluno (repita quantos quiser) --> */}
+              <div className="aluno-card">
+                <img src="/imgs/foto-perfil.png" height={40} width={40} alt="Foto do aluno" className="foto-aluno" />
+                <p className="nome-aluno">Nome Completo Aqui</p>
+                <img src="/imgs/excluir-card.svg" height={20} width={20} alt="Excluir" className="icone-excluir" />
+              </div>
             </div>
-          </div>
+
           <div className="row row-border g-3 areaconj">
   <div className="col-md-12 title-proj"> Áreas Temáticas (máx. 3) </div>
 
