@@ -1,13 +1,17 @@
 import { useRouter } from "next/router";
 import "../src/styles/navbar.css";
-import { useEffect, useState } from "react";
-import { useUser } from "../context/userContext.js"; // <-- novo
+import { useState } from "react";
+import { useUser } from "../context/userContext.js";
 
 const Navbar = ({ abrirMenu }) => {
   const router = useRouter();
   const caminhoAtual = router.pathname;
   const estaNoIndex = caminhoAtual === "/";
-  const { userType } = useUser(); // <-- pegando o tipo do usuaRIO 
+  const { userType } = useUser();
+
+  const [menuAbertoNavbar, setMenuAbertoNavbar] = useState(false);
+
+  const toggleMenu = () => setMenuAbertoNavbar(!menuAbertoNavbar);
 
   return (
     <nav className="navbar navbar-expand-lg nav-padrao">
@@ -16,38 +20,47 @@ const Navbar = ({ abrirMenu }) => {
           <img
             className="logo-cps-55"
             src="/imgs/2024_logo_55anos_cps_gov_24-25_regua_horizontal+horizontal_br 1.png"
-            alt=""
+            alt="Logo CPS"
             width={235.24}
             height={56.8}
           />
         </a>
 
-        <div className="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul className="navbar-nav">
-            <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">
-                <img
-                  className="logo-fatec-registro"
-                  src="/imgs/fatec_ra_registro_registro_br.png"
-                  alt=""
-                  width={87.57}
-                  height={55.2}
-                />
-              </a>
-            </li>
+        {/* HAMBURGUER */}
+        {!estaNoIndex && (
+          <button className="hamburguer-btn" onClick={toggleMenu}>
+            <img
+              src="/imgs/hamburguer-branco.png"
+              alt="Menu"
+              height={13}
+              width={20}
+            />
+          </button>
+        )}
 
+        <div
+          className={`collapse navbar-collapse ${
+            menuAbertoNavbar ? "show-menu-navbar" : ""
+          }`}
+          id="navbarNavDropdown"
+        >
+          <ul className="navbar-nav">
             <li className="nav-item home-item">
               <a
-                className={`nav-link ${["/homeLogado", "/"].includes(caminhoAtual) ? "active-page" : ""}`}
+                className={`nav-link ${
+                  ["/homeLogado", "/"].includes(caminhoAtual)
+                    ? "active-page"
+                    : ""
+                }`}
                 href="/homeLogado"
               >
                 Home
               </a>
             </li>
 
-            <span className="separador">|</span>
+            {/* Separador após Home, apenas uma vez */}
+            {estaNoIndex && <li className="separador"></li>}
 
-            {/* Apenas se estiver no index (deslogado) */}
             {estaNoIndex && (
               <li className="nav-item dropdown">
                 <a
@@ -56,7 +69,6 @@ const Navbar = ({ abrirMenu }) => {
                   id="navbarDropdown"
                   role="button"
                   data-bs-toggle="dropdown"
-                  aria-expanded="false"
                 >
                   Cadastro
                 </a>
@@ -66,7 +78,9 @@ const Navbar = ({ abrirMenu }) => {
                       Usuário
                     </a>
                   </li>
-                  <li><hr className="dropdown-divider" /></li>
+                  <li>
+                    <hr className="dropdown-divider" />
+                  </li>
                   <li>
                     <a className="dropdown-item" href="/cadastro/projeto">
                       Projeto
@@ -76,32 +90,55 @@ const Navbar = ({ abrirMenu }) => {
               </li>
             )}
 
-            {!estaNoIndex && userType === "adm" && (
+            {/* Separador após Cadastro, se necessário */}
+            {estaNoIndex && <li className="separador"></li>}
+
+            {userType === "adm" && (
               <>
                 <li className="nav-item">
-                  <a className={`nav-link ${caminhoAtual === "/gerenciar" ? "active-page" : ""}`} href="/gerenciar">
+                  <a
+                    className={`nav-link ${
+                      caminhoAtual === "/gerenciar" ? "active-page" : ""
+                    }`}
+                    href="/gerenciar"
+                  >
                     Gerenciar
                   </a>
                 </li>
-                <span className="separador">|</span>
+
                 <li className="nav-item">
-                  <a className={`nav-link ${caminhoAtual === "/pedidos" ? "active-page" : ""}`} href="/pedidos">
+                  <a
+                    className={`nav-link ${
+                      caminhoAtual === "/pedidos" ? "active-page" : ""
+                    }`}
+                    href="/pedidos"
+                  >
                     Pedidos
                   </a>
                 </li>
-                <span className="separador">|</span>
+
                 <li className="nav-item">
-                  <a className={`nav-link ${caminhoAtual === "/eventos" ? "active-page" : ""}`} href="/eventos">
+                  <a
+                    className={`nav-link ${
+                      caminhoAtual === "/eventos" ? "active-page" : ""
+                    }`}
+                    href="/eventos"
+                  >
                     Eventos
                   </a>
                 </li>
               </>
             )}
 
-            {!estaNoIndex && userType === "aluno" && (
+            {/* Separador para "aluno", se necessário */}
+            {userType === "aluno" && <li className="separador"></li>}
+
+            {userType === "aluno" && (
               <li className="nav-item">
                 <a
-                  className={`nav-link ${caminhoAtual === "/formProject" ? "active-page" : ""}`}
+                  className={`nav-link ${
+                    caminhoAtual === "/formProject" ? "active-page" : ""
+                  }`}
                   href="/formProject"
                 >
                   Cadastrar
@@ -111,22 +148,25 @@ const Navbar = ({ abrirMenu }) => {
           </ul>
         </div>
 
-        {!estaNoIndex && (
-          <div className="perfil-retangulo">
-            <img src="/imgs/foto-perfil.png" alt="Foto de Perfil" className="foto-perfil" />
+        {/* Oculta a foto de perfil no mobile quando o menu está aberto */}
+        {!estaNoIndex && !menuAbertoNavbar && (
+          <div
+            className="perfil-retangulo"
+            onClick={(e) => {
+              e.preventDefault();
+              abrirMenu();
+            }}
+          >
+            <img
+              src="/imgs/foto-perfil.png"
+              alt="Foto de Perfil"
+              className="foto-perfil"
+            />
             <div className="info-perfil">
               <span className="nome-perfil">José Alves da Silva</span>
               <span className="turma-perfil">DSM-4</span>
             </div>
-            <a
-              href="#"
-              onClick={(e) => {
-                e.preventDefault();
-                abrirMenu();
-              }}
-            >
-              <img src="/imgs/vector-down.svg" alt="" className="icon-vector" />
-            </a>
+            <img src="/imgs/vector-down.svg" alt="" className="icon-vector" />
           </div>
         )}
       </div>
