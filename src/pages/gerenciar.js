@@ -1,13 +1,20 @@
-
+import { useState } from 'react';
 import SearchHome from '../../components/search-home.js';
 import StudentCard from '../../components/student-card.js';
-// eu coloquei header, navbar e footer no app.js e ai tirei das outras paginas pra nao duplicar ;)
-export default function gerenciar() {
+import ProjectCard from '../../components/project-card.js';
+
+export default function Gerenciar() {
+  const [mostrarProjeto, setMostrarProjeto] = useState(false);
+
   return (
     <>
       <main>
-        <SearchHome />
-        <StudentCard />
+        <SearchHome
+          onProjetoClick={() => setMostrarProjeto(true)}
+          onAlunoClick={() => setMostrarProjeto(false)}
+        />
+
+        {mostrarProjeto ? <ProjectCard /> : <StudentCard />}
       </main>
     </>
   );

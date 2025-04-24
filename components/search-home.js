@@ -1,7 +1,7 @@
 import "../src/styles/search-home.css";
 import React from "react";
 
-const SearchHome = () => {
+const SearchHome = ({ onProjetoClick, onAlunoClick}) => {
   return (
     <div className="search-container-fluid container-filtros-dsm">
       <div className="row">
@@ -41,6 +41,7 @@ const SearchHome = () => {
               id="option3"
               autoComplete="off"
               defaultChecked
+              onClick={onAlunoClick}
             />
             <label className="btn btn-branco" htmlFor="option3">
               Aluno
@@ -52,6 +53,7 @@ const SearchHome = () => {
               name="grupo2"
               id="option4"
               autoComplete="off"
+              onClick={onProjetoClick}
             />
             <label className="btn btn-branco" htmlFor="option4">
               Projeto

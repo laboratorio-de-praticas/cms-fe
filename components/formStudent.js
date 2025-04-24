@@ -121,23 +121,6 @@ const FormStudent = () => {
               {/* Lado direito */}
               <div className="info-container">
                 <div className="d-flex align-items-center gap-3 mb-3">
-                  {/* <div className="toggle-group">
-                    <button
-                      type="button"
-                      className={formData.curso === "DSM" ? "active" : ""}
-                      onClick={() => handleCursoChange("DSM")}
-                    >
-                      DSM
-                    </button>
-                    <button
-                      type="button"
-                      className={formData.curso === "GE" ? "active" : ""}
-                      onClick={() => handleCursoChange("GE")}
-                    >
-                      GE
-                    </button>
-                  </div> */}
-
                   <label className="checkbox-label">
                     <input
                       type="checkbox"
@@ -208,7 +191,7 @@ const FormStudent = () => {
                         value={formData.turma_atual}
                         onChange={handleChange}
                         className="styled-input inp-sem"
-                        placeholder="Semestre Atual: (DSM1)"
+                        placeholder="Semestre Atual: (ex.:DSM1)"
                       />
                     </div>
                   </div>
