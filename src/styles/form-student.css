@@ -174,8 +174,9 @@
 /* CAMPOS */
 .form-row {
     display: flex;
-    gap: 0.2rem;
+    gap: 1.5rem;
     justify-content: space-between;
+    
 }
 
 .form-field {
@@ -190,11 +191,16 @@
     width: 480px;
 }
 
+.inp-email{
+    width: 400px;
+
+}
 .inp-data {
     width: 290px;
+    
 }
 .inp-sem {
-    width: 400px;
+    width: 300px;
 }
 
 .styled-input {
@@ -226,6 +232,8 @@
     align-items: center;
     margin-top: 15px;
     flex-wrap: nowrap;
+    flex: none;
+    width: 380px;
 }
 
 .row-final .campo-final {
@@ -236,9 +244,9 @@
 
 .row-final .button-group {
     display: flex;
-    gap: 10px;
+    gap: 20px;
     justify-content: flex-start;
-    margin-left: 35px;
+    margin-left: 20px;
 }
 
 .btn-success {
@@ -297,7 +305,7 @@
         margin: 0 auto;
     }
 
-    .inp-nome, .inp-ra, .inp-data, .inp-sem {
+    .inp-nome, .inp-ra, .inp-data, .inp-sem, .inp-email {
         width: 100%; 
         min-width: 0; 
     }
