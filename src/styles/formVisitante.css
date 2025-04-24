@@ -82,3 +82,50 @@ input::placeholder{
     font-weight: 700;
     color: #004854;
 }
+/* Responsividade para telas menores que 768px */
+@media (max-width: 768px) {
+    .container-visitante {
+        padding: 20px;
+    }
+
+    .title-visitante p {
+        font-size: 20px;
+    }
+
+    .title-visitante h3 {
+        font-size: 28px;
+    }
+
+    .form-visitante {
+        padding: 15px;
+    }
+
+    .row:last-child {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .cadastrar, .voltar {
+        max-width: 100%;
+    }
+}
+
+/* Responsividade para telas muito pequenas (smartphones antigos) */
+@media (max-width: 480px) {
+    .title-visitante p {
+        font-size: 18px;
+    }
+
+    .title-visitante h3 {
+        font-size: 24px;
+    }
+
+    .inp-usu, .inp-celular {
+        font-size: 14px;
+    }
+
+    .cadastrar, .voltar {
+        font-size: 14px;
+        height: 38px;
+    }
+}
