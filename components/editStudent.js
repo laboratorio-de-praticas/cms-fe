@@ -126,7 +126,7 @@ const EditStudent=()=>{
 
     return (
         <>
-{showRepresentativePopup && (
+{/* {showRepresentativePopup && (
             <div className="popup-overlay">
                 <div className="popup-content">
                     <h5 className="fw-bold">Deseja continuar cadastrado como representante?</h5>
@@ -169,7 +169,7 @@ const EditStudent=()=>{
                     </div>
                 </div>
             </div>
-        )}
+        )} */}
         <div className="divider-verde"></div>
         <div className="container-md container-form-student">
             <div className="title-form-student">
@@ -179,96 +179,157 @@ const EditStudent=()=>{
                     <div className="divider"></div>
                 </div>
             </div>
-            <form className="form-student" method="POST" onSubmit={handleSubmit} encType="multipart/form-data">
-                <div className="form-grid">
-                    {/* Lado esquerdo: foto */}
-                    <div className="foto-container">
-                        <div className="photo-box">
-                            <input 
-                                type="file" 
-                                accept="image/*" 
-                                id="imageUpload" 
-                                style={{ display: 'none' }} 
-                                onChange={handleImageChange} 
-                            />
-                            <label htmlFor="imageUpload">
-                                <img src="/imgs/camera.svg" width={80} height={80} alt="Upload Image" />
-                            </label>
-                        </div>
-                    </div>
-
-                    {/* lado direito */}
-                    <div className="info-container">
-                        {/* toggle e checkbox */}
-                        <div className="d-flex align-items-center gap-3 mb-3">
-                            <div className="toggle-group">
-                                <button type="button" className={formData.curso === 'DSM' ? 'active' : ''} onClick={() => handleCursoChange('DSM')}>DSM</button>
-                                <button type="button" className={formData.curso === 'GE' ? 'active' : ''} onClick={() => handleCursoChange('GE')}>GE</button>
-                            </div>
-
-                            <label className="checkbox-label">
-                                <input type="checkbox" name="deseja_ser_lider" checked={formData.deseja_ser_lider} onChange={handleChange} className='check-lider' />
-                                Desejo me cadastrar como Líder do PI que participo
-                            </label>
-                        </div>
-
-                        {/* Campos */}
-                        <div className="form-field">
-                            <input 
-                                type="text" 
-                                name="nome" 
-                                value={formData.nome} 
-                                onChange={handleChange} 
-                                className="styled-input inp-nome"
-                                placeholder="Nome:"
-                            />
-                        </div>
-
-                        <div className="form-row">
-                            <div className="form-field ra">
-                                <input
-                                    type="text"
-                                    name="ra"
-                                    value={formData.ra}
-                                    onChange={handleChange}
-                                    className="styled-input inp-ra"
-                                    placeholder="RA:"
-                                />
-                            </div>
-
-                            <div className="form-field data">
-                                <input
-                                    type={dateFocused ? "date" : "text"}
-                                    onFocus={() => setDateFocused(true)}
-                                    name="ano_ingresso"
-                                    value={formData.ano_ingresso}
-                                    onChange={handleChange}
-                                    className="styled-input inp-data"
-                                    placeholder="Data de Matrícula:"
-                                />
-                            </div>
-                        </div>
-
-                        <div className="row-final">
-                            <div className="campo-final">
-                                <input 
-                                    type="number" 
-                                    name="turma_atual" 
-                                    value={formData.turma_atual} 
-                                    onChange={handleChange} 
-                                    className="styled-input inp-sem"
-                                    placeholder="Semestre Atual:"
-                                />
-                            </div>
-
-                            <div className="button-group mt-3">
-                                <button onClick={() => setShowRepresentativePopup(true)} type="submit" className="btn btn-warning">Editar</button>
-                                <a href="/homeLogado" className="btn btn-outline-danger">Cancelar</a>
-                            </div>
-                        </div>
-                    </div>
+            <form
+            className="form-student"
+            method="POST"
+            onSubmit={handleSubmit}
+            encType="multipart/form-data"
+          >
+            <div className="form-grid">
+              {/* Lado esquerdo */}
+              <div className="foto-container">
+                <div className="photo-box">
+                  <input
+                    type="file"
+                    accept="image/*"
+                    id="imageUpload"
+                    style={{ display: "none" }}
+                    onChange={handleImageChange}
+                  />
+                  <label htmlFor="imageUpload">
+                    <img
+                      src="/imgs/camera.svg"
+                      width={80}
+                      height={80}
+                      alt="Upload Image"
+                    />
+                  </label>
                 </div>
-            </form>
+              </div>
+
+              {/* Lado direito */}
+              <div className="info-container">
+                <div className="d-flex align-items-center gap-3 mb-3">
+                  {/* <div className="toggle-group">
+                    <button
+                      type="button"
+                      className={formData.curso === "DSM" ? "active" : ""}
+                      onClick={() => handleCursoChange("DSM")}
+                    >
+                      DSM
+                    </button>
+                    <button
+                      type="button"
+                      className={formData.curso === "GE" ? "active" : ""}
+                      onClick={() => handleCursoChange("GE")}
+                    >
+                      GE
+                    </button>
+                  </div> */}
+
+                  <label className="checkbox-label">
+                    <input
+                      type="checkbox"
+                      name="deseja_ser_lider"
+                      checked={formData.deseja_ser_lider}
+                      onChange={handleChange}
+                      className="check-lider"
+                    />
+                    Desejo me candidatar a representante de classe.
+                  </label>
+                </div>
+
+                <div className="form-field">
+                  <input
+                    type="text"
+                    name="nome"
+                    value={formData.nome}
+                    onChange={handleChange}
+                    className="styled-input inp-nome"
+                    placeholder="Nome:"
+                  />
+                </div>
+
+                <div className="form-row">
+                  <div className="col-6">
+                    <div className="form-field ra">
+                      <input
+                        type="text"
+                        name="ra"
+                        value={formData.ra}
+                        onChange={handleChange}
+                        className="styled-input inp-ra"
+                        placeholder="RA:"
+                      />
+                    </div>
+                  </div>
+                  <div className="col-6">
+                    <div className="form-field data">
+                      <input
+                        type={dateFocused ? "date" : "text"}
+                        onFocus={() => setDateFocused(true)}
+                        name="ano_ingresso"
+                        value={formData.ano_ingresso}
+                        onChange={handleChange}
+                        className="styled-input inp-data"
+                        placeholder="Data de Matrícula:"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div className="form-row">
+                  <div className="col-6">
+                    <div className="form-field email">
+                      <input
+                        type="email"
+                        name="email"
+                        className="styled-input inp-email"
+                        placeholder="E-mail:"
+                      />
+                    </div>
+                  </div>
+                  <div className="col-6">
+                    <div className="form-field sem">
+                      <input
+                        type="number"
+                        name="turma_atual"
+                        value={formData.turma_atual}
+                        onChange={handleChange}
+                        className="styled-input inp-sem"
+                        placeholder="Semestre Atual:"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div className="row-final">
+                    <div className="campo-final">
+                      <div className="form-field senha">
+                        <input
+                          type="password"
+                          onFocus={() => setDateFocused(true)}
+                          name="ano_ingresso"
+                          value={formData.ano_ingresso}
+                          onChange={handleChange}
+                          className="styled-input inp-data"
+                          placeholder="Senha:"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="button-group">
+                      <button type="submit" className="btn btn-warning">
+                        Editar
+                      </button>
+                      <a href="/eventosCandidatura" className="btn btn-outline-danger">
+                        Cancelar
+                      </a>
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </form>
         </div>
         </>
 

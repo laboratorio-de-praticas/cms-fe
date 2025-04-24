@@ -248,6 +248,15 @@
     border: none;
   }
   
+  .button-group .btn-warning{
+    padding: 0.5rem 2rem;
+    min-width: 210px;
+    font-weight: bold;
+    background-color: #F4BD50;
+    border: none;
+    color: white;
+  }
+
   /* Botão cancelar */
   .button-group .btn-outline-danger {
     min-width: 120px;
