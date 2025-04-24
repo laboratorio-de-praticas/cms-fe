@@ -136,6 +136,11 @@
 }
 
 
+.btn-check:checked + .btn {
+  background-color: #004854; /* azul */
+  color: white;
+  border-color: #004854;
+}
 
 
 
