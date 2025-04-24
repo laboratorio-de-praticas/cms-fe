@@ -76,17 +76,44 @@ const SearchHome = () => {
           </div>
         </div>
 
-        {/*dropdown */}
-        <div className="custom-dropdown-dsm">
-          <select className="dropdown-select-dsm">
-            <option value="dsm">DSM</option>
-            <option value="ge">GE</option>
-          </select>
-          <img
-            src="/imgs/drop-curso.svg"
-            alt="Seta"
-            className="dropdown-arrow-dsm"
-          />
+        {/*dropdown + btn DSM/GE*/}
+        <div className="d-flex align-items-center gap-2">
+          <div className="custom-dropdown-dsm me-2">
+            <select className="dropdown-select-dsm">
+              <option value="dsm">DSM</option>
+              <option value="ge">GE</option>
+            </select>
+            <img
+              src="/imgs/drop-curso.svg"
+              alt="Seta"
+              className="dropdown-arrow-dsm"
+            />
+          </div>
+
+          <div className="btn-group" role="group">
+            <input
+              type="radio"
+              className="btn-check"
+              name="grupo3"
+              id="option5"
+              autoComplete="off"
+              defaultChecked
+            />
+            <label className="btn btn-branco" htmlFor="option5">
+              DSM
+            </label>
+
+            <input
+              type="radio"
+              className="btn-check"
+              name="grupo3"
+              id="option6"
+              autoComplete="off"
+            />
+            <label className="btn btn-branco" htmlFor="option6">
+              GE 
+            </label>
+          </div>
         </div>
       </div>
     </div>
