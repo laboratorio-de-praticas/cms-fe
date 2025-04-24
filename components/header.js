@@ -21,17 +21,46 @@ export default function Header() {
         />
       </div>
 
-      <div className={`redes-sociais-icons ${menuAbertoHeader ? 'ativo' : ''}`}>
+      <div className={`redes-sociais-icons ${menuAbertoHeader ? "ativo" : ""}`}>
         <Link href="https://www.flickr.com/photos/governosp/">
           <Image src="/imgs/flickr.png" alt="Flickr" width={30} height={30} />
         </Link>
-        <Link href="#"><Image src="/imgs/linkedin.png" alt="Linkedin" width={30} height={30} /></Link>
-        <Link href="#"><Image src="/imgs/tiktok.png" alt="Tiktok" width={30} height={30} /></Link>
-        <Link href="#"><Image src="/imgs/youtube.png" alt="Youtube" width={30} height={30} /></Link>
-        <Link href="#"><Image src="/imgs/twitter.png" alt="Twitter" width={30} height={30} /></Link>
-        <Link href="#"><Image src="/imgs/istagram.png" alt="Instagram" width={30} height={30} /></Link>
-        <Link href="#"><Image src="/imgs/facebook.png" alt="Facebook" width={30} height={30} /></Link>
-        <Link href="https://www.governo.sp.gov.br/" className="governo"><p>/governosp</p></Link>
+        <Link href="https://www.linkedin.com/company/governosp/">
+          <Image
+            src="/imgs/linkedin.png"
+            alt="Linkedin"
+            width={30}
+            height={30}
+          />
+        </Link>
+        <Link href="https://www.tiktok.com/@governosp">
+          <Image src="/imgs/tiktok.png" alt="Tiktok" width={30} height={30} />
+        </Link>
+        <Link href="https://www.youtube.com/governosp/">
+          <Image src="/imgs/youtube.png" alt="Youtube" width={30} height={30} />
+        </Link>
+        <Link href="https://x.com/governosp/">
+          <Image src="/imgs/twitter.png" alt="Twitter" width={30} height={30} />
+        </Link>
+        <Link href="https://www.instagram.com/governosp/">
+          <Image
+            src="/imgs/istagram.png"
+            alt="Instagram"
+            width={30}
+            height={30}
+          />
+        </Link>
+        <Link href="https://www.facebook.com/governosp/">
+          <Image
+            src="/imgs/facebook.png"
+            alt="Facebook"
+            width={30}
+            height={30}
+          />
+        </Link>
+        <Link href="https://www.governo.sp.gov.br/" className="governo">
+          <p>/governosp</p>
+        </Link>
       </div>
 
       <div className="menu-hamburguer" onClick={toggleMenuHeader}>
