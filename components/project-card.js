@@ -18,6 +18,7 @@ const ProjectCard = () => {
 
             <div className="acoes">
                 <span className="status ativo">Ativo</span>
+                {/* <span className="status desativo">Desativo</span> */}
                 <button className="editar">Editar</button>
                 <button className="deletar">Deletar</button>
                 <div className="expandir">

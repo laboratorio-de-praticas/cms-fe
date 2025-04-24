@@ -1,8 +1,8 @@
 .container-project-card {
     width: 100%;
     display: flex;
-    justify-content: center; /* Centraliza o card */
-    padding: 20px; /* Espaçamento lateral */
+    justify-content: center; 
+    padding: 20px; 
   }
   
   .card-project-minimizado {
@@ -12,13 +12,13 @@
     border-radius: 8px;
     padding: 15px;
     background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
     justify-content: flex-start;
-    max-width: 1200px; /* Limita o tamanho máximo do card */
-    width: 100%; /* Ele se adapta dentro do limite */
+    max-width: 1200px; 
+    width: 100%; 
     min-height: 200px;
+    flex-wrap: wrap; 
   }
-  
   
   .project-img img {
     width: 150px;
@@ -46,12 +46,11 @@
     margin: 0;
     color: #808080;
   }
-
+  
   .titulo-e-turma {
     display: flex;
     flex-direction: column;
   }
-  
   
   .turma {
     font-size: 18px;
@@ -66,7 +65,7 @@
     margin-left: 5px;
     border: 2px solid white;
   }
-
+  
   .members {
     margin-top: 10px;
     display: flex;
@@ -75,12 +74,13 @@
   .acoes {
     display: flex;
     align-items: center;
-    gap: 10px;
-    flex-wrap: wrap; /* Ajuda no responsivo se ficar apertado */
+    gap: 20px;
+    flex-wrap: wrap; 
+    margin-left: -10px; 
   }
-
+  
   .status {
-    font-size: 14px;
+    font-size: 16px;
     padding: 4px 12px;
     border-radius: 6px;
     font-weight: 600;
@@ -98,6 +98,20 @@
     height: 40px;
     width: 100px;
   }
+
+  .status.desativo {
+    background-color: white;
+    color: #B20000;
+    border: 2px solid #B20000;
+    border-radius: 5px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 100px;
+  }
+  
   
   .editar {
     background-color: #F4BD50;
@@ -109,7 +123,6 @@
     cursor: pointer;
     height: 40px;
     width: 100px;
-
   }
   
   .deletar {
@@ -122,7 +135,6 @@
     cursor: pointer;
     height: 40px;
     width: 100px;
-
   }
   
   .expandir img {
@@ -130,5 +142,81 @@
     height: 15px;
     cursor: pointer;
     margin-left: auto;
+  }
+  
+  /* Media Queries */
+  @media screen and (max-width: 768px) {
+    .card-project-minimizado {
+      flex-direction: column; 
+      align-items: flex-start;
+      padding: 15px 10px;
+    }
+  
+    .project-img img {
+      width: 120px;
+      height: 120px;
+      margin-right: 0;
+      margin-bottom: 15px; 
+    }
+  
+    .top-info {
+      flex-direction: column; 
+      align-items: flex-start;
+      gap: 10px;
+    }
+  
+    .nome {
+      font-size: 18px; 
+    }
+  
+    .turma {
+      font-size: 16px; 
+    }
+  
+    .acoes {
+      margin-left: 0; 
+      gap: 15px; 
+    }
+  
+    .members {
+      margin-top: 15px;
+    }
+  
+    .status {
+      font-size: 14px;
+      padding: 4px 10px;
+    }
+  
+    .editar, .deletar {
+      width: 80px; /* Ajusta o tamanho dos botões */
+    }
+  
+    .expandir img {
+      width: 12px;
+      height: 12px;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .project-img img {
+      width: 100px;
+      height: 100px;
+    }
+  
+    .nome {
+      font-size: 16px; 
+    }
+  
+    .top-info {
+      gap: 5px; 
+    }
+  
+    .acoes {
+      gap: 10px; 
+    }
+  
+    .editar, .deletar {
+      width: 70px; 
+    }
   }
   
