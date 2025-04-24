@@ -167,7 +167,7 @@ const FormStudent = () => {
               {/* Lado direito */}
               <div className="info-container">
                 <div className="d-flex align-items-center gap-3 mb-3">
-                  <div className="toggle-group">
+                  {/* <div className="toggle-group">
                     <button
                       type="button"
                       className={formData.curso === "DSM" ? "active" : ""}
@@ -182,7 +182,7 @@ const FormStudent = () => {
                     >
                       GE
                     </button>
-                  </div>
+                  </div> */}
 
                   <label className="checkbox-label">
                     <input
@@ -192,7 +192,7 @@ const FormStudent = () => {
                       onChange={handleChange}
                       className="check-lider"
                     />
-                    Desejo me cadastrar como Líder do PI que participo
+                    Desejo me candidatar a representante de classe.
                   </label>
                 </div>
 
@@ -208,77 +208,82 @@ const FormStudent = () => {
                 </div>
 
                 <div className="form-row">
-                  <div className="form-field ra">
-                    <input
-                      type="text"
-                      name="ra"
-                      value={formData.ra}
-                      onChange={handleChange}
-                      className="styled-input inp-ra"
-                      placeholder="RA:"
-                    />
+                  <div className="col-6">
+                    <div className="form-field ra">
+                      <input
+                        type="text"
+                        name="ra"
+                        value={formData.ra}
+                        onChange={handleChange}
+                        className="styled-input inp-ra"
+                        placeholder="RA:"
+                      />
+                    </div>
                   </div>
-
-                  <div className="form-field data">
-                    <input
-                      type={dateFocused ? "date" : "text"}
-                      onFocus={() => setDateFocused(true)}
-                      name="ano_ingresso"
-                      value={formData.ano_ingresso}
-                      onChange={handleChange}
-                      className="styled-input inp-data"
-                      placeholder="Data de Matrícula:"
-                    />
+                  <div className="col-6">
+                    <div className="form-field data">
+                      <input
+                        type={dateFocused ? "date" : "text"}
+                        onFocus={() => setDateFocused(true)}
+                        name="ano_ingresso"
+                        value={formData.ano_ingresso}
+                        onChange={handleChange}
+                        className="styled-input inp-data"
+                        placeholder="Data de Matrícula:"
+                      />
+                    </div>
                   </div>
                 </div>
 
                 <div className="form-row">
-                  <div className="form-field ra">
-                    <input
-                      type="email"
-                      name="email"
-                      className="styled-input inp-email"
-                      placeholder="E-mail:"
-                    />
+                  <div className="col-6">
+                    <div className="form-field email">
+                      <input
+                        type="email"
+                        name="email"
+                        className="styled-input inp-email"
+                        placeholder="E-mail:"
+                      />
+                    </div>
                   </div>
-
-                  <div className="form-field sem">
-                    <input
-                      type="number"
-                      name="turma_atual"
-                      value={formData.turma_atual}
-                      onChange={handleChange}
-                      className="styled-input inp-sem"
-                      placeholder="Semestre Atual:"
-                    />
+                  <div className="col-6">
+                    <div className="form-field sem">
+                      <input
+                        type="number"
+                        name="turma_atual"
+                        value={formData.turma_atual}
+                        onChange={handleChange}
+                        className="styled-input inp-sem"
+                        placeholder="Semestre Atual:"
+                      />
+                    </div>
                   </div>
                 </div>
 
                 <div className="row-final">
-                  <div className="form-field senha">
-                    <input
-                      type="password"
-                      onFocus={() => setDateFocused(true)}
-                      name="ano_ingresso"
-                      value={formData.ano_ingresso}
-                      onChange={handleChange}
-                      className="styled-input inp-data"
-                      placeholder="Senha:"
-                    />
-                  </div>
+                    <div className="campo-final">
+                      <div className="form-field senha">
+                        <input
+                          type="password"
+                          onFocus={() => setDateFocused(true)}
+                          name="ano_ingresso"
+                          value={formData.ano_ingresso}
+                          onChange={handleChange}
+                          className="styled-input inp-data"
+                          placeholder="Senha:"
+                        />
+                      </div>
+                    </div>
 
-                  <div className="button-group mt-3">
-                    <button type="submit" className="btn btn-success">
-                      Cadastrar
-                    </button>
-                    <a
-                      href="/eventosCandidatura"
-                      className="btn btn-outline-danger"
-                    >
-                      Cancelar
-                    </a>
+                    <div className="button-group">
+                      <button type="submit" className="btn btn-success">
+                        Cadastrar
+                      </button>
+                      <a href="/eventosCandidatura" className="btn btn-outline-danger">
+                        Cancelar
+                      </a>
+                    </div>
                   </div>
-                </div>
               </div>
             </div>
           </form>

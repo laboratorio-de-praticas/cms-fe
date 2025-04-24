@@ -71,7 +71,7 @@
 .container-form-student {
     padding-left: 3rem;
     padding-right: 3rem;
-    margin-bottom: 50px;
+    margin-bottom: 100px;
     padding-top: 0;
     margin-top: 0; 
 }
@@ -174,33 +174,25 @@
 /* CAMPOS */
 .form-row {
     display: flex;
-    gap: 1.5rem;
     justify-content: space-between;
+    gap: 2rem;
+    max-width: 800px; /* igual ao inp-nome */
     
 }
 
+.form-row .col-6 {
+    flex: 1;
+}
+
+.form-row .form-field input {
+    width: 100%;
+}
 .form-field {
     width: 100%;
 }
 
 .inp-nome {
     width: 800px;
-}
-
-.inp-ra {
-    width: 480px;
-}
-
-.inp-email{
-    width: 400px;
-
-}
-.inp-data {
-    width: 290px;
-    
-}
-.inp-sem {
-    width: 300px;
 }
 
 .styled-input {
@@ -225,66 +217,52 @@
     border-color: #007d9f;
     box-shadow: 0 0 0 2px rgba(0, 72, 84, 0.2);
 }
-
 .row-final {
     display: flex;
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 60px;
     margin-top: 15px;
-    flex-wrap: nowrap;
-    flex: none;
-    width: 380px;
-}
-
-.row-final .campo-final {
+  }
+  
+  /* Campo de senha */
+  .row-final .campo-final {
     flex: 1;
     max-width: 400px;
-    margin: 0;
-}
-
-.row-final .button-group {
+  }
+  
+  /* Botões */
+  .button-group {
     display: flex;
-    gap: 20px;
-    justify-content: flex-start;
-    margin-left: 20px;
-}
-
-.btn-success {
+    justify-content: flex-end;
+    gap: 10px;
+  }
+  
+  /* Botão cadastrar */
+  .button-group .btn-success {
+    padding: 0.5rem 2rem;
+    min-width: 210px;
+    font-weight: bold;
     background-color: #61C454;
     border: none;
+  }
+  
+  /* Botão cancelar */
+  .button-group .btn-outline-danger {
+    min-width: 120px;
     font-weight: bold;
-    width: 210px;
-}
-
-.btn-success:hover {
-    background-color: #38a957;
-}
-
-.btn-warning {
-    background-color: #f4bd50;
-    border: none;
-    font-weight: bold;
-    color: white;
-    width: 210px;
-}
-
-.btn-warning:hover {
-    color: white;
-    background-color: #ddab47;
-}
-
-.btn-outline-danger {
-    color: #B20000;
-    border: 2px solid #B20000;
-    font-weight: bold;
-    width: 140px;
-}
-
-.btn-outline-danger:hover {
-    background-color: #B20000;
-    color: white;
-}
-
+    border: 2px solid #a90000;
+    color: #a90000;
+    background-color: transparent;
+  }
+  
+  .button-group .btn-outline-danger:hover {
+    background-color: #fcecec;
+    color: #a90000;
+  }
+  
+  
 /* Responsividade */
 @media (max-width: 1024px) {
     .form-grid {
