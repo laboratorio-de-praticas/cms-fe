@@ -292,12 +292,12 @@ const EditStudent=()=>{
                   <div className="col-6">
                     <div className="form-field sem">
                       <input
-                        type="number"
+                        type="text"
                         name="turma_atual"
                         value={formData.turma_atual}
                         onChange={handleChange}
                         className="styled-input inp-sem"
-                        placeholder="Semestre Atual:"
+                        placeholder="Semestre Atual: (DSM1)"
                       />
                     </div>
                   </div>

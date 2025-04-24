@@ -36,21 +36,21 @@ const FormStudent = () => {
         }
     };
 
-    const handleCursoChange = (cursoSelecionado) => {
-        setFormData(prev => ({
-            ...prev,
-            curso: cursoSelecionado
-        }));
-    };
-
     const handleSubmit = async (e) => {
-        e.preventDefault();
-
-        // Simulando envio e exibindo o segundo popup
-        setTimeout(() => {
-            setShowRepresentativePopup(true);
-        }, 500);
+      e.preventDefault();
+    
+      // Simula envio de formulário (você pode substituir por um fetch/axios depois)
+      console.log("Enviando dados do formulário:", formData);
+    
+      if (formData.deseja_ser_lider) {
+        // Redireciona para a página de candidatura
+        window.location.href = "/eventosCandidatura";
+      } else {
+        // Continua com a lógica padrão, sem redirecionar
+        alert("Cadastro realizado com sucesso!");
+      }
     };
+    
 
     const handleImageChange = (e) => {
         const file = e.target.files[0];
@@ -79,52 +79,6 @@ const FormStudent = () => {
           </div>
         )}
 
-        {showRepresentativePopup && (
-          <div className="popup-overlay">
-            <div className="popup-content">
-              <h5 className="fw-bold">
-                Deseja se cadastrar como representante?
-              </h5>
-              <div style={{ display: "flex", gap: "20px" }}>
-                <a
-                  href="/eventosCandidatura"
-                  className="btn-sim"
-                  style={{
-                    backgroundColor: "#0B9247",
-                    color: "white",
-                    width: "120px",
-                    height: "45px",
-                    fontWeight: "bold",
-                    border: "none",
-                    borderRadius: "5px",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    textDecoration: "none",
-                  }}
-                >
-                  Sim
-                </a>
-
-                <button
-                  className="btn"
-                  style={{
-                    backgroundColor: "#B20000",
-                    color: "white",
-                    width: "120px",
-                    height: "45px",
-                    fontWeight: "bold",
-                    border: "none",
-                    borderRadius: "5px",
-                  }}
-                  onClick={() => setShowRepresentativePopup(false)}
-                >
-                  Não
-                </button>
-              </div>
-            </div>
-          </div>
-        )}
 
         {/* Formulário principal */}
         <div className="divider-verde"></div>
@@ -249,12 +203,12 @@ const FormStudent = () => {
                   <div className="col-6">
                     <div className="form-field sem">
                       <input
-                        type="number"
+                        type="text"
                         name="turma_atual"
                         value={formData.turma_atual}
                         onChange={handleChange}
                         className="styled-input inp-sem"
-                        placeholder="Semestre Atual:"
+                        placeholder="Semestre Atual: (DSM1)"
                       />
                     </div>
                   </div>
