@@ -15,7 +15,7 @@ const IndexOptions = () => {
 
   return (
     <div className="container-fluid options">
-      <div className="row justify-content-start">
+      <div className="row">
 
         {/* === Botões exclusivos para ADMINISTRADOR === */}
         {userType === "adm" && (

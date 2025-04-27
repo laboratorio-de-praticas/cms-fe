@@ -2,10 +2,20 @@
     padding: 30px;
     border: 1px solid #808080;
     border-radius: 5px;
-    max-width: 1200px;
-    margin-left: 30px;
-    margin-right: auto;
-    margin-bottom: 50px;    
+    margin: 50px auto; /* Centraliza o container horizontalmente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Deixa o conteúdo empilhado */
+    max-width: 1100px;
+    margin-bottom: 90px;
+}
+
+.row {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centraliza os botões */
 }
 
 .btn-option {
