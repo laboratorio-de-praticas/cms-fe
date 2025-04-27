@@ -25,6 +25,8 @@
   position: relative;
   top: 0;
 }
+
+/* Toggle buttons DSM / GE */
 .toggle-group {
   display: flex;
   border: 1px solid #004854;
@@ -32,8 +34,7 @@
   overflow: hidden;
 }
 
-/* Estilo base dos botões */
-.btn-toggle {
+.btnbranco {
   background: white;
   color: #004854;
   font-weight: bold;
@@ -44,18 +45,26 @@
   cursor: pointer;
 }
 
-/* Hover */
 .toggle-group button:hover {
   background-color: #004854;
   color: white;
   border: 1px solid #004854;
 }
 
-/* Estilo ativo */
 .toggle-group .active {
   background-color: #004854;
   color: white;
   border: 1px solid #004854;
+}
+.btnazul{
+  background: #004854;
+  color: white;
+  font-weight: bold;
+  padding: 0.4rem 1.5rem;
+  border: 1px solid transparent;
+  outline: none;
+  transition: 0.2s;
+  cursor: pointer;
 }
 
 .styled-input {
@@ -348,10 +357,10 @@
   margin: 0;
   font-weight: 500;
   color: #004854;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  word-break: break-word; /* Adicionado para quebrar palavras longas */
+  overflow-wrap: break-word; /* Compatibilidade extra */
 }
+
 
 /* Ícone de excluir */
 .icone-excluir {
