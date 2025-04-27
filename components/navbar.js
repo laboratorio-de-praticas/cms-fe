@@ -18,7 +18,7 @@ const Navbar = ({ abrirMenu }) => {
     if (nav && curso === "GE") {
       nav.style.backgroundColor = "#0B9247";
     }
-  }, [curso]); // <- o efeito roda sempre que o curso mudar
+  }, [curso]); 
 
 
 
