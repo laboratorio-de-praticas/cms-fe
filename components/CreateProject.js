@@ -55,7 +55,7 @@ function CreateProject() {
     <div className="container-projeto">
       <form className="form-projeto" onSubmit={handleSubmit}>
         <div className="container">
-          <div className="row">
+          <div className="row-proj">
             <div className="col-md-3">
               <div className="foto-turma d-flex align-items-start">
                 {/* lado esquerdo */}
