@@ -1,13 +1,13 @@
-// context/UserContext.js
 import { createContext, useContext, useState } from "react";
 
 const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
-  const [userType, setUserType] = useState("adm"); // valor padrão pode vir da API, login, etc
+  const [userType, setUserType] = useState("aluno"); // valor padrão pode vir da API, login, etc
+  const [curso, setCurso] = useState("GE"); // adicionando o curso (padrão: DSM)
 
   return (
-    <UserContext.Provider value={{ userType, setUserType }}>
+    <UserContext.Provider value={{ userType, setUserType, curso, setCurso }}>
       {children}
     </UserContext.Provider>
   );

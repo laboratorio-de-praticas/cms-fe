@@ -110,9 +110,13 @@ const MenuProfile = ({
               Voltar
             </button>
           ) : (
-            <a href="/editStudent">
-              <button className="editar-perfil">Editar Perfil</button>
-            </a>
+            <button
+            className="editar-perfil"
+            onClick={() => window.location.href = '/editStudent'}
+          >
+            Editar Perfil
+          </button>
+
           )}
         </div>
 

@@ -1,20 +1,29 @@
 import { useRouter } from "next/router";
 import "../src/styles/navbar.css";
-import { useState } from "react";
 import { useUser } from "../context/userContext.js";
+import { useEffect, useState } from "react";
 
 const Navbar = ({ abrirMenu }) => {
   const router = useRouter();
   const caminhoAtual = router.pathname;
   const estaNoIndex = caminhoAtual === "/";
-  const { userType } = useUser();
+  const { userType, curso } = useUser();
 
   const [menuAbertoNavbar, setMenuAbertoNavbar] = useState(false);
 
   const toggleMenu = () => setMenuAbertoNavbar(!menuAbertoNavbar);
 
+  useEffect(() => {
+    const nav = document.querySelector('nav');
+    if (nav && curso === "GE") {
+      nav.style.backgroundColor = "#0B9247";
+    }
+  }, [curso]); // <- o efeito roda sempre que o curso mudar
+
+
+
   return (
-    <nav className="navbar navbar-expand-lg nav-padrao">
+    <nav className="navbar navbar-expand-lg nav-padrao" data-curso="GE">
       <div className="container-fluid">
         <a className="navbar-brand" href="#">
           <img
