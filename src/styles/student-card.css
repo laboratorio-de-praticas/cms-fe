@@ -544,7 +544,7 @@
   border-radius: 6px;
   border: 1.5px solid;
   height: 40px;
-  width: 160px;
+  width: 300px;
   display: inline-flex;
   justify-content: flex-start;
   align-items: center; 
@@ -579,9 +579,7 @@
   border-color: #004854;
   width: 60px;
 
-}
-/*  tablets (até 992px) */
-@media (max-width: 992px) {
+}@media (max-width: 992px) {
   .student-row {
     gap: 12px;
     justify-content: center;
@@ -631,11 +629,15 @@
   }
 
   .nome-detalhe,
-  .cel-detalhe {
+  .cel-detalhe,
+  .nasc-detalhe,
+  .ingresso-detalhe,
+  .sem-detalhe {
     width: 100%;
   }
 
-  .cel-nasc-line {
+  .cel-nasc-line,
+  .ingresso-sem-curso {
     flex-direction: column;
     gap: 8px;
   }
@@ -695,8 +697,17 @@
   }
 
   .nome-detalhe,
-  .cel-detalhe {
+  .cel-detalhe,
+  .nasc-detalhe,
+  .ingresso-detalhe,
+  .sem-detalhe {
     width: 100%;
+  }
+
+  .cel-nasc-line,
+  .ingresso-sem-curso {
+    flex-direction: column;
+    gap: 8px;
   }
 
   .seta-card {
@@ -704,7 +715,8 @@
     right: 5px;
   }
 }
-/* paginacao */
+
+/* paginação */
 .atual {
   border-color: #808080;
   border-radius: 5px;
@@ -712,9 +724,9 @@
   border: 1px solid;
   width: 30px;
   height: 30px;
-  
 }
-.anterior{
+
+.anterior {
   border-radius: 5px;
   color: white;
   background-color: #808080;
@@ -722,7 +734,8 @@
   width: 30px;
   height: 30px;
 }
-.prox{
+
+.prox {
   border-radius: 5px;
   border: none;
   color: white;
@@ -730,8 +743,9 @@
   width: 30px;
   height: 30px;
 }
-.pagination{
-display: flex;
+
+.pagination {
+  display: flex;
   justify-content: center;
   align-items: center;
   gap: 5px; 
