@@ -11,10 +11,11 @@ const FormStudent = () => {
         ano_ingresso: '',
         turma_atual: '',
         data_nasc: '',
-        deseja_ser_candidato: false,
+        deseja_ser_candidato: false,  
         deseja_ser_lider: false,
         curso: '',
         foto: null,
+        descricao_campanha: '',
     });
 
     const [dateFocused, setDateFocused] = useState(false);
@@ -132,6 +133,20 @@ const FormStudent = () => {
                     Desejo me candidatar a representante de classe.
                   </label>
                 </div>
+
+                {formData.deseja_ser_lider && (
+                  <div className="form-field">
+                    <textarea
+                      name="descricao_campanha"
+                      value={formData.descricao_campanha}
+                      onChange={handleChange}
+                      className="styled-input inp-nome"
+                      placeholder="Descrição da campanha:"
+                      rows={4}
+                    />
+                  </div>
+                )}
+
 
                 <div className="form-field">
                   <input
