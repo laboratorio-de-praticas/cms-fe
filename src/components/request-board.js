@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import '../src/styles/request-board.css';
+import '../styles/request-board.css';
 
 const RequestBoard = () => {
     // visibilidade do card-request

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import "../src/styles/form-student.css";
+import "../styles/form-student.css";
 
 const FormStudent = () => {
     const [formData, setFormData] = useState({

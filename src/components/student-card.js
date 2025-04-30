@@ -1,4 +1,4 @@
-import "../src/styles/student-card.css";
+import "../styles/student-card.css";
 import React, { useState } from "react";
 // comentario para o back-end: eu tentei fazer a paginacao aqui mas nao sei se esta certa
 //  porque apesar de esta funcionando,eu nao sei se esta certa, ja q ta repetindo nomes q nao deveriam...
