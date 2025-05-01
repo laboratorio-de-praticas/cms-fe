@@ -19,10 +19,11 @@ const StudentCard = () => {
   const [dados, setDados] = useState(
     students.map((name) => ({
       nome: name,
-      semestre: 4,
+      email: "email",
+      semestre: "DSM4",
       celular: "",
-      nascimento: "",
-      ingresso: "2023",
+      ra: "",
+      matricula: "2023",
     }))
   );
 
@@ -125,9 +126,7 @@ const StudentCard = () => {
                         </div>
                       </div> */}
                       <div className="semestre-container">
-                        <label className="semestre-label">
-                          Turma Atual:
-                        </label>
+                        <label className="semestre-label">Turma Atual:</label>
                         <input
                           className="semestre-input"
                           type="text"
@@ -152,6 +151,19 @@ const StudentCard = () => {
                       />
                     </div>
 
+                    <div className="nome-container">
+                      <label className="nome-label">Email Institucional:</label>
+                      <input
+                        className="nome-input"
+                        name="email"
+                        type="text"
+                        value={dados[index].nome}
+                        onChange={(e) =>
+                          handleChange(index, "nome", e.target.value)
+                        }
+                      />
+                    </div>
+
                     <div className="field-group">
                       <div className="celular-container">
                         <label className="celular-label">Celular:</label>
@@ -164,30 +176,28 @@ const StudentCard = () => {
                           }
                         />
                       </div>
-                      <div className="nascimento-container">
-                        <label className="nascimento-label">
-                          Data de nascimento:
-                        </label>
+                      <div className="ra-container">
+                        <label className="ra-label">RA:</label>
                         <input
-                          className="nascimento-input"
-                          value={dados[index].nascimento}
+                          className="ra-input"
+                          value={dados[index].ra}
                           onChange={(e) =>
-                            handleChange(index, "nascimento", e.target.value)
+                            handleChange(index, "ra", e.target.value)
                           }
                         />
                       </div>
                     </div>
 
                     <div className="field-group">
-                      <div className="ingresso-container">
-                        <label className="ingresso-label">
-                          Ano de Ingresso:
+                      <div className="matri-container">
+                        <label className="matri-label">
+                          Data de Matrícula:
                         </label>
                         <input
-                          className="ingresso-input"
-                          value={dados[index].ingresso}
+                          className="matri-input"
+                          value={dados[index].matricula}
                           onChange={(e) =>
-                            handleChange(index, "ingresso", e.target.value)
+                            handleChange(index, "matri", e.target.value)
                           }
                         />
                       </div>
@@ -227,15 +237,16 @@ const StudentCard = () => {
                         <strong>Celular:</strong>{" "}
                         {dados[index].celular || "Não informado"}
                       </p>
-                      <p className="nasc-detalhe">
-                        <strong>Nascimento:</strong>{" "}
-                        {dados[index].nascimento || "Não informado"}
+                      <p className="ra-detalhe">
+                        <strong>RA:</strong>{" "}
+                        {dados[index].ra || "Não informado"}
                       </p>
                     </div>
 
-                    <div className="detail-line ingresso-sem-curso">
-                      <p className="ingresso-detalhe">
-                        <strong>Ingresso:</strong> {dados[index].ingresso}
+                    <div className="detail-line matri-sem-curso">
+                      <p className="matri-detalhe">
+                        <strong>Data de Matricula:</strong>{" "}
+                        {dados[index].matricula}
                       </p>
                       <p className="sem-detalhe">
                         <strong>Turma Atual:</strong> {dados[index].semestre}
