@@ -232,6 +232,12 @@ const StudentCard = () => {
                       </p>
                     </div>
 
+                    <div className="detail-line">
+                      <p className="nome-detalhe">
+                        <strong>Email:</strong> {dados[index].nome}
+                      </p>
+                    </div>
+
                     <div className="detail-line cel-nasc-line">
                       <p className="cel-detalhe">
                         <strong>Celular:</strong>{" "}
