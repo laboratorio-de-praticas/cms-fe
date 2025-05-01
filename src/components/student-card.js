@@ -319,7 +319,7 @@ const StudentCard = () => {
                     <div>
                       <div className="student-name">{dados[index].nome}</div>
                       <div className="student-class">
-                        DSM {dados[index].semestre}
+                         {dados[index].semestre}
                       </div>
                     </div>
                   </div>
