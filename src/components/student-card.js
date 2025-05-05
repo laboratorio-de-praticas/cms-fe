@@ -1,70 +1,163 @@
 import "../styles/student-card.css";
-import React, { useState } from "react";
-// comentario para o back-end: eu tentei fazer a paginacao aqui mas nao sei se esta certa
-//  porque apesar de esta funcionando,eu nao sei se esta certa, ja q ta repetindo nomes q nao deveriam...
-// entao por favr deem uma atencao nessa parte aqui
-const StudentCard = () => {
-  const students = [
-    "Guilherme Marcos da Silva",
-    "Jorge Kirimis Leandro",
-    "João Massau Marcos",
-    "Guilherme de Almeida",
-    "Lucas de Almeida",
-    "Isabele Queiroz",
-    "Ana Carolina",
-  ];
+import React, { useState, useEffect } from "react";
 
+const StudentCard = () => {
+  const [alunos, setAlunos] = useState([]);
   const [formAberto, setFormAberto] = useState({});
   const [detalhesAbertos, setDetalhesAbertos] = useState({});
-  const [dados, setDados] = useState(
-    students.map((name) => ({
-      nome: name,
-      email: "email",
-      semestre: "DSM4",
-      celular: "",
-      ra: "",
-      matricula: "2023",
-    }))
-  );
-
   const [paginaAtual, setPaginaAtual] = useState(1);
   const itemsPorPagina = 3;
+  const [carregando, setCarregando] = useState(true);
+  const [erro, setErro] = useState(null);
 
-  const totalPages = Math.ceil(students.length / itemsPorPagina);
+  // Busca alunos do banco de dados
+  useEffect(() => {
+    const carregarAlunos = async () => {
+      try {
+        const response = await fetch('/api/Projetos/Get_nome_alunos?nome=%');
+        
+        if (!response.ok) {
+          throw new Error(`Erro HTTP: ${response.status}`);
+        }
+        
+        const data = await response.json();
+        
+        if (Array.isArray(data)) {
+          setAlunos(data.map(aluno => ({
+            ...aluno,
+            editando: false,
+            dadosEditados: {
+              nome: aluno.nome || '',
+              email_institucional: aluno.email_institucional || '',
+              curso_semestre: aluno.curso_semestre || '',
+              celular: aluno.telefone || '', 
+              ra: aluno.ra || '',
+              data_matricula: aluno.data_matricula ? 
+                aluno.data_matricula.split(' ')[0] : '' 
+            }
+          })));
+        }
+      } catch (error) {
+        console.error("Erro ao carregar alunos:", error);
+        setErro("Erro ao carregar alunos. Por favor, tente novamente.");
+      } finally {
+        setCarregando(false);
+      }
+    };
+
+    carregarAlunos();
+  }, []);
 
   const toggleFormulario = (index) => {
-    setFormAberto((prev) => ({
+    setFormAberto(prev => ({
       ...prev,
-      [index]: !prev[index],
+      [index]: !prev[index]
     }));
-    setDetalhesAbertos((prev) => ({
+    setDetalhesAbertos(prev => ({
       ...prev,
-      [index]: false,
+      [index]: false
     }));
   };
 
   const toggleDetalhes = (index) => {
-    setDetalhesAbertos((prev) => ({
+    setDetalhesAbertos(prev => ({
       ...prev,
-      [index]: !prev[index],
+      [index]: !prev[index]
     }));
-    setFormAberto((prev) => ({
+    setFormAberto(prev => ({
       ...prev,
-      [index]: false,
+      [index]: false
     }));
   };
 
   const handleChange = (index, campo, valor) => {
-    const novosDados = [...dados];
-    novosDados[index][campo] = valor;
-    setDados(novosDados);
+    const novosAlunos = [...alunos];
+    novosAlunos[index].dadosEditados[campo] = valor;
+    setAlunos(novosAlunos);
   };
 
-  const paginarEstudantes = () => {
+  
+  const salvarAlteracoes = async (index) => {
+    try {
+      const aluno = alunos[index];
+      
+      // Prepara os dados no formato que o backend espera
+      const dadosParaEnviar = {
+        id_aluno: aluno.id_aluno, // Agora enviando no body
+        nome: aluno.dadosEditados.nome,
+        email_institucional: aluno.dadosEditados.email_institucional,
+        curso_semestre: aluno.dadosEditados.curso_semestre,
+        telefone: aluno.dadosEditados.celular,
+        ra: aluno.dadosEditados.ra,
+        data_matricula: aluno.dadosEditados.data_matricula,
+        foto_url: aluno.foto_url || null
+      };
+  
+      const response = await fetch('/api/Alunos/Update', { // Removido o ID da URL
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(dadosParaEnviar)
+      });
+  
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.mensagem || `Erro HTTP: ${response.status}`);
+      }
+  
+      const data = await response.json();
+      
+      // Atualiza o estado local
+      setAlunos(prev => prev.map((a, i) => 
+        i === index ? { 
+          ...a,
+          ...data.aluno, // Agora usando data.aluno
+          dadosEditados: {
+            nome: data.aluno.nome,
+            email_institucional: data.aluno.email_institucional,
+            curso_semestre: data.aluno.curso_semestre,
+            celular: data.aluno.telefone,
+            ra: data.aluno.ra,
+            data_matricula: data.aluno.data_matricula?.split(' ')[0] || ''
+          }
+        } : a
+      ));
+  
+      setFormAberto(prev => ({ ...prev, [index]: false }));
+      setErro(null);
+      
+    } catch (error) {
+      console.error('Erro ao salvar:', error);
+      setErro(`Falha ao salvar: ${error.message}`);
+    }
+  };
+
+  
+  const deletarAluno = async (idAluno) => {
+    try {
+      const response = await fetch(`/api/Alunos/Delete/${idAluno}`, {
+        method: 'DELETE'
+      });
+
+      if (response.ok) {
+        setAlunos(alunos.filter(aluno => aluno.id_aluno !== idAluno));
+      } else {
+        throw new Error('Erro ao deletar aluno');
+      }
+    } catch (error) {
+      console.error("Erro ao deletar aluno:", error);
+      setErro("Erro ao deletar aluno");
+    }
+  };
+
+  const paginarAlunos = () => {
     const inicio = (paginaAtual - 1) * itemsPorPagina;
     const fim = inicio + itemsPorPagina;
-    return dados.slice(inicio, fim);
+    return alunos.slice(inicio, fim);
   };
+
+  const totalPages = Math.ceil(alunos.length / itemsPorPagina);
 
   const irParaPagina = (pagina) => {
     if (pagina >= 1 && pagina <= totalPages) {
@@ -72,68 +165,34 @@ const StudentCard = () => {
     }
   };
 
+  if (carregando) return <div className="loading">Carregando alunos...</div>;
+  if (erro) return <div className="error">{erro}</div>;
+
   return (
     <div className="student-container-fluid container-students">
       <div className="student-card-wrapper">
-        {paginarEstudantes().map((_, index) => (
-          <div className="student-row" key={index}>
-            <div
-              className={`student-card 
-                ${formAberto[index] ? "expanded" : ""} 
-                ${
-                  detalhesAbertos[index] && !formAberto[index]
-                    ? "details-open"
-                    : ""
-                }
-              `}
-            >
-              {/*  EDIÇÃO */}
+        {paginarAlunos().map((aluno, index) => (
+          <div className="student-row" key={aluno.id_aluno}>
+            <div className={`student-card ${formAberto[index] ? "expanded" : ""} ${detalhesAbertos[index] ? "details-open" : ""}`}>
+              
+              {/* MODO EDIÇÃO */}
               {formAberto[index] && (
-                <form className="student-form inside-card">
+                <form className="student-form inside-card" onSubmit={(e) => {
+                  e.preventDefault();
+                  salvarAlteracoes(index);
+                }}>
                   <div className="form-avatar">
-                    <img src="/imgs/foto-perfil.png" alt="Foto" />
+                    <img src={aluno.foto_url || "/imgs/foto-perfil.png"} alt="Foto" />
                   </div>
                   <div className="form-fields">
                     <div className="field-group">
-                      {/* <div className="form-tags">
-                        <div className="btn-group-curso" role="group">
-                          <input
-                            type="radio"
-                            className="btn-check"
-                            name={`options-${index}`}
-                            id={`option1-${index}`}
-                            autoComplete="off"
-                          />
-                          <label
-                            className="btn btn-amarelo-curso"
-                            htmlFor={`option1-${index}`}
-                          >
-                            DSM
-                          </label>
-                          <input
-                            type="radio"
-                            className="btn-check"
-                            name={`options-${index}`}
-                            id={`option2-${index}`}
-                            autoComplete="off"
-                          />
-                          <label
-                            className="btn btn-branco-curso"
-                            htmlFor={`option2-${index}`}
-                          >
-                            GE
-                          </label>
-                        </div>
-                      </div> */}
                       <div className="semestre-container">
                         <label className="semestre-label">Turma Atual:</label>
                         <input
                           className="semestre-input"
                           type="text"
-                          value={dados[index].semestre}
-                          onChange={(e) =>
-                            handleChange(index, "semestre", e.target.value)
-                          }
+                          value={aluno.dadosEditados.curso_semestre}
+                          onChange={(e) => handleChange(index, 'curso_semestre', e.target.value)}
                         />
                       </div>
                     </div>
@@ -142,12 +201,9 @@ const StudentCard = () => {
                       <label className="nome-label">Nome:</label>
                       <input
                         className="nome-input"
-                        name="nome"
                         type="text"
-                        value={dados[index].nome}
-                        onChange={(e) =>
-                          handleChange(index, "nome", e.target.value)
-                        }
+                        value={aluno.dadosEditados.nome}
+                        onChange={(e) => handleChange(index, 'nome', e.target.value)}
                       />
                     </div>
 
@@ -155,55 +211,44 @@ const StudentCard = () => {
                       <label className="nome-label">Email Institucional:</label>
                       <input
                         className="nome-input"
-                        name="email"
                         type="text"
-                        value={dados[index].nome}
-                        onChange={(e) =>
-                          handleChange(index, "nome", e.target.value)
-                        }
+                        value={aluno.dadosEditados.email_institucional}
+                        onChange={(e) => handleChange(index, 'email_institucional', e.target.value)}
                       />
                     </div>
 
                     <div className="field-group">
-                      <div className="celular-container">
+                    <div className="celular-container">
                         <label className="celular-label">Celular:</label>
                         <input
                           type="tel"
                           className="celular-input"
-                          value={dados[index].celular}
-                          onChange={(e) =>
-                            handleChange(index, "celular", e.target.value)
-                          }
+                          value={aluno.dadosEditados.celular}
+                          onChange={(e) => handleChange(index, 'celular', e.target.value)}
                         />
                       </div>
                       <div className="ra-container">
                         <label className="ra-label">RA:</label>
                         <input
                           className="ra-input"
-                          value={dados[index].ra}
-                          onChange={(e) =>
-                            handleChange(index, "ra", e.target.value)
-                          }
+                          value={aluno.dadosEditados.ra}
+                          onChange={(e) => handleChange(index, 'ra', e.target.value)}
                         />
                       </div>
                     </div>
 
                     <div className="field-group">
                       <div className="matri-container">
-                        <label className="matri-label">
-                          Data de Matrícula:
-                        </label>
+                        <label className="matri-label">Data de Matrícula:</label>
                         <input
                           className="matri-input"
-                          value={dados[index].matricula}
-                          onChange={(e) =>
-                            handleChange(index, "matri", e.target.value)
-                          }
+                          value={aluno.dadosEditados.data_matricula}
+                          onChange={(e) => handleChange(index, 'data_matricula', e.target.value)}
                         />
                       </div>
                       <div className="form-actions">
-                        <button type="button" className="editar-button">
-                          Editar
+                        <button type="submit" className="editar-button">
+                          Salvar
                         </button>
                         <button
                           type="button"
@@ -218,87 +263,51 @@ const StudentCard = () => {
                 </form>
               )}
 
-              {/* DETALHES */}
+              {/* MODO DETALHES */}
               {!formAberto[index] && detalhesAbertos[index] && (
                 <div className="student-details-view">
                   <div className="form-avatar">
-                    <img src="/imgs/foto-perfil.png" alt="Avatar do aluno" />
+                    <img src={aluno.foto_url || "/imgs/foto-perfil.png"} alt="Avatar" />
                   </div>
 
                   <div className="student-details">
                     <div className="detail-line">
                       <p className="nome-detalhe">
-                        <strong>Nome:</strong> {dados[index].nome}
+                        <strong>Nome:</strong> {aluno.nome || "Não informado"}
                       </p>
                     </div>
 
                     <div className="detail-line">
                       <p className="nome-detalhe">
-                        <strong>Email:</strong> {dados[index].nome}
+                        <strong>Email:</strong> {aluno.email_institucional || "Não informado"}
                       </p>
                     </div>
 
                     <div className="detail-line cel-nasc-line">
                       <p className="cel-detalhe">
-                        <strong>Celular:</strong>{" "}
-                        {dados[index].celular || "Não informado"}
+                        <strong>Celular:</strong> {aluno.telefone || "Não informado"}
                       </p>
                       <p className="ra-detalhe">
-                        <strong>RA:</strong>{" "}
-                        {dados[index].ra || "Não informado"}
+                        <strong>RA:</strong> {aluno.ra || "Não informado"}
                       </p>
                     </div>
 
                     <div className="detail-line matri-sem-curso">
                       <p className="matri-detalhe">
-                        <strong>Data de Matricula:</strong>{" "}
-                        {dados[index].matricula}
+                      <strong>Data de Matrícula:</strong> {aluno.data_matricula?.split(' ')[0] || "Não informado"}
                       </p>
                       <p className="sem-detalhe">
-                        <strong>Turma Atual:</strong> {dados[index].semestre}
+                        <strong>Turma Atual:</strong> {aluno.curso_semestre || "Não informado"}
                       </p>
-                      {/* <div className="btn-group" role="group">
-                        <input
-                          type="radio"
-                          className="btn-check"
-                          name={`options-detalhes-${index}`}
-                          id={`option1-detalhes-${index}`}
-                          autoComplete="off"
-                        />
-                        <label
-                          className="btn btn-color-curso"
-                          htmlFor={`option1-detalhes-${index}`}
-                        >
-                          DSM
-                        </label>
-                        <input
-                          type="radio"
-                          className="btn-check"
-                          name={`options-detalhes-${index}`}
-                          id={`option2-detalhes-${index}`}
-                          autoComplete="off"
-                        />
-                        <label
-                          className="btn btn-branco-detalhes"
-                          htmlFor={`option2-detalhes-${index}`}
-                        >
-                          GE
-                        </label>
-                      </div> */}
                     </div>
                   </div>
 
                   <div className="student-actions">
                     <img
-                      src={
-                        detalhesAbertos[index]
-                          ? "/imgs/arrow-down-card.svg"
-                          : "/imgs/arrow-student-card.svg"
-                      }
+                      src="/imgs/arrow-down-card.svg"
                       alt="seta"
                       className="seta-card"
                       onClick={() => toggleDetalhes(index)}
-                      style={{ cursor: "pointer" }}
                     />
                   </div>
                 </div>
@@ -310,16 +319,16 @@ const StudentCard = () => {
                   <div className="student-info">
                     <div className="student-avatar">
                       <img
-                        src="/imgs/foto-perfil.png"
+                        src={aluno.foto_url || "/imgs/foto-perfil.png"}
                         width={70}
                         height={70}
                         alt="Avatar"
                       />
                     </div>
                     <div>
-                      <div className="student-name">{dados[index].nome}</div>
+                      <div className="student-name">{aluno.nome}</div>
                       <div className="student-class">
-                         {dados[index].semestre}
+                        {aluno.curso_semestre}
                       </div>
                     </div>
                   </div>
@@ -328,7 +337,6 @@ const StudentCard = () => {
                       src="/imgs/arrow-student-card.svg"
                       alt="seta"
                       className="seta-card"
-                      style={{ cursor: "pointer" }}
                       onClick={() => toggleDetalhes(index)}
                     />
                   </div>
@@ -352,6 +360,7 @@ const StudentCard = () => {
                 src="/imgs/Delete-student.svg"
                 alt="Deletar"
                 className="icon-button"
+                onClick={() => deletarAluno(aluno.id_aluno)}
               />
             </div>
           </div>
@@ -359,25 +368,16 @@ const StudentCard = () => {
       </div>
 
       <div className="pagination">
-        {/* Botão para a página anterior */}
         {paginaAtual > 1 && (
-          <button
-            className="anterior" // Mudado de 'class' para 'className'
-            onClick={() => irParaPagina(paginaAtual - 1)}
-          >
+          <button className="anterior" onClick={() => irParaPagina(paginaAtual - 1)}>
             {paginaAtual - 1}
           </button>
         )}
 
-        {/* Página atual */}
         <span className="atual">{paginaAtual}</span>
 
-        {/* Botão para a próxima página */}
         {paginaAtual < totalPages && (
-          <button
-            className="prox" // Mudado de 'class' para 'className'
-            onClick={() => irParaPagina(paginaAtual + 1)}
-          >
+          <button className="prox" onClick={() => irParaPagina(paginaAtual + 1)}>
             {paginaAtual + 1}
           </button>
         )}

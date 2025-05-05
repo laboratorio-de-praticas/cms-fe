@@ -292,7 +292,7 @@
         margin: 0 auto;
     }
 
-    .inp-nome, .inp-ra, .inp-data, .inp-sem, .inp-email, .inp-camp {
+    .inp-nome, .inp-ra, .inp-data, .inp-sem, .inp-email {
         width: 100%; 
         min-width: 0; 
     }
@@ -337,7 +337,7 @@
         margin: 0 auto;
     }
 
-    .inp-nome, .inp-ra, .inp-data, .inp-sem, .inp-camp{
+    .inp-nome, .inp-ra, .inp-data, .inp-sem {
         width: 100%;
         min-width: 0;
     }
